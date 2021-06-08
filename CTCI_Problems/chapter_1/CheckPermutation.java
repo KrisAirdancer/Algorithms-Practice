@@ -8,12 +8,74 @@ public class CheckPermutation {
 		String testTwo = "abcabc";
 		String testThree = "Nope!";
 		
-		System.out.println(checkPermutation(testOne, testTwo));
-		System.out.println(checkPermutation(testOne, testThree));
+		System.out.println("HELLO!");
+		
+		// Testing checkPermutation_1
+		System.out.println("checkPermutation_1 matching: " + checkPermutation_1(testOne, testTwo));
+		System.out.println("checkPermutation_1 not matching: " + checkPermutation_1(testOne, testThree));
+		
+		// Testing checkPermutation_2
+		System.out.println("checkPermutation_2  matching: " + checkPermutation_2(testOne, testTwo));
+		System.out.println("checkPermutation_2 not matching: " + checkPermutation_2(testOne, testThree));
 		
 	}
 	
-	public static boolean checkPermutation(String inputOne, String inputTwo) {
+	/**
+	 * Second attempt.
+	 * 
+	 * SOLUTION IDEA:
+	 * - Create a tracking array to count the number of instances of each character in the first string,
+	 * then count subtract the character counts of the second string from the counts of the first. If, when
+	 * the counting is complete, the tracking array contains all zeros, the two strings are permutations,
+	 * otherwise, they are not.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - Count how many of each character are in one of the strings. Store this in an array.
+	 * 		- Initialized to a size of 256 to accept extended ASCII.
+	 * - Loop over the second string and subtract one from the counts in the tracking array.
+	 * 		- If any of the values in the tracking array are less than zero, we can quit early.
+	 * - At the end, we loop over the tracking array to see if any values are not equal to zero. 
+	 * 		- If any values are not zero, the strings are not permutations of each other.
+	 * 
+	 */
+	public static boolean checkPermutation_2(String inputOne, String inputTwo) {
+		
+		int[] charCount = new int[256];
+		
+		// Loop over the entire inputOne string and update charCount
+		for (int index = 0; index < inputOne.length(); index++) {
+			// Increment the count at each character's associated index in the charCount array (their index is their ASCII value)
+			charCount[inputOne.charAt(index)]++;
+		}
+		
+		// Loop over the second input string (inputTwo) and update charCount
+		for (int index = 0; index < inputTwo.length(); index++) {
+			// Decrement the count at each character's associated index in the charCount array (their index is their ASCII value)
+			charCount[inputTwo.charAt(index)]--;
+			
+			// Check if there any extra characters in inputTwo vs inputOne
+			if (charCount[inputTwo.charAt(index)] < 0) {
+				return false;
+			}
+		}
+		
+		// Check tracking array for all zeros
+		for (int count : charCount) {
+			if (count != 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * First attempt.
+	 * 
+	 * @param inputOne
+	 * @param inputTwo
+	 * @return
+	 */
+	public static boolean checkPermutation_1(String inputOne, String inputTwo) {
 		
 		if (inputOne.length() != inputTwo.length()) {
 			return false;
@@ -68,7 +130,7 @@ public class CheckPermutation {
  * - for loop to loop over both tracking arrays and compare their values
  * 	- if block to check for equality (if not equal)
  * 		- return false
- * - return true if the enitre for loop is traversed and we make it to this point - that means we've found no
+ * - return true if the entire for loop is traversed and we make it to this point - that means we've found no
  * unequal values
  * 
  * NOTES ON IMPLEMENTATION:
