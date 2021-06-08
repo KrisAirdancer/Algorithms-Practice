@@ -1,8 +1,14 @@
-package remove_duplicates_from_sorted_array_26;
+package problems_000_to_100;
 
-public class Attempt2 {
+public class RemoveDuplicatesFromSortedArray_26 {
 
-    public int removeDuplicates(int[] nums) {
+	/**
+	 * Attempt two.
+	 * 
+	 * @param nums
+	 * @return
+	 */
+    public int removeDuplicates_2(int[] nums) {
         
         int insertionIndex = 1;
         
@@ -13,6 +19,36 @@ public class Attempt2 {
             }
         }
         return insertionIndex;
+    }
+    
+    /**
+     * Attempt one.
+     * 
+     * @param nums
+     * @return
+     */
+    public int removeDuplicates_1(int[] nums) {
+        
+        // Loop over entire array
+            // Keep track of insertion position for next unique value AND current value being evalutated
+        // When a unique value is found, insert it at insertionIndex
+        
+        // Two nested for loops
+            // Outer - tracks the general index (index)
+            // Inner - tracks the insertionIndex
+        // On exiting the loops, return the size of the array
+        
+        int insertionIndex = 0;
+        
+        for (int index = 0; index < nums.length; index++) {
+            if (nums[insertionIndex] != nums[index]) {
+                insertionIndex++;
+                nums[insertionIndex] = nums[index];
+            }
+            
+        }
+        
+        return insertionIndex + 1;
     }
 
 }

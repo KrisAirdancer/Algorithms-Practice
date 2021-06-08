@@ -1,6 +1,6 @@
-package buyAndSellStock_122;
+package problems_101_to_200;
 
-public class Attempt_2 {
+public class BestTimeToBuyAndSellStock_II_122 {
 
 	public static void main(String[] args) {
 		
