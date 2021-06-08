@@ -2,6 +2,13 @@ package problems_000_to_100;
 
 public class RemoveDuplicatesFromSortedArray_26 {
 
+	public static void main(String args[]) {
+		
+		int[] nums = {1, 2, 4, 4, 4, 5};
+		
+		System.out.println(removeDuplicates_1(nums));
+	}
+	
 	/**
 	 * Attempt two.
 	 * 
@@ -27,7 +34,7 @@ public class RemoveDuplicatesFromSortedArray_26 {
      * @param nums
      * @return
      */
-    public int removeDuplicates_1(int[] nums) {
+    public static int removeDuplicates_1(int[] nums) {
         
         // Loop over entire array
             // Keep track of insertion position for next unique value AND current value being evalutated
