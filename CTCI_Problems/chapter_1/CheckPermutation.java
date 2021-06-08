@@ -8,8 +8,6 @@ public class CheckPermutation {
 		String testTwo = "abcabc";
 		String testThree = "Nope!";
 		
-		System.out.println("HELLO!");
-		
 		// Testing checkPermutation_1
 		System.out.println("checkPermutation_1 matching: " + checkPermutation_1(testOne, testTwo));
 		System.out.println("checkPermutation_1 not matching: " + checkPermutation_1(testOne, testThree));
