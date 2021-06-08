@@ -7,6 +7,8 @@ public class RemoveDuplicatesFromSortedArray_26 {
 		int[] nums = {1, 2, 4, 4, 4, 5};
 		
 		System.out.println(removeDuplicates_1(nums));
+		
+		// Test comment
 	}
 	
 	/**
