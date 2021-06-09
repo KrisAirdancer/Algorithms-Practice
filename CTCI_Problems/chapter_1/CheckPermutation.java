@@ -8,18 +8,64 @@ public class CheckPermutation {
 		String testTwo = "abcabc";
 		String testThree = "Nope!";
 		
-		// Testing checkPermutation_1
-		System.out.println("checkPermutation_1 matching: " + checkPermutation_1(testOne, testTwo));
-		System.out.println("checkPermutation_1 not matching: " + checkPermutation_1(testOne, testThree));
-		
-		// Testing checkPermutation_2
-		System.out.println("checkPermutation_2  matching: " + checkPermutation_2(testOne, testTwo));
-		System.out.println("checkPermutation_2 not matching: " + checkPermutation_2(testOne, testThree));
+		// Testing checkPermutation_X
+		System.out.println("checkPermutation_3 matching (true): " + checkPermutation_1(testOne, testTwo));
+		System.out.println("checkPermutation_3 not matching (false): " + checkPermutation_1(testOne, testThree));
 		
 	}
 	
 	/**
-	 * Second attempt.
+	 * Attempt 3
+	 * 
+	 * SOLUTION IDEA:
+	 * - First check if the strings are the same length. If they aren't, they cannot possibly be
+	 * permutations of each other.
+	 * - If they are the same length, make a second array of length 256 (extended ASCII) to hold
+	 * counts of the values that are in the first string. Do this by looping over the first string
+	 * and incrementing by one the index value in the tracking array that corresponds to the found
+	 * character's ASCII value. Then, loop over the second string and decrement by one the index
+	 * in the tracking array that corresponds to the found character's ASCII value. During each
+	 * loop, check if the new value is less than zero, if it is, the strings are not permutations,
+	 * so return false. Finally, if we finish incrementing the entire second string, check that
+	 * the tracking array has all zeros. If any values are not zero, the strings are not permutations. 
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * 
+	 * 
+	 */
+	public static boolean checkPermutation_3(String inputOne, String inputTwo) {
+		
+		if (inputOne.length() != inputTwo.length()) {
+			return false;
+		}
+		
+		int[] count = new int[256]; // Assumption: extended ASCII
+		
+		for (int index = 0; index < inputOne.length(); index++) {
+			count[inputOne.charAt(index)]++; // Increment the corresponding index in the count array
+		}
+		
+		for (int index = 0; index < inputTwo.length(); index++){
+			count[inputTwo.charAt(index)]--; // Decrement the corresponding index in the count array
+			
+			// If a value drops below zero, strings are not permutations
+			if (count[inputTwo.charAt(index)] < 0) {
+				return false;
+			}
+		}
+		
+		// Check that count index contains only zeros, if not, strings not permutations
+		for (int index = 0; index < count.length; index++) {
+			if (count[index] != 0) {
+				return false;
+			}
+		}
+		// All checks for non-permutation case passed at this point
+		return true;
+	}
+	
+	/**
+	 * Second attempt
 	 * 
 	 * SOLUTION IDEA:
 	 * - Create a tracking array to count the number of instances of each character in the first string,
@@ -67,11 +113,7 @@ public class CheckPermutation {
 	}
 	
 	/**
-	 * First attempt.
-	 * 
-	 * @param inputOne
-	 * @param inputTwo
-	 * @return
+	 * First attempt
 	 */
 	public static boolean checkPermutation_1(String inputOne, String inputTwo) {
 		
