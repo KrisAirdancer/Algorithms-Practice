@@ -11,6 +11,8 @@ public class RemoveDuplicatesFromSortedArray_26 {
 	}
 	
 	/**
+	 * Attempt 3
+	 * 
 	 * SOLUTION IDEA:
 	 * - Loop over the entire input array. When a new number is found, insert it at the beginning of the array
 	 * in the next "open" space. The first element will be skipped (not checked) b/c it is guaranteed to
@@ -39,7 +41,7 @@ public class RemoveDuplicatesFromSortedArray_26 {
 	}
 	
 	/**
-	 * Attempt two.
+	 * Attempt two
 	 * 
 	 * @param nums
 	 * @return
@@ -58,7 +60,7 @@ public class RemoveDuplicatesFromSortedArray_26 {
     }
     
     /**
-     * Attempt one.
+     * Attempt one
      * 
      * @param nums
      * @return
@@ -87,6 +89,24 @@ public class RemoveDuplicatesFromSortedArray_26 {
         return insertionIndex + 1;
     }
 
+    public static int removeDuplicates_ModelSolution(int[] nums) {
+		// Small optimization for a length 0 array
+    	if (nums.length == 0) {
+    		return 0;
+    	}
+    	// Initializing the insertion index
+		int insertionIndex = 1;
+		// Search the entire array
+		for (int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
+			// If a new number is found, insert it into the unique values list then increment insertionIndex
+			if (nums[searchIndex] != nums[searchIndex - 1]) {
+				nums[insertionIndex] = nums[searchIndex];
+				insertionIndex++;
+			}
+		}
+		
+		return insertionIndex;
+    }
 }
 
 /*
