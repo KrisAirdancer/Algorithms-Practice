@@ -11,6 +11,34 @@ public class RemoveDuplicatesFromSortedArray_26 {
 	}
 	
 	/**
+	 * SOLUTION IDEA:
+	 * - Loop over the entire input array. When a new number is found, insert it at the beginning of the array
+	 * in the next "open" space. The first element will be skipped (not checked) b/c it is guaranteed to
+	 * be unique. Will need two indexes: searchIndex (for the element that is currently being evaluated) and
+	 * insertionIndex (to specify the next "open" space at the beginning of the array). When the search is
+	 * complete, return the LENGTH (NOT index) of the portion of the array that contains the unique values.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - Initialize insertionIndex = 1;
+	 * - Indexed for loop with searchIndex = 1 (start at index = 1)
+	 * 		- if searchIndex != searchIndex - 1, insert searchIndex at insertionIndex and insertionIndex++
+	 * 
+	 */
+	public static int removeDuplicates_3(int[] nums) {
+		
+		int insertionIndex = 1;
+		
+		for (int searchIndex = 1; searchIndex < nums.length; searchIndex++) {
+			if (nums[searchIndex] != nums[searchIndex - 1]) {
+				nums[insertionIndex] = nums[searchIndex];
+				insertionIndex++;
+			}
+		}
+		
+		return insertionIndex; // Return the insertion index because it is also the length of the portion of the array that contains the unique values
+	}
+	
+	/**
 	 * Attempt 3
 	 * 
 	 * SOLUTION IDEA:
