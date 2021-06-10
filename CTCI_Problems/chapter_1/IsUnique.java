@@ -12,14 +12,55 @@ public class IsUnique {
 
 	public static void main(String[] args) {
 		
-		String testString = "abcdc";
+		String testString = "abcd";
 		
-		System.out.println(isUnique_Attempt_3(testString));
+		System.out.println(isUnique_Attempt_4(testString));
 
 	}
 
 	/**
-	 * Attempt 3
+	 * Attempt 4 - additional data structures
+	 * 
+	 * SOLUTION IDEA:
+	 * - Create a tracking array of size 256 for extended ASCII then loop
+	 * over the entire string and change the value of the associated index
+	 * in the tracking array to true for each found value. On each loop,
+	 * check to see if the current value's corresponding index in the
+	 * tracking array is true, if it is, return false as a duplicate value
+	 * has been found.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - Create tracking array - boolean
+	 * - Indexed for loop
+	 * 		- if statement to check if current value in string corresponds to true in tracking array
+	 * 			- If true, return false. Else, do nothing.
+	 * 		- Update tracking array to true for current character.
+	 * - return true
+	 * 
+	 */
+	public static boolean isUnique_Attempt_4(String input) {
+		/*
+		 * If the length of the string is greater than the number of total 
+		 * characters in extended ASCII, it must have duplicate values. 
+		 */
+		if (input.length() > 256 ) {
+			return false;
+		}
+		
+		boolean[] tracking = new boolean[256]; // Assumption: extended ASCII
+		
+		for (int index = 0; index < input.length(); index++) {
+			// Checking to see if character has been seen before
+			if (tracking[input.charAt(index)] == true) {
+				return false;
+			}
+			tracking[input.charAt(index)] = true;
+		}
+		return true;
+	}
+	
+	/**
+	 * Attempt 3 - no additional data structures
 	 * 
 	 * SOLUTION IDEA:
 	 * - Loop over the entire string with two indexes. One to mark the current
@@ -49,7 +90,7 @@ public class IsUnique {
 	}
 	
 	/**
-	 * Attempt 2
+	 * Attempt 2 - additional data structures
 	 * 
 	 * This solution DOES rely on additional data structures.
 	 */
@@ -69,7 +110,7 @@ public class IsUnique {
 	}
 	
 	/**
-	 * Attempt 1
+	 * Attempt 1 - no additional data structures
 	 * 
 	 * This solution DOES NOT rely on additional data structures
 	 */
