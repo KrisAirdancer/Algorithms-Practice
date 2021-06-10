@@ -12,17 +12,46 @@ public class IsUnique {
 
 	public static void main(String[] args) {
 		
-		String testString = "abcd";
+		String testString = "abcdc";
 		
-		System.out.println(isUnique_Attempt_2(testString));
+		System.out.println(isUnique_Attempt_3(testString));
 
 	}
 
 	/**
-	 * This solution DOES rely on additional data structures.
+	 * Attempt 3
 	 * 
-	 * @param input
-	 * @return
+	 * SOLUTION IDEA:
+	 * - Loop over the entire string with two indexes. One to mark the current
+	 * character being evaluated and another (searchIndex) to search ahead of the other index
+	 * and compare the character at the currentIndex with each character after it.
+	 * If the currentIndex makes it through the entire string, the string has all
+	 * unique values.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - for loop for currentIndex
+	 * 		- for loop for searchIndex
+	 * 			- if statement to compare currentIndex to searchIndex
+	 * 				- If the same, return false. Else, keep going.
+	 * - return true
+	 * 
+	 */
+	public static boolean isUnique_Attempt_3(String input) {
+		
+		for (int currentIndex = 0; currentIndex < input.length(); currentIndex++) {
+			for (int searchIndex = currentIndex + 1; searchIndex < input.length(); searchIndex++) {
+				if (input.charAt(currentIndex) == input.charAt(searchIndex)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	/**
+	 * Attempt 2
+	 * 
+	 * This solution DOES rely on additional data structures.
 	 */
 	public static boolean isUnique_Attempt_2(String input) {
 		
@@ -40,10 +69,9 @@ public class IsUnique {
 	}
 	
 	/**
-	 * This solution DOES NOT rely on additional data structures
+	 * Attempt 1
 	 * 
-	 * @param input
-	 * @return
+	 * This solution DOES NOT rely on additional data structures
 	 */
 	public static boolean isUnique_Attempt_1(String input) {
 		
