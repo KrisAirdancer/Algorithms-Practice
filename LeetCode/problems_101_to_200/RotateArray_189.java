@@ -31,20 +31,65 @@ public class RotateArray_189 {
 		int[] test = {1, 2, 3, 4, 5, 6, 7};
 		
 		// Testing rotateArray_1
-		rotateArray_1(test, 3);
+		rotateArray_2(test, 3);
 		System.out.println("Correct for shift = 3: {5, 6, 7, 1, 2, 3, 4}, " + "Actual: " + Arrays.toString(test));
 		
 
 	}
 	
 	/**
-	 * Attempt 2.
+	 * Attempt 2 - FAILED
 	 * 
-	 * @param input
-	 * @param shift
+	 * SOLUTION IDEA:
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - Hashing it out
+	 * 		- Store length - 1 in temp XXX
+	 * 		- 1) Replace length - 1 with k XXX
+	 * 		- Store k - 1 in temp2 XXX
+	 * 		- 2) Replace k - 1 with temp XXX
+	 * 		- Store length - 2 in temp
+	 * 		- 3) Replace length - 2 with temp2
+	 * 		- Store k - 2 in temp2
+	 * 		- 4) Replace k - 2 with temp
+	 * 		- Store length - 3 in temp
+	 * 		- 5) Replace length - 3 with temp2
+	 * 		- Store k - 3 in temp2
+	 * 		- 6) Replace k - 3 with temp
+	 * 		- Store k in temp
+	 * 		- 7) Replace k with temp2
+	 * 
 	 */
 	public static void rotateArray_2(int[] input, int shift) {
 		
+		int temp;
+		int temp2;
+		
+		int index = 1; // Index for upper set (and lower set?)
+		int index2 = 0;
+		
+		/*
+		 *  Adjust shift up by one to allow for the use of just one index.
+		 *  That is, length - index needs the index to start at 1 b/c
+		 *  length starts at one greater than the last index value in the array
+		 *  while shift needs to start at shift so it needs a starting index
+		 *  value of 1. Or we just make shift larger by one to allow for the
+		 *  use of a starting index of 1.
+		 */
+//		shift++;
+		
+		while (shift - index2 > 0) { // Loop until k is less than zero
+			temp = input[input.length - index]; // Store length - i in temp
+			input[input.length - index] = input[shift - index2];// Replace length - i with k
+			index2++;
+			temp2 = input[shift - index2];// Store k - 1 in temp2
+			input[shift - index] = temp;// Replace k - 1 with temp
+			
+			index++;
+			index2++;
+//			System.out.println("temp: " + temp + ", temp2: " + temp2);
+//			System.out.println("index: " + index + ", index2: " + index2);
+		}
 	}
 	
 	/**
