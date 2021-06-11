@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="LeetCode"/>
+	<classpathentry kind="src" path="Data_Structures"/>
 	<classpathentry kind="src" path="CTCI_Problems"/>
 	<classpathentry kind="src" path="CodeWars_Kata"/>
 	<classpathentry kind="src" path="Data_Structures"/>
