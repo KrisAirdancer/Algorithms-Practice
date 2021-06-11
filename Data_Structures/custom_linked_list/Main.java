@@ -30,8 +30,6 @@ public class Main {
 		listus.add(2);
 		listus.add(3);
 		System.out.println(listus);
-		
-
 	}
 
 }
