@@ -65,25 +65,32 @@ public class CustomLinkedList {
 	 * Constructor for the linked list class
 	 */
 	public CustomLinkedList() {
-		
+		this.head = null; // Setting the head to null upon initialization (there aren't any nodes yet)
+		this.size = 0; // Size set to zero upon initialization (there aren't any nodes yet)
 	}
 
 	/**
 	 * Adds a node to the front of the list
 	 */
 	public void addToHead(int value) {
-		
+		Node current = this.head;
+		Node newNode = new Node(value);
+		newNode.next = current;
+		this.head = newNode;
+		size++;
 	}
 	
 	/**
 	 * Adds a node to the end of the list
 	 */
 	public void addToTail(int value) {
+		
+		// TODO Add code to call addToHead() if the linked list has length of zero (it contains no nodes, meaning the node being added will be the list's head)
+		
 		// Create a new node to attach to the end of the existing node (this node)
 		Node end = new Node(value);
 		// Saving a reference to the existing node (this node) for later use
 		Node current = head;
-		System.out.println(current);
 		/*
 		 * While the current next node (the node after this (the existing) node)
 		 * isn't null - that is, there IS a next node - set this node equal to 
@@ -94,9 +101,9 @@ public class CustomLinkedList {
 		 */
 		while (current.next != null) {
 			current = current.next;
-			System.out.println("thisNode: " + current + ", thisNode.next: " + current.next);
 		}
 		current.next = end;
+		this.size++; // Incrementing the size variable of the linked list
 	}
 
 	public void addAtIndex(int index, int value) {
@@ -111,9 +118,57 @@ public class CustomLinkedList {
 	}
 	
 	/**
-	 * Returns the value of the index-th node in the linked list. Returns -1 if index is invalid.
+	 * Returns the value of the index-th node in the linked list.
+	 * Returns -1 if index is invalid.
 	 */
-	public void getValue(int index) {
+	public int getValue(int index) {
+		/* TODO List
+		 * IDEA: Loop over the list until the index-th node is reached, then return
+		 * the value of that node.
+		 */
 		
+		// If the index isn't in the linked list, return -1
+		if (index > this.size - 1 || index < 0) {
+			return -1;
+		}
+		// Create a variable to hold the node currently being checked
+		Node current = head;
+		
+		for (int i = 0; i <= this.size; i++) {
+			// If desired node is found, return its stored value.
+			if (i == index) {
+				return current.data;
+			}
+			current = current.next;
+		}
+		return -1; // If the index isn't found in the list, return -1 (TODO This is redundant with the if statement at the beginning of this method. Figure out how to remove one or the other.)
+	}
+	
+	/**
+	 * Checks if the linked list is empty or not.
+	 * 
+	 * @return true if there are no nodes in the linked list, false otherwise.
+	 */
+	public boolean isEmpty() {
+		return true; // Temp return
+	}
+
+	@Override
+	public String toString() {
+		
+		// If the linked list is empty (has no nodes) return empty brackets
+		if (this.size == 0) {
+			return "[]";
+		}
+		
+		String output = "[";
+		Node current = head;
+		// Add each node's stored value to the output string
+		while (current.next != null) {
+			output = output + current.data + ", ";
+			current = current.next;
+		}
+		output = output + current.data + "]";
+		return output;
 	}
 }
