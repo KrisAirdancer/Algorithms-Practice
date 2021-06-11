@@ -37,8 +37,10 @@ public class RotateArray_189 {
 
 	}
 	
+	// TRY USING AN ADDITIONAL ARRAY NEXT TIME!
+	
 	/**
-	 * Attempt 2 - FAILED
+	 * Attempt 2 - FAILED - This alg does not work
 	 * 
 	 * SOLUTION IDEA:
 	 * 
