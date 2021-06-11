@@ -6,10 +6,10 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Node test = new Node(1);
+		CustomLinkedList test = new CustomLinkedList();
 		System.out.println(test);
-		test.addToEnd(2);
-		test.addToEnd(3);
+		test.addToTail(2);
+		test.addToTail(3);
 		System.out.println(test);
 		
 		// Testing JDK LinkedList
