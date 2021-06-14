@@ -6,13 +6,60 @@ public class CheckPermutation {
 		
 		String testOne = "aabbcc";
 		String testTwo = "abcabc";
-		String testThree = "Nope!";
+		String testThree = "aabbcd";
 		
 		// Testing checkPermutation_X
-		System.out.println("checkPermutation_ModelSolution matching (true): " + checkPermutation_ModelSolution(testOne, testTwo));
-		System.out.println("checkPermutation_ModelSolution not matching (false): " + checkPermutation_ModelSolution(testOne, testThree));
+		System.out.println("checkPermutation_4 (true): " + checkPermutation_4(testOne, testTwo));
+		System.out.println("checkPermutation_4 matching (false): " + checkPermutation_4(testOne, testThree));
+		
+		System.out.println("checkPermutation_ModelSolution (true): " + checkPermutation_ModelSolution(testOne, testTwo));
+		System.out.println("checkPermutation_ModelSolution matching (false): " + checkPermutation_ModelSolution(testOne, testThree));
 		
 	}
+	
+	/**
+	 * Attempt 4
+	 * 
+	 * SOLUTION IDEA:
+	 * 
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * 
+	 * 
+	 */
+	public static boolean checkPermutation_4(String inputOne, String inputTwo) {
+		// Check that both strings are the same length - if not, return false
+		if (inputOne.length() != inputTwo.length()) {
+			return false;
+		}
+		
+		// Create tracking array of length 256 extended ASCII
+		int[] tracking = new int[256]; // Assumption: extended ASCII
+		
+		// Loop over first string and increment the corresponding ASCII value for each character
+		for (int index = 0; index < inputOne.length(); index++) {
+			tracking[inputOne.charAt(index)]++;
+		}
+		
+		// Loop over the second string and decrement the corresponding ASCII value for each character
+		for (int index = 0; index < inputOne.length(); index++) {
+			tracking[inputTwo.charAt(index)]--;
+			// Check for values less than zero on each loop - if found, return false
+			if (tracking[inputTwo.charAt(index)] < 0) {
+				return false;
+			}
+		}
+		
+		// Loop over the tracking array to check for any values greater than zero - if found, return false
+		for (int index = 0; index < tracking.length; index++) {
+			if (tracking[index] > 0) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
 	
 	/**
 	 * Attempt 3
