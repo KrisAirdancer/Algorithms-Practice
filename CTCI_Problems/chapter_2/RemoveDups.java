@@ -5,9 +5,14 @@ import java.util.LinkedList;
 
 public class RemoveDups {
 	
-    static class LinkedListNode<Integer> {
-        Integer data;
-        LinkedListNode<Integer> next;
+    static class LinkedListNode {
+        int data;
+        LinkedListNode next;
+        
+        LinkedListNode(int data){
+        	this.data = data;
+        }
+        
     }
 
 	public static void main(String[] args) {
@@ -58,9 +63,16 @@ public class RemoveDups {
 		 * don't need the key functionality. */
 		HashSet<Integer> set = new HashSet<Integer>();
 		
-		LinkedListNode current = head;
-		while (current != null) {
+		LinkedListNode previous = null;
+		while (node != null) {
 			/* Remove all future nodes that have the same value */
+			if (set.contains(node.data)) {
+				previous.next = node.next;
+			} else {
+				set.add(node.data);
+				previous = node;
+			}
+			node = node.next;
 		}
 	}
 	
