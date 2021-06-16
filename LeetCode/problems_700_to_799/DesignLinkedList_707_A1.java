@@ -31,17 +31,15 @@ public class DesignLinkedList_707_A1 {
      */
     public int get(int index) {
         // Check for invalid index
-    	if (index < 0) {
+    	if (index < 0 || index >= size) {
     		return -1;
     	}
     	
     	Node current = head;
     	    	
-    	while (index > 0 && current.next != null) {
+    	for (int i = 0; i < index; i++) {
     		// Update the pointer
     		current = current.next;
-    		// Decrement the index
-    		index--;
     	}
     	return current.data;
     }
@@ -71,16 +69,22 @@ public class DesignLinkedList_707_A1 {
     public void addAtTail(int val) {
     	// Create a new Node object to be inserted at the end of the LinkedList
     	Node newNode = new Node(val);
-    	// Create a temporary Node object to store a reference to the current node - a pointer
-    	Node current = head; // Start at the first node in the list - the head node
-    	/* Iterate through the linked list until the tail node is found
-    	 * The tail node will have a next node variable of null - it won't reference another node */
-    	while (current.next != null) {
-    		current = current.next; // Set the pointer to the next node in the list
+    	// Increment the size variable
+    	size++;
+    	// If the list is empty, make the new node the head
+    	if (head == null) {
+    		head = newNode;
+    	} else {
+	    	// Create a temporary Node object to store a reference to the current node - a pointer
+	    	Node current = head; // Start at the first node in the list - the head node
+	    	/* Iterate through the linked list until the tail node is found
+	    	 * The tail node will have a next node variable of null - it won't reference another node */
+	    	while (current.next != null) {
+	    		current = current.next; // Set the pointer to the next node in the list
+	    	}
+	    	// Set the next node of the current node (the Tail node) to the new node
+	    	current.next = newNode;
     	}
-    	// Set the next node of the current node (the Tail node) to the new node
-    	current.next = newNode;
-        
     }
     
     /** Add a node of value val before the index-th node in the linked list.
@@ -92,34 +96,30 @@ public class DesignLinkedList_707_A1 {
      * - Have to loop over each node in the list until the correct node is found.
      */
     public void addAtIndex(int index, int val) {	
+    	System.out.println(size);
         // Check for invalid index
-    	if (index < 0) {
-    		System.out.println("Invalid index.");
+    	if (index < 0 || index > size) {
     		return;
     	}
     	// If user selects to insert node at beginning of list, insert it as the head
     	if (index == 0) {
     		addAtHead(val);
+    	} else {
+    		// Increment size
+    		size++;
+	    	// Create the new node to be inserted
+	    	Node newNode = new Node(val);
+	    	// Create two pointer to track our location in the list
+	    	Node current = head.next; // We start our pointer at the second item in the index
+	    	// Loop over the list until the node at the specified index is reached
+	    	for (int i = 0; i < index - 1; i++) { // index ends at index - 1 b/c we want to insert our new node just before the node that is currently at the specified index, pushing the old node up one and placing the new node at the index
+	    		System.out.println(current.data);
+	    		current = current.next;
+	    	}
+	    	// Insert the new node
+	    	newNode.next = current.next;
+	    	current.next = newNode;
     	}
-    	// Create the new node to be inserted
-    	Node newNode = new Node(val);
-    	// Create two pointers to track our location in the list
-    	Node previous = head;
-    	Node current = head.next;
-    	
-    	index--; // Decrement the index by one b/c we are starting current at index = 1
-    	// Loop over the list until the node at the specified index is reached
-    	while (index > 0 && current.next != null) {
-    		// Shift pointers
-    		previous = current;
-    		current = current.next;
-    		// Decrement index to keep track of our location
-    		index--;
-    	}
-    	// Insert the new node
-    	newNode.next = current;
-    	previous.next = newNode;
-        
     }
     
     /** Delete the index-th node in the linked list, if the index is valid.
@@ -129,38 +129,73 @@ public class DesignLinkedList_707_A1 {
      */
     public void deleteAtIndex(int index) {
         // Check for invalid index
-    	if (index < 0) {
-    		System.out.println("Invalid index.");
+    	if (index < 0 || index >= size) {
     		return;
-    	}    	
-    	// Create two pointers
-    	Node previous = head;
+    	} 
+    	// Decrement size variable
+    	size--;
+    	// Create pointer
     	Node current = head.next;
-    	// Decrement the index b/c our current pointer is starting at index = 1
-    	index--;
-    	// Loop over the list until the specified index is found
-    	while (index > 0) {
+    	// Loop over the list until the node just before the one to be removed is found
+    	for (int i = 0; i < index - 1; i++) { // Index ends at index - 1 b/c we want to stop at the node just before the one to be removed 
     		// Update pointers
-    		previous = current;
-    		current = current.next;
-    		// Decrement the index
-    		index--;
+    		current = current.next; // When loop exits, current should be the node just before the one to be removed
     	}
+    	// Link the current node (the one before the node that is to be removed) to the node after the node to be removed
+    	current.next = current.next.next;
     	// Remove the found node
-    	previous = current.next; // Connect the node before the deleted node to the node after the deleted node
     	current.next = null; // Clear out the next variable in the deleted node
     	
     }
     
+    @Override
+    public String toString() {
+    	
+    	String output = "[";
+    	
+    	Node current = head;
+    	
+    	while (current != null) {
+    		output = output + current.data;
+    		current = current.next;
+    		if (current != null) {
+    			output = output + ", ";
+    		}
+    	}
+    	
+    	output = output + "]";
+    	
+    	return output;
+    }
+    
 	public static void main(String[] args) {
 		
-		DesignLinkedList_707_A1 obj = new DesignLinkedList_707_A1();
-		obj.addAtHead(90);
-		int param_1 = obj.get(0);
-		obj.addAtTail(70);
-		obj.addAtIndex(4, 20);
-		obj.deleteAtIndex(3);
-
+		DesignLinkedList_707_A1 myLinkedList = new DesignLinkedList_707_A1();
+		myLinkedList.addAtHead(1);
+		System.out.println(myLinkedList);
+		myLinkedList.addAtTail(3);
+		System.out.println(myLinkedList);
+		myLinkedList.addAtIndex(1, 2); // linked list becomes 1->2->3
+		System.out.println(myLinkedList); 
+		myLinkedList.get(1);              // return 2
+		System.out.println(myLinkedList);
+		myLinkedList.deleteAtIndex(1);    // now the linked list is 1->3
+		System.out.println(myLinkedList);
+		myLinkedList.get(1);              // return 3
+		System.out.println(myLinkedList);
+		
+		// Testing toString() method
+//		myLinkedList.addAtTail(1);
+//		myLinkedList.addAtTail(2);
+//		myLinkedList.addAtTail(3);
+//		myLinkedList.addAtTail(4);
+//		myLinkedList.addAtTail(5);
+//		myLinkedList.addAtTail(6);
+//		System.out.println(myLinkedList.toString());
+		
+		// Testing addAtIndex() method
+//		myLinkedList.addAtIndex(4, 10); // Should get: [1, 2, 3, 4, 10, 5, 6]
+//		System.out.println(myLinkedList);
 	}
 	/**
 	 * Your MyLinkedList object will be instantiated and called as such:
