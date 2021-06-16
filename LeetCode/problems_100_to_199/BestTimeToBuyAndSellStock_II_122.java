@@ -1,4 +1,4 @@
-package problems_101_to_200;
+package problems_100_to_199;
 
 public class BestTimeToBuyAndSellStock_II_122 {
 

@@ -1,4 +1,4 @@
-package problems_000_to_100;
+package problems_000_to_99;
 
 public class RemoveDuplicatesFromSortedArray_26 {
 
