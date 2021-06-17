@@ -1,14 +1,19 @@
 package chapter_1;
 
+import java.util.Arrays;
+
 public class URLify {
 
 	public static void main(String[] args) {
 		
+		char[] test = {'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!', ' ', 'I', ' ', 'a', 'm', ' ', 'a', 'l', 'i', 'v', 'e', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
+		URLify_Model_Solution(test, 23);
+		System.out.println(Arrays.toString(test));
 	}
 	
 	/**
-	 * Attempt 1
+	 * Attempt 1 - DNF
 	 * 
 	 * SOLUTION IDEA:
 	 * - Loop over the array searching for ' '. If one is found, replace the ' ' with
@@ -61,4 +66,47 @@ public class URLify {
 		
 	}
 
+	/**
+	 * Loop over the string backwards. Start by counting the number of spaces in the string, then multiply
+	 * that number by two to get the number of spaces we will need to add to insert the %20. Note: %20 is
+	 * three characters, but we are replacing the spaces in the string with the %20, so we are only
+	 * overwriting the two characters after the space. Then we loop over the string again, also backwards, 
+	 * shifting each item in the array "up" by the number of spaces that we calculated above (two found 
+	 * spaces means we shift each character by 4 spaces, 3 found spaces means we shift by six, etc.).
+	 * Each time we find a space, we insert %20. Making sure to do the insertion behind our index. That is,
+	 * insert % at the index, then 2 at index - 1 and 0 at index - 2.
+	 */
+	public static void URLify_Model_Solution(char[] input, int trueLength) {
+		int numOfSpaces = countOfChar_Model_Solution(input, 0, trueLength, ' ');
+		int newIndex = trueLength - 1 + numOfSpaces * 2;
+		
+		/* If there are excess spaces, add a null character. This indicates that the spaces after that point
+		 * have not been replaced with %20. */
+		if (newIndex + 1 < input.length) {
+			input[newIndex + 1] = '\0';
+		}
+		
+		for (int oldIndex = trueLength - 1; oldIndex >= 0; oldIndex -= 1) {
+			if (input[oldIndex] == ' ') { // Insert %20
+				input[newIndex] = '0';
+				input[newIndex - 1] = '2';
+				input[newIndex - 2] = '%';
+				newIndex -= 3;
+			} else {
+				input[newIndex] = input[oldIndex];
+				newIndex -= 1;
+			}
+		}
+	}
+	
+	public static int countOfChar_Model_Solution(char[] input, int start, int end, int target) {
+		int count = 0;
+		for (int i = start; i < end; i++) {
+			if (input[i] == target) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
 }
