@@ -14,10 +14,51 @@ public class IsUnique {
 		
 		String testString = "abcd";
 		
-		System.out.println(isUnique_Attempt_4(testString));
+		System.out.println(isUnique_A5(testString));
 
 	}
 
+	/**
+	 * Attempt 5 - additional data structures
+	 * 
+	 * SOLUTION IDEA:
+	 * - Create a tracking array of length extended ASCII, then
+	 * loop over the string and increment the corresponding element
+	 * in the tracking array for each letter found. Start by checking
+	 * that the string is less than or equal to the length of eASCII,
+	 * if it isn't, string contains duplicate characters. After looping
+	 * over the string, loop over the tracking array to search for
+	 * any values greater than 1. If any are found, return false,
+	 * if not, return true.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - 
+	 * 
+	 */
+	public static boolean isUnique_A5(String input) {
+		
+		if (input.length() > 256) { // Assumption: extended ASCII
+			return false;
+		}
+		
+		int[] tracking = new int[256]; // Assumption: extended ASCII
+		
+		int index = 0;
+		
+		while (index < input.length()) {
+			tracking[input.charAt(index)]++;
+			index++;
+		}
+		
+		for (int count : tracking) {
+			if (count > 1) {
+				return false;
+			}
+		}
+		return true;
+		
+	}
+	
 	/**
 	 * Attempt 4 - additional data structures
 	 * 
@@ -204,7 +245,7 @@ public class IsUnique {
 		 * If the length of the string is greater than the number of total 
 		 * characters in extended ASCII, it must have duplicate values. 
 		 */
-		if (input.length() > 256) {
+		if (input.length() > 256) { // Assumption: extended ASCII
 			return false;
 		}
 		
