@@ -96,7 +96,6 @@ public class DesignLinkedList_707_A1 {
      * - Have to loop over each node in the list until the correct node is found.
      */
     public void addAtIndex(int index, int val) {	
-    	System.out.println(size);
         // Check for invalid index
     	if (index < 0 || index > size) {
     		return;
@@ -110,10 +109,9 @@ public class DesignLinkedList_707_A1 {
 	    	// Create the new node to be inserted
 	    	Node newNode = new Node(val);
 	    	// Create two pointer to track our location in the list
-	    	Node current = head.next; // We start our pointer at the second item in the index
+	    	Node current = head; // We start our pointer at the second item in the index
 	    	// Loop over the list until the node at the specified index is reached
 	    	for (int i = 0; i < index - 1; i++) { // index ends at index - 1 b/c we want to insert our new node just before the node that is currently at the specified index, pushing the old node up one and placing the new node at the index
-	    		System.out.println(current.data);
 	    		current = current.next;
 	    	}
 	    	// Insert the new node
@@ -135,7 +133,7 @@ public class DesignLinkedList_707_A1 {
     	// Decrement size variable
     	size--;
     	// Create pointer
-    	Node current = head.next;
+    	Node current = head;
     	// Loop over the list until the node just before the one to be removed is found
     	for (int i = 0; i < index - 1; i++) { // Index ends at index - 1 b/c we want to stop at the node just before the one to be removed 
     		// Update pointers
@@ -143,8 +141,6 @@ public class DesignLinkedList_707_A1 {
     	}
     	// Link the current node (the one before the node that is to be removed) to the node after the node to be removed
     	current.next = current.next.next;
-    	// Remove the found node
-    	current.next = null; // Clear out the next variable in the deleted node
     	
     }
     
@@ -171,9 +167,9 @@ public class DesignLinkedList_707_A1 {
 	public static void main(String[] args) {
 		
 		DesignLinkedList_707_A1 myLinkedList = new DesignLinkedList_707_A1();
-		myLinkedList.addAtHead(1);
+		myLinkedList.addAtHead(1); // linked list becomes 1
 		System.out.println(myLinkedList);
-		myLinkedList.addAtTail(3);
+		myLinkedList.addAtTail(3); // linked list becomes 1->3
 		System.out.println(myLinkedList);
 		myLinkedList.addAtIndex(1, 2); // linked list becomes 1->2->3
 		System.out.println(myLinkedList); 
