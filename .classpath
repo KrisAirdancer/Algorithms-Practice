@@ -8,6 +8,6 @@
 	<classpathentry kind="src" path="LeetCode"/>
 	<classpathentry kind="src" path="CTCI_Problems"/>
 	<classpathentry kind="src" path="CodeWars_Kata"/>
-	<classpathentry kind="src" path="Sort_Algorithms"/>
+	<classpathentry kind="src" path="Miscellaneous_Algorithms"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
