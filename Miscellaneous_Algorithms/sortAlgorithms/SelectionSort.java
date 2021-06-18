@@ -2,7 +2,7 @@ package sortAlgorithms;
 
 import java.util.Arrays;
 
-public class selectionSort {
+public class SelectionSort {
 
 	public static void main(String[] args) {
 
