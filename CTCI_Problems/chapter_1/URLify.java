@@ -50,7 +50,7 @@ public class URLify {
 		int searchIndex = trueLength - 1;
 		System.out.println(count);
 		// Variable to track where to insert the character being copied
-		int insertIndex = trueLength + (count * 2) - 1;
+		int insertIndex = trueLength - 1 + (count * 2);
 		// Loop over the array to copy characters to the "end" of the array or insert %20
 		while (searchIndex >= 0) {
 			// If a space is found, insert %20
@@ -68,7 +68,7 @@ public class URLify {
 				System.out.println("else: " + "searchindex: " + searchIndex + ", insertIndex: " + insertIndex + ", input length: " + input.length);
 				input[insertIndex] = input[searchIndex];
 			}
-			
+			// Decrement the copy indicies
 			searchIndex--;
 			insertIndex--;
 		}
