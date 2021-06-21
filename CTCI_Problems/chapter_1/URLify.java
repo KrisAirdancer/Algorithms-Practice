@@ -8,8 +8,70 @@ public class URLify {
 		
 		char[] test = {'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!', ' ', 'I', ' ', 'a', 'm', ' ', 'a', 'l', 'i', 'v', 'e', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
-		URLify_Model_Solution(test, 23);
+		URLify_A2(test, 23);
+		
+//		URLify_Model_Solution(test, 23);
 		System.out.println(Arrays.toString(test));
+	}
+	
+	/**
+	 * Attempt 2 - much better
+	 * 
+	 * SOLUTION IDEA:
+	 * - Loop over the string (array) to count all of the spaces in the string. Then, 
+	 * start looping through the array from the back moving all of the characters back
+	 * to the point in the array where they need to be placed based on the number of spaces
+	 * times two. As you go, if the search pointer (insertion pointer is behind the search
+	 * pointer) finds a space, write %20 into the next three empty spaces at the insertion
+	 * pointer (yes, move the insertion pointer forward three while doing this), then move
+	 * the search pointer up one to skip the found space, and continue the copy process
+	 * until the front of the array is reached.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - for each loop to loop over the array and count the spaces
+	 * 	- if ' ', count++
+	 * - initialize both the search and insertion indexes
+	 * 	- Start the search index at the back of the array based on the necessary excess (count * 2)
+	 * - while loop to loop over the array and copy elements back
+	 * 	- If ' ' is found, insert %20
+	 * 
+	 * 
+	 */
+	public static void URLify_A2(char[] input, int trueLength) {
+		// Count variable to count the number of spaces in the array
+		int count = 0;
+		// Loop over the array to count the number of spaces
+		for (int index = 0; index < trueLength; index++) {
+			if (input[index] == ' ') {
+				count++;
+			}
+		}
+		// Variable to track the character that needs to be copied over
+		int searchIndex = trueLength - 1;
+		System.out.println(count);
+		// Variable to track where to insert the character being copied
+		int insertIndex = trueLength - 1 + (count * 2);
+		// Loop over the array to copy characters to the "end" of the array or insert %20
+		while (searchIndex >= 0) {
+			// If a space is found, insert %20
+			if (input[searchIndex] == ' ') {
+				System.out.println("if: [" + input[insertIndex] + "], searchIndex: " + searchIndex + ", insertIndex: " + insertIndex + ", input length: " + input.length);
+				// Insert 0 and bump the insertion point to the next open slot
+				input[insertIndex] = '0';
+				insertIndex--;
+				// Insert 2 and bump the insertion point to the next open slot
+				input[insertIndex] = '2';
+				insertIndex--;
+				// Insert %, but don't bump the insertion point. That will happen below for this one. Otherwise, we move it twice without needing to.
+				input[insertIndex] = '%';
+			} else { // If no space is found, simply copy the character at the searchIndex back to the insertionIndex location
+				System.out.println("else: " + "searchindex: " + searchIndex + ", insertIndex: " + insertIndex + ", input length: " + input.length);
+				input[insertIndex] = input[searchIndex];
+			}
+			// Decrement the copy indicies
+			searchIndex--;
+			insertIndex--;
+		}
 	}
 	
 	/**

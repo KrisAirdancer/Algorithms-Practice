@@ -14,10 +14,36 @@ public class IsUnique {
 		
 		String testString = "abcd";
 		
-		System.out.println(isUnique_A5(testString));
+		System.out.println(isUnique_A6(testString));
 
 	}
 
+	/**
+	 * Attempt 6 - No additional data structures
+	 * 
+	 * SOLUTION IDEA:
+	 * - Starting with the first character, for each character, loop over the entire string
+	 * and compare the current character to each other character. If two characters match,
+	 * return false. If the entire string is searched with no matches found, return true.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - Nested for loop - outer loop tracks the character being checked against all of the 
+	 * other characters, and the inner loop compares that character to all others.
+	 * - if matching characters found, return false. Otherwise, return true.
+	 * 
+	 */
+	public static boolean isUnique_A6(String input) {
+		
+		for (int current = 0; current < input.length(); current++) {
+			for (int index = current + 1; index < input.length(); index++) {
+				if (input.charAt(current) == input.charAt(index)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
 	/**
 	 * Attempt 5 - additional data structures
 	 * 
