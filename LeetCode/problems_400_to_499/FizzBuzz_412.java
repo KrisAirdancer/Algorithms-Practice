@@ -8,7 +8,7 @@ public class FizzBuzz_412 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(Arrays.toString(fizzBuzz(5)));
+		
 
 	}
 	
