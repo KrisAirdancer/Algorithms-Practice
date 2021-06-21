@@ -15,7 +15,7 @@ public class URLify {
 	}
 	
 	/**
-	 * Attempt 2 - 
+	 * Attempt 2 - much better
 	 * 
 	 * SOLUTION IDEA:
 	 * - Loop over the string (array) to count all of the spaces in the string. Then, 
@@ -38,28 +38,33 @@ public class URLify {
 	 * 
 	 */
 	public static void URLify_A2(char[] input, int trueLength) {
-		
+		// Count variable to count the number of spaces in the array
 		int count = 0;
+		// Loop over the array to count the number of spaces
 		for (int index = 0; index < trueLength; index++) {
 			if (input[index] == ' ') {
 				count++;
 			}
 		}
-		
+		// Variable to track the character that needs to be copied over
 		int searchIndex = trueLength - 1;
 		System.out.println(count);
+		// Variable to track where to insert the character being copied
 		int insertIndex = trueLength + (count * 2) - 1;
-		
+		// Loop over the array to copy characters to the "end" of the array or insert %20
 		while (searchIndex >= 0) {
-			
+			// If a space is found, insert %20
 			if (input[searchIndex] == ' ') {
 				System.out.println("if: [" + input[insertIndex] + "], searchIndex: " + searchIndex + ", insertIndex: " + insertIndex + ", input length: " + input.length);
+				// Insert 0 and bump the insertion point to the next open slot
 				input[insertIndex] = '0';
 				insertIndex--;
+				// Insert 2 and bump the insertion point to the next open slot
 				input[insertIndex] = '2';
 				insertIndex--;
+				// Insert %, but don't bump the insertion point. That will happen below for this one. Otherwise, we move it twice without needing to.
 				input[insertIndex] = '%';
-			} else {
+			} else { // If no space is found, simply copy the character at the searchIndex back to the insertionIndex location
 				System.out.println("else: " + "searchindex: " + searchIndex + ", insertIndex: " + insertIndex + ", input length: " + input.length);
 				input[insertIndex] = input[searchIndex];
 			}
