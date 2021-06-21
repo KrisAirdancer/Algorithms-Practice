@@ -68,6 +68,7 @@ public class MergeSort {
 		// RECURSIVE CASE: For right partition
 		mergeSort_A1(input, mid, end);
 		
+		// VISTA SAYS THE BELOW PART SHOULD ESSENTIALLY BE INSERTION SORT
 		// If the elements are already in the right order, return. No sorting needed.
 		if (input[mid - 1] <= input[mid]) {
 			return;
@@ -84,8 +85,7 @@ public class MergeSort {
 			temp[tempIndex++] = input[startIndex] <= input[midIndex] ? input[startIndex++] : input[midIndex++];
 		}
 		
-		
-		
+		// WRITE MY OWN COPY ARRAY METHOD
 		
 		System.arraycopy(input, startIndex, input, start + tempIndex, mid - startIndex);
         System.arraycopy(temp, 0, input, start, tempIndex);
