@@ -6,11 +6,22 @@ public class MergeSort {
 
 	public static void main(String[] args) {
 		
-		int[] test = {30, 23, 51, 23, 67, 46, 32, 37, 48, 53, 64, 69, 77, 75, 42, 31, 68};
+		int[] test = {30, 23, 51, 23, 67, 46, 32};
 		
 		mergeSort_A1(test);
 		System.out.println(Arrays.toString(test));
 
+	}
+	
+	/**
+	 * Attempt 2 - CTCI Implementation
+	 * 
+	 * See here - https://www.youtube.com/watch?v=KF2j-9iSf4Q&ab_channel=HackerRank
+	 * See p147 CTCI
+	 */
+	public static void mergeSort_A2(int[] input, int start, int end) {
+		
+		
 	}
 
 	/**
@@ -27,34 +38,6 @@ public class MergeSort {
 	 */	
 	public static void mergeSort_A1(int[] input, int start, int end) {
 		
-//        if (end - start < 2) {
-//            return;
-//        }
-//
-//        int mid = (start + end) / 2;
-//        mergeSort_A1(input, start, mid);
-//        mergeSort_A1(input, mid, end);
-//        
-//        if (input[mid - 1] <= input[mid]) {
-//            return;
-//        }
-//
-//        int i = start;
-//        int j = mid;
-//        int tempIndex = 0;
-//
-//        int[] temp = new int[end - start];
-//        while (i < mid && j < end) {
-//            temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
-//        }
-//        
-//        System.arraycopy(input, i, input, start + tempIndex, mid - i);
-//        System.arraycopy(temp, 0, input, start, tempIndex);
-        
-        
-        
-		
-		
 		// BASE CASE: If the array is of size 1, end recursion
 		if (end - start < 2) {
 			return;
@@ -69,19 +52,27 @@ public class MergeSort {
 		mergeSort_A1(input, mid, end);
 		
 		// VISTA SAYS THE BELOW PART SHOULD ESSENTIALLY BE INSERTION SORT
-		// If the elements are already in the right order, return. No sorting needed.
+		/* If the last element in the left array is smaller than the first
+		 * element in the right array, the two arrays and all of their elements
+		 * are already in the correct sorted order relative to each other.
+		 */
 		if (input[mid - 1] <= input[mid]) {
 			return;
 		}
 		
 		int startIndex = start;
 		int midIndex = mid;
-		int tempIndex = 0;
+		int tempIndex = 0; // Keeps track of where we are in the temporary array
 		
-		int[] temp = new int[end - start];
+		/* The temporary array will be used for sorting the two partitions.
+		 * We will loop over each of the partitions and sort the values into
+		 * the temporary array, then, after we've finished sorting the partitions
+		 * into the array, we will copy the contents of the temp array over
+		 * to the correct location in the original array. */
+		int[] temp = new int[end - start]; // Needs to be large enough to hold all of the elemnts in the left and right arrays
 		
 		while (startIndex < mid && midIndex < end) {
-			
+			/* Not really sure how this is working. */
 			temp[tempIndex++] = input[startIndex] <= input[midIndex] ? input[startIndex++] : input[midIndex++];
 		}
 		
@@ -91,6 +82,9 @@ public class MergeSort {
         System.arraycopy(temp, 0, input, start, tempIndex);
 	}
 	
+	/**
+	 * Driver for A1
+	 */
 	public static void mergeSort_A1(int[] input) {
 		mergeSort_A1(input, 0, input.length);
 	}
