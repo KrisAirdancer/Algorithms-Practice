@@ -8,10 +8,78 @@ public class URLify {
 		
 		char[] test = {'H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!', ' ', 'I', ' ', 'a', 'm', ' ', 'a', 'l', 'i', 'v', 'e', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
 
-		URLify_A2(test, 23);
+		URLify_A3(test, 23);
 		
 //		URLify_Model_Solution(test, 23);
 		System.out.println(Arrays.toString(test));
+	}
+	
+	/**
+	 * Attempt 3 - Close to perfect
+	 * 
+	 * SOLUTION IDEA:
+	 * - Loop over the input array and count the number of spaces. Then loop over the array in reverse with
+	 * two pointers. One insertIndex and one searchIndex. Start the insertIndex behind the trueLength of the 
+	 * array to fill in the empty space with the expanded array. Start the insertIndex at
+	 * trueLength + (spaceCount * 2) to allow for space to add the additional two characters that come with
+	 * each inserted %20. Then loop over the array inserting the search elements into the next opening
+	 * in the insert index until a space is found. If a space is found, insert %20, adjust the insertion index
+	 * down by 2, then continue copying elements.
+	 * 
+	 * FULL SOLUTION DESCRIPTION:
+	 * - Initialize count variable
+	 * - Loop over input to count the number of spaces - indexed for loop
+	 * - Initialize the insertion index as specified above
+	 * - Initialize the search index as the true length - 1 of the input array
+	 * - while loop to loop over and copy the elements of the array
+	 * - if ' ' found, insert %20
+	 * - Remember to increment the index values
+	 * 
+	 * - Review code and figure out how to condense it and make it easier to follow.
+	 * 
+	 */
+	public static void URLify_A3(char[] input, int trueLength) {
+		
+		int spaceCount = 0;
+		
+		for (int index = 0; index < trueLength; index++) {
+			if (input[index] == ' ') {
+				spaceCount++;
+			}
+		}
+		// trueLength - 1 is necessary b/c the array starts at index 0 and the trueLength value will be one more than the final index value
+		int insertIndex = trueLength - 1 + (spaceCount * 2); 
+		int searchIndex = trueLength - 1;
+		
+		while (searchIndex >= 0) {
+			if (input[searchIndex] == ' ') {
+				input[insertIndex--] = '0';
+				input[insertIndex--] = '2';
+				input[insertIndex] = '%';
+			} else {
+				input[insertIndex] = input[searchIndex];
+			}
+			
+			searchIndex--;
+			insertIndex--;
+			
+		}
+		
+		// Alternate to the above code
+//		 int insertIndex = trueLength - 1 + (spaceCount * 2);
+//		 
+//		 for (int searchIndex = trueLength - 1; searchIndex >= 0; searchIndex--) {
+//			if (input[searchIndex] == ' ') {
+//				input[insertIndex] = '0';
+//				input[insertIndex - 1] = '2';
+//				input[insertIndex - 2] = '%';
+//				insertIndex -= 3;
+//			} else {
+//				input[insertIndex] = input[searchIndex];
+//				insertIndex -= 1;
+//			}
+//		 }
+
 	}
 	
 	/**
