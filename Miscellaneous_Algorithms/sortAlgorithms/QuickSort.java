@@ -6,7 +6,7 @@ public class QuickSort {
 
 	public static void main(String[] args) {
 		
-		int[] test = {25, 57, 99, 27, 53, 45, 63, 92};
+		int[] test = {25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34};
 		
 		quickSort_A2(test);
 		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92], Output: " + Arrays.toString(test));
@@ -41,7 +41,7 @@ public class QuickSort {
 	public static void quickSort_A2(int[] input, int start, int end) {
 		
 		// BASE CASE: if input partition is of length one, return
-		if (end - start < 2) {
+		if (end - start < 1) {
 			return;
 		}
 		
@@ -51,10 +51,10 @@ public class QuickSort {
 		
 		// Swap the pivot element with the last item in the list to get the pivot out of the way for sorting - we will be using firstLargest to mark where the pivot should go
 		int temp = input[pivotIndex];
-		input[pivotIndex] = input[input.length - 1];
-		input[input.length - 1] = temp;
+		input[pivotIndex] = input[end];
+		input[end] = temp;
 		// The pivot has been moved, so now we need to reset the pivotIndex to where the pivot element is - in this case, the end of the list
-		pivotIndex = input.length - 1;
+		pivotIndex = end;
 		
 		int searchIndex = start;
 		int firstLarger = start;
