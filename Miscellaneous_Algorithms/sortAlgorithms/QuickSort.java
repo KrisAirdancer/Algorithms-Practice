@@ -81,9 +81,9 @@ public class QuickSort {
 		
 		// RECURSIVE CASE:
 		// Call quickSort for the left half of the list
-		quickSort_A2(input, 0, pivotIndex - 1);
+		quickSort_A2(input, start, pivotIndex - 1);
 		// Call quickSort for the right half of the list
-		quickSort_A2(input, pivotIndex + 1, input.length - 1);
+		quickSort_A2(input, pivotIndex + 1, end);
 		
 	}
 	
