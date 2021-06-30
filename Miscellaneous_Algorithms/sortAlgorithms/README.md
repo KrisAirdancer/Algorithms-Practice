@@ -8,7 +8,7 @@
 - Radix Sort p68 Algorithms Unlocked
 
 ## Searching Algorithms
-- Binary Search p28 Algorithms Unlocked
+- Binary Search p28 Algorithms Unlocked & p149 CTCI
 
 ## Pathfinding Algorithms
 - Dijkstra's Algorithm p92 Algorithms Unlocked
