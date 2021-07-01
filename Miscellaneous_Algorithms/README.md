@@ -9,6 +9,7 @@
 
 ## Searching Algorithms
 - Binary Search p28 Algorithms Unlocked & p149 CTCI
+- Breadth-First Search
 
 ## Pathfinding Algorithms
 - Dijkstra's Algorithm p92 Algorithms Unlocked
