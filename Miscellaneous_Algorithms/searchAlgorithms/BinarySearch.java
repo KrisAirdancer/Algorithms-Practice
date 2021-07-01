@@ -6,11 +6,42 @@ public class BinarySearch {
 		
 		int[] test = {1, 2, 4, 6, 7, 8, 9, 12, 13, 15, 16, 20};
 		
+		System.out.println(binarySearch_Recursive_A1(test, 20, 0, test.length - 1));
+		
 		System.out.println(binarySearch_Iterative_ModelSolution(test, 8));
 		System.out.println(binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
 
 	}
 
+	/**
+	 * Attempt 1 - Recursive Implementation - July 1, 2021
+	 * 
+	 * STEPS:
+	 * - Check for invalid inputs
+	 * - Calculate the midpoint
+	 * - Two recursive calls (if cases)
+	 * - Else case is to return the midpiont (the found value)
+	 */
+	public static int binarySearch_Recursive_A1(int[] input, int target, int low, int high) {
+		
+		if (low > high) {
+			return -1;
+		}
+		
+		int mid = low + ((high - low) / 2);
+		
+		if (input[mid] > target) { // If target in left partition
+			return binarySearch_Recursive_A1(input, target, low, mid - 1);
+			
+		} else if (input[mid] < target) { // If target in right partition
+			return binarySearch_Recursive_A1(input, target, mid + 1, high);
+			
+		} else { // If target == midpoint - we've found our target
+			return mid;
+		}
+		
+	}
+	
 	/**
 	 * Model Solution - From CTCI p149
 	 * 
