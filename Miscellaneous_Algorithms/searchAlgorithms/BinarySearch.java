@@ -11,6 +11,8 @@ public class BinarySearch {
 		System.out.println(binarySearch_Iterative_ModelSolution(test, 8));
 		System.out.println(binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
 
+		
+		// Good discussion of how to find the midpoint properly and why: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
 	}
 
 	/**
