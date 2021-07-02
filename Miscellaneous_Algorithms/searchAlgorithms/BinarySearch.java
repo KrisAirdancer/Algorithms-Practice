@@ -7,6 +7,7 @@ public class BinarySearch {
 		int[] test = {1, 2, 4, 6, 7, 8, 9, 12, 13, 15, 16, 20};
 		
 		System.out.println(binarySearch_Recursive_A1(test, 20, 0, test.length - 1));
+		System.out.println(binarySearch_Recursive_A2(test, 20, 0, test.length - 1));
 		
 		System.out.println(binarySearch_Iterative_ModelSolution(test, 8));
 		System.out.println(binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
@@ -15,6 +16,40 @@ public class BinarySearch {
 		// Good discussion of how to find the midpoint properly and why: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
 	}
 
+	/**
+	 * Attempt 2 - July 2, 2021
+	 * 
+	 * - Test for invalid inputs
+	 * - Calculate and set the midpoint
+	 * - Test location of target relative to midpoint
+	 * 	- If target > mid, search right partition
+	 * 	- If target < mid, search left partition
+	 * - Return index of value when mid == target
+	 */
+	public static int binarySearch_Recursive_A2(int[] input, int target, int low, int high) {
+		
+		if (low > high) {
+			return -1;
+		}
+		
+		int mid = low + ((high - low) / 2);
+		
+		if (input[mid] < target) { // Search right partition
+			return binarySearch_Recursive_A2(input, target, mid + 1, high);
+		} else if (input[mid] > target) { // Search left partition
+			return binarySearch_Recursive_A2(input, target, low, mid - 1);
+		} else { // If the above conditions aren't satisfied, mid must be equal to target
+			return mid;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Attempt 1 - Recursive Implementation - July 1, 2021
 	 * 
