@@ -13,6 +13,32 @@ public class TwoSum_1 {
 	}
 	
 	/**
+	 * Attempt 2 - July 2, 2021
+	 * 
+	 * SOLUTION IDEA:
+	 * - Loop over the entire array comparing each number to each other number until the sum 
+	 * equals the target.
+	 * 
+	 */
+	public static int[] twoSum_A2(int[] input, int target) {
+		
+		int[] result = new int[2];
+		int sum = 0;
+		
+		for (int current = 0; current < input.length; current++) {
+			for (int search = current + 1; search < input.length; search++) {
+				if (input[current] + input[search] == target) {
+					result[0] = current;
+					result[1] = search;
+					return result;
+				}
+			}
+		}
+		return result;
+	}
+	
+	
+	/**
 	 * Attempt 1 - June 29, 2021
 	 * 
 	 * SOLUTION IDEA:
