@@ -23,7 +23,6 @@ public class TwoSum_1 {
 	public static int[] twoSum_A2(int[] input, int target) {
 		
 		int[] result = new int[2];
-		int sum = 0;
 		
 		for (int current = 0; current < input.length; current++) {
 			for (int search = current + 1; search < input.length; search++) {
