@@ -8,10 +8,62 @@ public class QuickSort {
 		
 		int[] test = {25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34};
 		
-		quickSort_A2(test);
-		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92], Output: " + Arrays.toString(test));
+//		quickSort_A2(test);
+		quickSort_A3(test, 0, test.length - 1);
+		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34],\nOutput: " + Arrays.toString(test));
 
 	}
+	
+	/**
+	 * Attempt 3 - July 2, 2021 - My own implementation
+	 * 
+	 * SOLUTION OUTLINE:
+	 * 
+	 */
+	public static void quickSort_A3(int[] input, int low, int high) {
+		// Base case - Partition of length 1
+		if ((high - low) < 2) {
+			return;
+		}
+		
+		// Set pivot index
+		int pivotIndex = low + ((high - low) / 2);
+		
+		// Sorting step
+		int temp = input[high];
+		input[high] = input[pivotIndex];
+		input[pivotIndex] = temp;
+		pivotIndex = high;
+		
+		int searchIndex = low;
+		int firstUnsorted = low;
+		
+		while (searchIndex < high) { // Stop one index place before the last item in the list b/c the last index is just holding our pivot and doesn't need to be compared to itself
+			if(input[searchIndex] < input[pivotIndex]) {
+				temp = input[searchIndex];
+				input[searchIndex] = input[firstUnsorted];
+				input[firstUnsorted] = temp;
+				firstUnsorted++;
+			}
+			
+			searchIndex++;
+		}
+		
+		// Swap the pivot back to its proper location (swap pivot with firstUnsorted)
+		temp = input[pivotIndex];
+		input[pivotIndex] = input[firstUnsorted];
+		input[firstUnsorted] = temp;
+		pivotIndex = firstUnsorted;
+		
+		// Recursive Cases
+		quickSort_A3(input, low, pivotIndex - 1); // Call for left partition
+		quickSort_A3(input, pivotIndex + 1, high); // Call for right partition
+		
+		
+	}
+	
+	
+	
 	
 	/**
 	 * Attempt 2 - My own implementation
