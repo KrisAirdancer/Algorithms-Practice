@@ -4,16 +4,83 @@ public class RomanToInteger_13 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(romanToInt_A1("I"));
-		System.out.println(romanToInt_A1("II"));
-		System.out.println(romanToInt_A1("III"));
-		System.out.println(romanToInt_A1("IV"));
-		System.out.println(romanToInt_A1("IX"));
-		System.out.println(romanToInt_A1("LVIII"));
-		System.out.println(romanToInt_A1("MCMXCIV"));
+		System.out.println(romanToInt_A2("I"));
+		System.out.println(romanToInt_A2("II"));
+		System.out.println(romanToInt_A2("III"));
+		System.out.println(romanToInt_A2("IV"));
+		System.out.println(romanToInt_A2("IX"));
+		System.out.println(romanToInt_A2("LVIII"));
+		System.out.println(romanToInt_A2("MCMXCIV"));
 
 	}
 	
+	/**
+	 * Attempt 2 - July 5, 2021
+	 * 
+	 * NOTES:
+	 * - "Edge Cases:"
+	 * 	- I before V or X
+	 * 	- X before L or C
+	 * 	- C before D or M
+	 * 
+	 * SOLUTION IDEA:
+	 * - Loop over the String input. For each char, convert it to it's integer value then add
+	 * that integer to sum (sum += new integer). On each iteration, before adding the value
+	 * to sum, check that the value at index + 1 is not greater than the current value. If
+	 * it is, subtract index from index + 1 and add that value to sum instead, then increment 
+	 * the index to skip index + 1.
+	 * 
+	 * - Initialize romanAsInt to 0 
+	 * - Indexed for loop that starts at index = 0 and goes to index < input.length()
+	 * 	- if index + 1 greater than index,
+	 * 		- romanAsInt += (input[index + 1] - input[input]) 
+	 * 	- else, romanAsInt += input[index]
+	 * - return romanAsInt
+	 * 
+	 * 
+	 */
+	public static int romanToInt_A2(String romanNum) {
+		int romanAsInt = 0;
+		
+		for (int index = 0; index < romanNum.length(); index++) {
+			
+//			int current = charToInt(romanNum.charAt(index));
+//			int next = charToInt(romanNum.charAt(index + 1));
+			
+			if (romanNum.length() > 1 && charToInt(romanNum.charAt(index + 1)) > charToInt(romanNum.charAt(index))) {
+				romanAsInt += (charToInt(romanNum.charAt(index + 1)) - charToInt(romanNum.charAt(index)));
+			} else {
+				romanAsInt += charToInt(romanNum.charAt(index));
+			}
+		}
+		return romanAsInt;
+	}
+	
+	/**
+	 * Helper method for romanToInt_A2
+	 */
+	public static int charToInt(char input) {
+		
+		switch (input) {
+			case 'I':
+				return 1;
+			case 'V':
+				return 5;
+			case 'X':
+				return 10;
+			case 'L':
+				return 50;
+			case 'C':
+				return 100;
+			case 'D':
+				return 500;
+			case 'M':
+				return 1000;
+			default:
+				return -1;
+					
+		}
+	}
 	
 	/**
 	 * Attempt 1 - June 28, 2021
