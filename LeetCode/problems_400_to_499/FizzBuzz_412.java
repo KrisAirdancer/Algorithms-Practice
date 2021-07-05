@@ -8,9 +8,45 @@ public class FizzBuzz_412 {
 
 	public static void main(String[] args) {
 		
-		
+		System.out.println(fizzBuzz_A2(5));
 
 	}
+	
+	
+	/**
+	 * Attempt 2 - July 5, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Create output array of type String and length input - 1
+	 * - Indexed for loop that starts at 1
+	 * - Check for divisibility by 3 and 5
+	 * 	- If true, set output[index - 1] to "FizzBuzz"
+	 * - Check for divisibility by 3
+	 * 	- If true, set output[index - 1] to "Fizz"
+	 * - Check for divisibility by 5
+	 * 	- If true, set output[index - 1] to "Buzz"
+	 * - Else, set output[index - 1] to index
+	 * 
+	 * 
+	 */
+	public static List<String> fizzBuzz_A2(int input) {
+		List<String> output = new ArrayList<String>();
+		
+		for (int index = 1; index <= input; index++) {
+			
+			if (index % 3 == 0 && index % 5 == 0) {
+				output.add("FizzBuzz");
+			} else if (index % 3 == 0) {
+				output.add("Fizz");
+			} else if (index % 5 == 0) {
+				output.add("Buzz");
+			} else {
+				output.add(Integer.toString(index));
+			}
+		}
+		return output;
+	}
+	
 	
 	/**
 	 * SOLUTION IDEA:

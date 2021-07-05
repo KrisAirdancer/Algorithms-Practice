@@ -9,10 +9,82 @@ public class QuickSort {
 		int[] test = {25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34};
 		
 //		quickSort_A2(test);
-		quickSort_A3(test, 0, test.length - 1);
+		quickSort_A4(test, 0, test.length - 1);
 		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34],\nOutput: " + Arrays.toString(test));
 
 	}
+	
+	/**
+	 * Attempt 4 - July 5, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Choose a pivot element, then move all values that are larger than that pivot
+	 * to the right of the pivot and all that are smaller to the left.
+	 * 
+	 * - Base case: low > high, we return
+	 * 
+	 * - Calculate the pivot (mid) using mid = input.length / 2;
+	 * - Sort partitions using while loop (while searchIndex < high - 1???)
+	 * 	- Move pivot to end of the array by swapping it with the value at the last position in the array
+	 * 	- Create two pointers: searchIndex and firstLarger - initialize both to low
+	 * 	- Iterate over the array with searchIndex until a value less than the pivot is found
+	 * 		- If value < pivot found, swap the searchIndex value with the firstLarger index value
+	 * then increment firstLargest up by 1.
+	 * 
+	 * - Recursive cases: sort the left and right partitions
+	 * 	- Call quickSort for left partition
+	 * 	- Call quickSort for right partition
+	 * 
+	 * 
+	 * 
+	 */
+	public static void quickSort_A4(int[] input, int low, int high) {
+		// BASE CASE: Return if array is length 1
+		if ((high - low) < 2) {
+			return;
+		}
+		
+		// Calculate midpoint (pivot)
+		int mid = low + ((high - low) / 2);
+		
+		// Sort the partitions
+		// Initialize pointers
+		int searchIndex = low;
+		int firstLarger = low;
+		
+		// Swap the midpoint for the last item in the partition
+		int temp = input[high];
+		input[high] = input[mid];
+		input[mid] = temp;
+		// Set the pivot index (mid) to the end of the array
+		mid = high;
+		
+		// Loop over the array looking for values smaller than the pivot
+		while (searchIndex < mid) {
+			// If value smaller than pivot is found, swap it with firstLarger
+			if (input[searchIndex] < input[mid]) {
+				temp = input[searchIndex];
+				input[searchIndex] = input[firstLarger];
+				input[firstLarger] = temp;
+				// Increment firstLarger to make room for the new value in the left partition
+				firstLarger++;
+			}
+			searchIndex++;
+		}
+		
+		// Swap the pivot element with the element at firstLarger
+		temp = input[mid];
+		input[mid] = input[firstLarger];
+		input[firstLarger] = temp;
+		// Move pivot index (mid) to firstLarger index
+		mid = firstLarger;
+		
+		// RECURSIVE CASES: Sort the left and right partitions
+		quickSort_A4(input, low, mid - 1); // Sort left partition
+		quickSort_A4(input, mid + 1, high); // Sort right partition
+	}
+	
+	
 	
 	/**
 	 * Attempt 3 - July 2, 2021 - My own implementation
