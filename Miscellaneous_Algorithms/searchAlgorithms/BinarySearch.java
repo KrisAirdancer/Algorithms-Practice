@@ -6,16 +6,46 @@ public class BinarySearch {
 		
 		int[] test = {1, 2, 4, 6, 7, 8, 9, 12, 13, 15, 16, 20};
 		
-		System.out.println(binarySearch_Recursive_A1(test, 20, 0, test.length - 1));
-		System.out.println(binarySearch_Recursive_A2(test, 20, 0, test.length - 1));
+		System.out.println("A1: " + binarySearch_Recursive_A1(test, 20, 0, test.length - 1));
+		System.out.println("A2: " + binarySearch_Recursive_A2(test, 20, 0, test.length - 1));
+		System.out.println("A3: " + binarySearch_Recursive_A3(test, 20, 0, test.length - 1));
 		
-		System.out.println(binarySearch_Iterative_ModelSolution(test, 8));
-		System.out.println(binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
+		System.out.println("Model Solution: " + binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
 
 		
 		// Good discussion of how to find the midpoint properly and why: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
 	}
 
+	
+	/**
+	 * Attempt 3 - July 6, 2021
+	 * 
+	 * SOULTION OUTLINE:
+	 * - If length of input is 1 (< 2), return
+	 * - Calculate midpoint
+	 * - Compare midpoint to target
+	 * 	- If midpiont < target, search right partition - Recursive call
+	 * 	- If midpoint > target, search left partition - Recursive call
+	 * 	- If midpoint == target, return midpoint
+	 * 
+	 */
+	public static int binarySearch_Recursive_A3(int[] input, int target, int low, int high) {
+		
+		if (low > high) { // This case should be triggered if the target element is not in the list.
+			return -1;
+		}
+		
+		int mid = low + ((high - low) / 2);
+		
+		if (input[mid] < target) {
+			return binarySearch_Recursive_A3(input, target, mid + 1, high);
+		} else if (input[mid] > target) {
+			return binarySearch_Recursive_A3(input, target, low, mid - 1);
+		} else {
+			return mid;
+		}
+	}
+	
 	/**
 	 * Attempt 2 - July 2, 2021
 	 * 
@@ -42,13 +72,6 @@ public class BinarySearch {
 			return mid;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * Attempt 1 - Recursive Implementation - July 1, 2021
