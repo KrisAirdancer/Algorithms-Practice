@@ -9,10 +9,87 @@ public class QuickSort {
 		int[] test = {25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34};
 		
 //		quickSort_A2(test);
-		quickSort_A4(test, 0, test.length - 1);
+		quickSort_A5(test, 0, test.length - 1);
 		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34],\nOutput: " + Arrays.toString(test));
 
 	}
+	
+	/**
+	 * Attempt 5 - July 6, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - BASE CASE: check that length of input is greater than 1
+	 * 	- If true, return
+	 * - Calculate pivot point (pivot = low + ((high - low) / 2)
+	 * - Sort the current partition
+	 * 	- Create two pointers (searchIndex and firstLarger) - initialize to low
+	 * 	- Swap pivot element and last element in the list with each other
+	 * 	- if searchIndex element is > pivot element index, swap searchIndex element and firstLarger element
+	 * 		- Increment firstLarger
+	 * - RECURSIVE CASES:
+	 * 	- Sort left partition
+	 * 	- Sort right partition
+	 * 
+	 * 
+	 */
+	public static void quickSort_A5(int[] input, int low, int high) {
+		// BASE CASE: List of length 1
+		if ((high - low) < 2) {
+			return;
+		}
+		
+		// CALCULATE THE PIVOT POINT
+		int pivot = low + ((high - low) / 2);
+		
+		// SORT THE LIST
+		
+		// Setup pointers
+		int searchIndex = low;
+		int firstLarger = low;
+		
+		// Swap pivot element with last element in list
+		int temp = input[high];
+		input[high] = input[pivot];
+		input[pivot] = temp;
+		pivot = high; // Set the pivot index to the new location of the pivot element
+		
+		// Move values smaller than pivot to the left of pivot and values lareger than pivot to the right of pivot
+		while (searchIndex < (high)) { // Stop just before high to avoid sorting our pivot value
+			if (input[searchIndex] < input[pivot]) {
+				temp = input[searchIndex];
+				input[searchIndex] = input[firstLarger];
+				input[firstLarger] = temp;
+				
+				firstLarger++;
+			}
+			searchIndex++;
+		}
+		
+		// Put pivot element back into the "middle" of the list
+		temp = input[pivot];
+		input[pivot] = input[firstLarger];
+		input[firstLarger] = temp;
+		pivot = firstLarger; // Move pivot index to match the location of the pivot element
+		
+		
+		// RECURSIVE CASES:
+		quickSort_A5(input, low, pivot - 1); // Sort left partition
+		quickSort_A5(input, pivot + 1, high); // Sort right partition
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * Attempt 4 - July 5, 2021
