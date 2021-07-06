@@ -34,6 +34,7 @@ public class RomanToInteger_13 {
 			
 			int current = romanCharToInt_A3(input.charAt(index));
 			int next = 0;
+			
 			if (index + 1 < input.length()) {
 				next = romanCharToInt_A3(input.charAt(index + 1));
 			}
