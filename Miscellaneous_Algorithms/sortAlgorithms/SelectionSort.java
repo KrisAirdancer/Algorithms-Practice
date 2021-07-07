@@ -9,12 +9,74 @@ public class SelectionSort {
 
 		int[] test = {23, 2, 36, 9, 68, 0, 2, 99, 5, 16, 9, 35, 0, 64, 6, 92, 4, 12, 2, 69, 6, 97, 9, 35};
 
-		selectionSort_Attempt_1(test);
+		selectionSort_A3(test);
 		
 		System.out.println(Arrays.toString(test));
 	}
 
 	/**
+	 * Attempt 3 - July 7, 2021
+	 */
+	public static void selectionSort_A3(int[] input) {
+		// Loop over the entire array
+		for (int firstUnsorted = 0; firstUnsorted < input.length; firstUnsorted++) {
+			// Set the smallest index
+			int smallest = firstUnsorted;
+			// Loop over the entire unsorted partition
+			for (int searchIndex = firstUnsorted; searchIndex < input.length; searchIndex++) {
+				if (input[searchIndex] < input[smallest]) {
+					smallest = searchIndex;
+				}
+			}
+			// Swap firstUnsorted with smallest
+			int temp = input[smallest];
+			input[smallest] = input[firstUnsorted];
+			input[firstUnsorted] = temp;
+		}
+		
+	}
+	
+	/**
+	 * Attempt 2 - July 7, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Create two pointers, a searchIndex and a firstLarger index
+	 * - Initialize variable smallest to keep track of the index of the smallest found value
+	 * - Loop over the array until firstLarger >= input.length (while firstLarger < input.length)
+	 * 	 - Each loop, loop over the entire list from firstLarger to length - 1 with searchIndex
+	 * to find the smallest value in the list. 
+	 * 	- Swap firstLarger element with the smallest index element
+	 * 
+	 * 
+	 */
+	public static void selectionSort_A2(int[] input) {
+		
+		int firstLarger = 0;
+		
+		while (firstLarger < input.length) {
+			
+			int smallest = firstLarger;
+			int searchIndex = firstLarger;
+			
+			while (searchIndex < input.length) {
+				if (input[searchIndex] < input[smallest]) {
+					smallest = searchIndex;
+				}
+				searchIndex++;
+			}
+			// Swap firstLarger and smallest
+			int temp = input[smallest];
+			input[smallest] = input[firstLarger];
+			input[firstLarger] = temp;
+			
+			firstLarger++;
+			
+		}
+	}
+	
+	/**
+	 * Attempt 1
+	 * 
 	 * SOLUTION IDEA:
 	 * - Split the array into two partitions, sorted and unsorted. Loop over the unsorted partition,
 	 * each time finding the smallest element. Then swap the smallest element with the first element
@@ -32,7 +94,7 @@ public class SelectionSort {
 	 * 		- Increment firstUnsorted 
 	 * 
 	 */
-	public static void selectionSort_Attempt_1(int[] input) {
+	public static void selectionSort_A1(int[] input) {
 		// Initialize partition index
 		int firstUnsorted = 0;
 		// Loop over the array until the sorted partition is the same length as the whole array
