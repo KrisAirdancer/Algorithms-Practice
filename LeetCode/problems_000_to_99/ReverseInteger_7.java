@@ -4,10 +4,57 @@ public class ReverseInteger_7 {
 
 	public static void main(String[] args) {
 		
-		int value = 153423646;
-		System.out.println(reverseInteger_A2(value));
+		int value = -12343897;
+		System.out.println(reverseInteger_A3(value));
 
 	}
+	
+	/**
+	 * Attempt 3 - July 7, 2021 
+	 * 
+	 * SOULTION OUTLINE:
+	 * - Use a while loop to loop over num until num <= 0, each time...
+	 * 	- Pull the last digit off of num using %
+	 * 	- Check that the new value won't produce an overflow error - must be done before adding
+	 * new digit to reversed
+	 * 	- Multiply reversed by 10 and add the popped digit to reversed
+	 * 	- Divide num by 10 to remove the last digit
+	 * 
+	 * 
+	 */
+	public static int reverseInteger_A3(int num) {
+
+		int reversed = 0;
+		int popped = 0;
+		
+		while (num != 0) {
+			popped = num % 10;
+			num /= 10;
+			
+			// CONDUCT OVERFLOW CHECK
+			if (reversed > Integer.MAX_VALUE / 10) {
+				return 0;
+			} else if (reversed == Integer.MAX_VALUE / 10 && popped > 7) {
+				return 0;
+			} else if (reversed < Integer.MIN_VALUE / 10) {
+				return 0;
+			} else if (reversed == Integer.MAX_VALUE && popped < -8) { 
+				return 0;
+			} else {
+				reversed = (reversed * 10) + popped;
+			}
+		}
+		return reversed;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * Attempt 2 - July 1, 2021
