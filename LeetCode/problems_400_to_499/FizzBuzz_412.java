@@ -8,8 +8,48 @@ public class FizzBuzz_412 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(fizzBuzz_A2(5));
+		System.out.println(fizzBuzz_A3(533515));
 
+	}
+	
+	/**
+	 * Attempt 3 - July 9, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Initialize arraylist of type string
+	 * - Initialize variable current of type int to 0
+	 * - Use while loop to loop over input - loop until input < 1 (aka. until it is zero) (don't have to worry about negative values)
+	 * 	- Set current = input % 10
+	 * 	- input / 10 
+	 * 	- Check for divisibilty by 5 and 3 with modulus - add FB to array
+	 * 	- Check for divisibility by 5
+	 * 	- Check for divisibilty by 3
+	 * 	- else - add current to array
+	 * 
+	 *
+	 */
+	public static List<String> fizzBuzz_A3(int input) {
+		
+		List<String> output = new ArrayList<String>();
+		
+		int current = 0;
+		
+		while (input > 0) {
+			
+			current = input % 10;
+			input /= 10;
+			
+			if ((current % 5 == 0) && (current % 3 == 0)) {
+				output.add("FizzBuzz");
+			} else if (current % 5 == 0) {
+				output.add("Buzz");
+			} else if (current % 3 == 0) {
+				output.add("Fizz");
+			} else {
+				output.add(Integer.toString(input));
+			}
+		}
+		return output;
 	}
 	
 	
