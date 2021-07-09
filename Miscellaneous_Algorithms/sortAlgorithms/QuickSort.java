@@ -9,9 +9,74 @@ public class QuickSort {
 		int[] test = {25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34};
 		
 //		quickSort_A2(test);
-		quickSort_A5(test, 0, test.length - 1);
+		quickSort_A6(test, 0, test.length - 1);
 		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34],\nOutput: " + Arrays.toString(test));
 
+	}
+	
+	/**
+	 * Attempt 6 - July 9, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - BASE CASE: (high - low) < 2 - check for length 1
+	 * 
+	 * - SORT CURRENT PARTITION:
+	 * 	- Calculate pivot as low - ((high - low) / 2)
+	 * 	- Swap pivot element with last element in current partition and set pivot index = to high (last index in partition)
+	 * 	- Initialize firstLarger and searchIndex to low
+	 * 	- Loop over array using while loop (searchIndex < high - 1) b/c we want to skip the last item in the array which is the pivot index
+	 * 		- if current element is less than the pivot element, swap it with firstLarger
+	 * 			- and increment firstLarger 
+	 * - Swap pivot element and firstLarger element
+	 * - Set pivot index to firstLarger index
+	 * 
+	 * - RECURSIVE CASES:
+	 * 	- Sort left partition with low = low and high = mid - 1
+	 * 	- Sort right partition with low = mid + 1 and high = high
+	 * 
+	 */
+	public static void quickSort_A6(int[] input, int low, int high) {
+		// BASE CASE: Partition of length 1
+		if ((high - low) < 2) {
+			return;
+		}
+		
+		// Calculate pivot
+		int pivot = low + ((high - low) / 2);
+		
+		// SORTING THE PARTITION:
+		
+		// Swap pivot element with last element in the partition, and update pivot index
+		int temp = input[high];
+		input[high] = input[pivot];
+		input[pivot] = temp;
+		pivot = high; // Set pivot to be the location of the pivot element
+		
+		// Initialize pointers
+		int firstLarger = low;
+		int searchIndex = low;
+		
+		// Sort partition
+		while (searchIndex < high) { // Stop just before high (don't sort the last element)
+			
+			if (input[searchIndex] < input[pivot]) {
+				
+				temp = input[searchIndex];
+				input[searchIndex] = input[firstLarger];
+				input[firstLarger] = temp;
+				firstLarger++;
+			}
+			searchIndex++;
+		}
+		temp = input[pivot];
+		input[pivot] = input[firstLarger];
+		input[firstLarger] = temp;
+		pivot = firstLarger;
+		
+		// RECURSIVE CASES:
+		quickSort_A6(input, low, pivot - 1);
+		quickSort_A6(input, pivot + 1, high);
+		
 	}
 	
 	/**
@@ -76,20 +141,6 @@ public class QuickSort {
 		quickSort_A5(input, low, pivot - 1); // Sort left partition
 		quickSort_A5(input, pivot + 1, high); // Sort right partition
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * Attempt 4 - July 5, 2021
