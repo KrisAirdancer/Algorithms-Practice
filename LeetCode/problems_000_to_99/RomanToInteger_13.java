@@ -4,14 +4,75 @@ public class RomanToInteger_13 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(romanToInt_A3("I") + ", ONE");
-		System.out.println(romanToInt_A3("II") + ", TWO");
-		System.out.println(romanToInt_A3("III") + ", THREE");
-		System.out.println(romanToInt_A3("IV") + ", FOUR");
-		System.out.println(romanToInt_A3("IX") + ", NINE");
-		System.out.println(romanToInt_A3("LVIII") + ", FIFTY-EIGHT");
-		System.out.println(romanToInt_A3("MCMXCIV") + ", NINETEEN-NINTY-FOUR");
+		System.out.println(romanToInt_A4("I") + ", ONE");
+		System.out.println(romanToInt_A4("II") + ", TWO");
+		System.out.println(romanToInt_A4("III") + ", THREE");
+		System.out.println(romanToInt_A4("IV") + ", FOUR");
+		System.out.println(romanToInt_A4("IX") + ", NINE");
+		System.out.println(romanToInt_A4("LVIII") + ", FIFTY-EIGHT");
+		System.out.println(romanToInt_A4("MCMXCIV") + ", NINETEEN-NINTY-FOUR");
 
+	}
+	
+	/**
+	 * Attempt 4 - July 9, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Initialize a result variable of type int
+	 * - Use indexed for loop to loop over input string - index = 0
+	 * 	- if (input[index + 1] < input.length() && input[index + 1] > input[index]) result = result + (input[index + 1] - input[index])
+	 * 	- else, just add input[index]
+	 * 
+	 * - Create helper method with switch statement to convert each character into an integer
+	 */
+	public static int romanToInt_A4(String input) {
+		
+		int result = 0;
+		
+		for (int index = 0; index < input.length(); index++) {
+			
+			int current = charToInt_A4(input.charAt(index));
+			int next = 0; // Initialize to zero b/c current can never be less than 1
+			
+			if ((index + 1) < input.length()) {
+				next = charToInt_A4(input.charAt(index + 1));
+			}
+			
+			if ((index + 1) < input.length() && next > current) {
+				result = result + (next - current);
+				index++; // Skip the value at index + 1
+			} else {
+				result += current;
+			}
+			next = 0; // Clear variable to ensure no false positives on next check
+		}
+		return result;
+	}
+	
+	/**
+	 * Helper method for romanToInt_A4
+	 */
+	public static int charToInt_A4(char character) {
+		
+		switch(character) {
+			case 'I':
+				return 1;
+			case 'V':
+				return 5;
+			case 'X':
+				return 10;
+			case 'L':
+				return 50;
+			case 'C':
+				return 100;
+			case 'D':
+				return 500;
+			case 'M':
+				return 1000;
+			default:
+				return -1;
+		}
+			
 	}
 	
 	/**
