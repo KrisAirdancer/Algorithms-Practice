@@ -1,15 +1,52 @@
 package problems_000_to_99;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSum_1 {
-
+	
 	public static void main(String[] args) {
 		
 		int[] test = {3, 2, 3};
 		
-		System.out.println(Arrays.toString(twoSum_A1(test, 6)));
+		System.out.println(Arrays.toString(twoSum_A3(test, 6)));
 
+	}
+	
+	/**
+	 * Attempt 3 - July 12, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Loop over the array. On each iteration, check if the target value minus the current value
+	 * (target - current = value to check for) has already been stored in the HashMap.
+	 * 	- If in hashmap, store the index of the current value and the index of the first value in the output
+	 * array. The index of the first value is the value (key-value pair) in the hashmap.
+	 * 		- Then return output.
+	 * 	- If not in hashmap, add the current value to the hashmap as the key and add its index
+	 * value as the value.
+	 * 
+	 * 
+	 * TIEM/MEMORY COMPLEXITY:
+	 * - TC: O(n) - Have to loop over the array just once - n-times, that is.
+	 * - MC: O(n) - Worst case, may have to add every element in the array to the HashMap
+	 */
+	public static int[] twoSum_A3(int[] input, int target){
+		
+		int[] output = new int[2];
+		
+		HashMap<Integer, Integer> foundValues = new HashMap<Integer, Integer>();
+		
+		for (int index = 0; index < input.length; index++) {
+			
+			if (foundValues.containsKey((target - input[index]))) {
+				output[0] = foundValues.get(target - input[index]);
+				output[1] = index;
+				return output;
+			} else {
+				foundValues.put(input[index], index);
+			}
+		}
+		return output;
 	}
 	
 	/**
