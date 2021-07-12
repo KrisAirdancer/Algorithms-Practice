@@ -8,10 +8,43 @@ public class InsertionSort {
 		
 		int[] test = {23, 2, 36, 9, 68, 2, 99, 5, 16, 9, 0, 35, 0, 64, 6, 92, 4, 12, 2, 69, 6, 97, 9, 35};
 
-		insertionSort_Attempt_1(test);
+		insertionSort_A2(test);
 		System.out.println(Arrays.toString(test));
 		
 	}
+	
+	/**
+	 * Attempt 2 - July 12, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Indexed for loop to loop over the whole length of the array - index here is firstUnsorted
+	 * 	- Initialize searchIndex to firstUnsorted
+	 * 	- while input[searchIndex] < input[searchIndex - 1] && (searchIndex - 1) >= 0
+	 * 		- Swap input[searchIndex] with input[searchIndex - 1]
+	 * 		- searchIndex--;
+	 * 
+	 * TIME/MEMORY COMPLEXITY:
+	 * - TC: Best: O(n) - Linear, Average: O(n^2) - Quadratic, Worst: O(n^2) - Quadratic
+	 * - MC: O(1) - Constant
+	 * 
+	 */
+	public static void insertionSort_A2(int[] input) {
+		
+		for (int firstUnsorted = 0; firstUnsorted < input.length; firstUnsorted++) {
+			
+			int searchIndex = firstUnsorted;
+			
+			while ((searchIndex - 1) >= 0 && input[searchIndex] < input[searchIndex - 1]) {
+				
+				int temp = input[searchIndex];
+				input[searchIndex] = input[searchIndex - 1];
+				input[searchIndex - 1] =  temp;
+						
+				searchIndex--;
+			}
+		}
+	}
+	
 	
 	/**
 	 * SOLUTION IDEA:
@@ -39,7 +72,7 @@ public class InsertionSort {
 	 * 		- firstUnsorted++
 	 * 
 	 */
-	public static void insertionSort_Attempt_1(int[] input) {
+	public static void insertionSort_A1(int[] input) {
 		// Initialize partition index pointer
 		int firstUnsorted = 0;
 		// Loop over the unsorted partition until the sorted partition is the same size as the whole array
