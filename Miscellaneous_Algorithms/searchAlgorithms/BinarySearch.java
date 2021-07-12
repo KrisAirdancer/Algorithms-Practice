@@ -9,6 +9,7 @@ public class BinarySearch {
 		System.out.println("A1: " + binarySearch_Recursive_A1(test, 20, 0, test.length - 1));
 		System.out.println("A2: " + binarySearch_Recursive_A2(test, 20, 0, test.length - 1));
 		System.out.println("A3: " + binarySearch_Recursive_A3(test, 20, 0, test.length - 1));
+		System.out.println("A4: " + binarySearch_Recursive_A4(test, 6));
 		
 		System.out.println("Model Solution: " + binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
 
@@ -16,6 +17,41 @@ public class BinarySearch {
 		// Good discussion of how to find the midpoint properly and why: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
 	}
 
+	
+	/**
+	 * Attempt 4 - July 12, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Assumption: List is sorted.
+	 * - Calculate a pivot point
+	 * - Compare the target value to pivot value.
+	 * 	- if pivot is greater than target, recursive call on left side of array (mounted inside a return statement)
+	 * 	- if pivot is less than target, recursive call on right side of array (mounted inside a return statement)
+	 * 
+	 * TIME/MEMORY COMPLEXITY:
+	 * - TC: O(log n)
+	 * - MC: O(1)
+	 */
+	public static int binarySearch_Recursive_A4(int[] input, int target, int low, int high) {
+		
+		int pivot = low + ((high - low) / 2);
+		
+		if (input[pivot] > target) { // Search left partition
+			return binarySearch_Recursive_A4(input, target, low, pivot - 1);
+		} else if (input[pivot] < target) { // Search right partition
+			return binarySearch_Recursive_A4(input, target, pivot + 1, high);
+		} else { // If pivot is neither greater than or less than pivot, it must equal pivot
+			return pivot;
+		}
+	}
+	
+	/**
+	 * Driver for attempt 4
+	 */
+	public static int binarySearch_Recursive_A4(int[] input, int target) {
+		// Need to search the values between index 0 and the last index (input.length - 1)
+		return binarySearch_Recursive_A4(input, target, 0, input.length - 1);
+	}
 	
 	/**
 	 * Attempt 3 - July 6, 2021
