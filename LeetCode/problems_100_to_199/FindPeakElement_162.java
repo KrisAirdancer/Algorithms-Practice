@@ -34,7 +34,6 @@ public class FindPeakElement_162 {
 			
 			int current = nums[index];
 			
-			
 			if (index == 0) {
 				if (current > nums[index + 1]) {
 					return index;
