@@ -9,10 +9,73 @@ public class QuickSort {
 		int[] test = {25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34};
 		
 //		quickSort_A2(test);
-		quickSort_A6(test, 0, test.length - 1);
+		quickSort_A7(test, 0, test.length - 1);
 		System.out.println("Input: [25, 57, 99, 27, 53, 45, 63, 92, 34, 66, 80, 29, 30, 66, 24, 34],\nOutput: " + Arrays.toString(test));
 
 	}
+	
+	/**
+	 * Attempt 7 - July 13, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Base case: partition length is 1
+	 * - Select pivot point - use middle element
+	 * - Sort current partition
+	 * 	- Move pivot element to end of list (swap pivot element and last element)
+	 * 	- Set firstLarger to low
+	 * 	- Set pivot index to last element
+	 * 	- Indexed for loop starting searchIndex at firstLarger and going until high - 1
+	 * 		- If current element is less than pivot element, swap current element with firstLarger element
+	 * 	- Swap pivot element with firstLarger element
+	 * 	- Set pivot index to match new location of pivot element
+	 * - Recursive call on left partition
+	 * - Recursive call on right partition
+	 */
+	public static void quickSort_A7(int[] input, int low, int high) {
+		// BASE CASE: Array of length 1
+		if ((high - low) < 2) {
+			return;
+		}
+		
+		// Calculate pivot point
+		int pivot = low + ((high - low) / 2);
+		
+		// SORT THE ARRAY/PARTITION
+		
+		// Move pivot element to end of list
+		int temp = input[high];
+		input[high] = input[pivot];
+		input[pivot] = temp;
+		pivot = high;
+		
+		// Set up pointer
+		int firstLarger = low;
+		
+		// Sort elements
+		for (int index = low; index < high; index++) {
+			// If current element is less than the pivot element, swap current element with firstLarger element
+			if (input[index] < input[pivot]) {
+				temp = input[index];
+				input[index] = input[firstLarger];
+				input[firstLarger] = temp;
+				firstLarger++;
+			}
+		}
+		// Swap pivot element and first larger (to put pivot element back in correct position)
+		temp = input[pivot];
+		input[pivot] = input[firstLarger];
+		input[firstLarger] = temp;
+		pivot = firstLarger;
+		
+		// RECURSIVE CALLS
+		
+		// Sort left partition
+		quickSort_A7(input, low, pivot - 1);
+		// Sort right partition
+		quickSort_A7(input, pivot + 1, high);
+	}
+	
+	
 	
 	/**
 	 * Attempt 6 - July 9, 2021
