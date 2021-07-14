@@ -5,8 +5,45 @@ public class ReverseInteger_7 {
 	public static void main(String[] args) {
 		
 		int value = -12343897;
-		System.out.println(reverseInteger_A3(value));
+		System.out.println(reverseInteger_A4(value));
+//		System.out.println(Integer.MAX_VALUE);
+//		System.out.println(Integer.MIN_VALUE);
 
+	}
+	
+	/**
+	 * Attempt 4 - July 14, 2021
+	 * 
+	 * SOLUTION IDEA:
+	 * - Make a temporary variable (pop) to hold the last digit of the input num
+	 * - Divide num by 10 to remove the last digit
+	 * - Check for overflow errors
+	 * 	- If reversed > IntegerMAX / 10 || (reversed == intMAX / 10 && pop > 7), return 0
+	 * 	- If reversed < IntMIN / 10 || (reversed == intMIN / 10 && pop < -8), return 0
+	 * 	- If overflow, return 0
+	 * - Append pop to reversed
+	 */
+	public static int reverseInteger_A4(int num) {
+		
+		int reversed = 0;
+		
+		while (num != 0) {
+			// Pop last digit off num
+			int pop = num % 10;
+			
+			// Remove last digit from num
+			num /= 10;
+			
+			// Check for overflow errors
+			if (reversed > Integer.MAX_VALUE / 10 || (reversed == Integer.MAX_VALUE / 10 && pop > 7)) {
+				return 0;
+			} else if (reversed < Integer.MIN_VALUE / 10 || (reversed == Integer.MIN_VALUE / 10 && pop < -8)) {
+				return 0;
+			} else {
+				reversed = (reversed * 10) + pop;
+			}
+		}
+		return reversed;
 	}
 	
 	/**
@@ -46,15 +83,6 @@ public class ReverseInteger_7 {
 		}
 		return reversed;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	/**
 	 * Attempt 2 - July 1, 2021
