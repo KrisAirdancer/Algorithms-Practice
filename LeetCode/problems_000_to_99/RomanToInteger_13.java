@@ -4,14 +4,76 @@ public class RomanToInteger_13 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(romanToInt_A4("I") + ", ONE");
-		System.out.println(romanToInt_A4("II") + ", TWO");
-		System.out.println(romanToInt_A4("III") + ", THREE");
-		System.out.println(romanToInt_A4("IV") + ", FOUR");
-		System.out.println(romanToInt_A4("IX") + ", NINE");
-		System.out.println(romanToInt_A4("LVIII") + ", FIFTY-EIGHT");
-		System.out.println(romanToInt_A4("MCMXCIV") + ", NINETEEN-NINTY-FOUR");
+		System.out.println(romanToInt_A5("I") + ", ONE");
+		System.out.println(romanToInt_A5("II") + ", TWO");
+		System.out.println(romanToInt_A5("III") + ", THREE");
+		System.out.println(romanToInt_A5("IV") + ", FOUR");
+		System.out.println(romanToInt_A5("IX") + ", NINE");
+		System.out.println(romanToInt_A5("LVIII") + ", FIFTY-EIGHT");
+		System.out.println(romanToInt_A5("MCMXCIV") + ", NINETEEN-NINTY-FOUR");
 
+	}
+	
+	/**
+	 * Attempt 5 - July 15, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Initialize output variable to 0
+	 * - Indexed for loop to loop over the string using charAt to access the characters
+	 * 	- *If input is length 1, convert that value and return***
+	 * 		- output = output + current
+	 * 	- *If index + 1 is greater than the length of the input, only convert index***
+	 * 		- output = (output * 10) + current
+	 * 	- *If index + 1 has a value that is greater than the current index value, subtract index from index + 1***
+	 * 		- output = (output * 10) + (next - current)
+	 * 	- *Else, convert only index***
+	 * 		- output = (output * 10) + current
+	 */
+	public static int romanToInt_A5(String input) {
+		
+		int output = 0;
+		
+		for (int index = 0; index < input.length(); index++) {
+			
+			if (input.length() < 2) {
+				return charToInt_A5(input.charAt(index));
+				
+			} else if (index + 1 > input.length() - 1) {
+				output = (output) + charToInt_A5(input.charAt(index));
+				
+			} else if (charToInt_A5(input.charAt(index + 1)) > charToInt_A5(input.charAt(index))) {
+				output = (output) + (charToInt_A5(input.charAt(index + 1)) - charToInt_A5(input.charAt(index)));
+				
+			} else {
+				output = (output) + charToInt_A5(input.charAt(index));
+			}
+		}
+		return output;
+	}
+	
+	/**
+	 * Auxiliary method for Attempt 5
+	 */
+	public static int charToInt_A5(char input) {
+		
+		switch (input) {
+			case 'I':
+				return 1;
+			case 'V':
+				return 5;
+			case 'X':
+				return 10;
+			case 'L':
+				return 50;
+			case 'C':
+				return 100;
+			case 'D':
+				return 500;
+			case 'M':
+				return 1000;
+			default:
+				return -1;
+		}
 	}
 	
 	/**

@@ -8,9 +8,38 @@ public class FizzBuzz_412 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(fizzBuzz_A3(533515));
+		System.out.println(fizzBuzz_A4(15));
 
 	}
+	
+	/**
+	 * Attempt 4 - July 15, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Create an output array list
+	 * - Indexed for loop to loop from 1 to num
+	 * 	- Add the appropriate thing to output with if else statements
+	 * - return output 
+	 */
+	public static ArrayList<String> fizzBuzz_A4(int num) {
+		
+		ArrayList<String> output = new ArrayList<String>();
+		
+		for (int index = 1; index <= num; index++) {
+			
+			if (index % 3 == 0 && index % 5 == 0) {
+				output.add("FizzBuzz");
+			} else if (index % 5 == 0) {
+				output.add("Buzz");
+			} else if (index % 3 == 0) {
+				output.add("Fizz");
+			} else {
+				output.add(Integer.toString(index));
+			}
+		}
+		return output;
+	}
+	
 	
 	/**
 	 * Attempt 3 - July 9, 2021
