@@ -9,9 +9,43 @@ public class SelectionSort {
 
 		int[] test = {23, 2, 36, 9, 68, 0, 2, 99, 5, 16, 9, 35, 0, 64, 6, 92, 4, 12, 2, 69, 6, 97, 9, 35};
 
-		selectionSort_A3(test);
+		selectionSort_A4(test);
 		
 		System.out.println(Arrays.toString(test));
+	}
+	
+	/**
+	 * Attempt 4 - July 16, 2021
+	 * 
+	 * ALGORITHM EXPLANATION:
+	 * - Split the array into sorted and unsorted partitions.
+	 * - Search the unsorted partition for the smallest element (must traverse the entire partition).
+	 * - Swap smallest element with first element in the unsorted partition.
+	 * - Increment the sorted partition's size up by one.
+	 * 
+	 * SOLUITION OUTLINE:
+	 * - Indexed for loop - index is firstUnsorted - stop when first unsorted is >= length() (one larger than the last element)
+	 * 	- Initialize smallest variable to hold the index value of the smallest found element (initialize to first element in unsorted partition)
+	 * 	- Indexed for loop to search the unsorted partition
+	 * 		- if current element smaller than element at smallest, set smallest to current index
+	 * 	- Swap firstUnsorted element with smallest element
+	 */
+	public static void selectionSort_A4(int[] input) {
+		
+		for (int firstUnsorted = 0; firstUnsorted < input.length; firstUnsorted++) {
+			
+			int smallest = firstUnsorted;
+			
+			for (int index = firstUnsorted + 1; index < input.length; index++) {
+				if (input[index] < input[smallest]) {
+					smallest = index;
+				}
+			}
+			// Swap smallest element with firstUnsorted element
+			int temp = input[smallest];
+			input[smallest] = input[firstUnsorted];
+			input[firstUnsorted] = temp;
+		}
 	}
 
 	/**
