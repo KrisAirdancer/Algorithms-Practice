@@ -8,14 +8,46 @@ public class MergeSort {
 		
 		int[] test = {11, 28, 10, 19, 5, 21, 16, 14};
 		
-		mergeSort_A3(test);
+		mergeSort_A1(test);
 		System.out.println("Input: [11, 28, 10, 19, 5, 21, 16, 14], Output: " + Arrays.toString(test));
 
 	}
 
-	/***********
-	 * Attempt 3
-	 **********/
+	/**
+	 * MODEL SOLUTION
+	 * 
+	 */
+	public static void mergeSort_MS(int[] input, int start, int end) {
+		
+		// BASE CASE: Partition of length 1
+		if (end - start < 2) {
+			return;
+		}
+		
+		// Calculate midpoint
+		int mid = start + ((end - start) / 2);
+		
+		// RECURSIVE CASES
+		mergeSort_MS(input, start, mid); // For left partition
+		mergeSort_MS(input, mid, end); // For right partition
+		
+		/* If the last element in the left array is smaller than the first
+		 * element in the right array, the two arrays and all of their elements
+		 * are already in the correct sorted order relative to each other.
+		 */
+		if (input[mid - 1]) // I am including the element at mid in both the left and right partitions then ignoring it
+							// in one of them using mid - 1. This seems like a poor solution. I should work out a way
+							// to include it in only one of the partitions to begin with. See this line and the
+							// Recursive Cases above for the issue.
+		
+	}
+	
+	/**
+	 * Driver method for MODEL SOLUTION
+	 */
+	public static void mergeSort_MS(int[] input) {
+		mergeSort_MS(input, 0, input.length - 1);
+	}
 	
 	/**
 	 * Driver method for mergeSort_A3.
@@ -99,12 +131,6 @@ public class MergeSort {
 		
 	}
 	
-	
-	
-	/***********
-	 * Attempt 2 
-	 **********/
-	
 	/**
 	 * Attempt 2 - CTCI Implementation
 	 * 
@@ -143,6 +169,7 @@ public class MergeSort {
 		mergeSort_A1(input, mid, end);
 		
 		// VISTA SAYS THE BELOW PART SHOULD ESSENTIALLY BE INSERTION SORT
+		
 		/* If the last element in the left array is smaller than the first
 		 * element in the right array, the two arrays and all of their elements
 		 * are already in the correct sorted order relative to each other.
