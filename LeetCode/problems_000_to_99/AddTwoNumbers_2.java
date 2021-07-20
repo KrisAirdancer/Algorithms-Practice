@@ -29,17 +29,8 @@ public class AddTwoNumbers_2 {
 	/**
 	 * Model Solution - WIP
 	 */
-	public static LinkedList addTwoNumbers_MS(ListNode list1, ListNode list2) {
+	public static void addTwoNumbers_MS() {
 		
-		ListNode outputHead = new ListNode(0);
-		ListNode one = list1, two = list2, current = outputHead;
-		
-		int temp = 0;
-		
-		while (one != null || two != null) {
-			
-			int 
-		}
 	}
 
 }
