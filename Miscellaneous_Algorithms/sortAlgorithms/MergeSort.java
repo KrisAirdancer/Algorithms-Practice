@@ -35,7 +35,7 @@ public class MergeSort {
 		 * element in the right array, the two arrays and all of their elements
 		 * are already in the correct sorted order relative to each other.
 		 */
-		if (input[mid - 1]) // I am including the element at mid in both the left and right partitions then ignoring it
+//		if (input[mid - 1]) // I am including the element at mid in both the left and right partitions then ignoring it
 							// in one of them using mid - 1. This seems like a poor solution. I should work out a way
 							// to include it in only one of the partitions to begin with. See this line and the
 							// Recursive Cases above for the issue.
