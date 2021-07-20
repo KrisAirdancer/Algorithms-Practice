@@ -8,7 +8,7 @@ public class InsertionSort {
 		
 		int[] test = {23, 2, 36, 9, 68, 2, 99, 5, 16, 9, 0, 35, 0, 64, 6, 92, 4, 12, 2, 69, 6, 97, 9, 35};
 
-		insertionSort_A2(test);
+		insertionSort_MS(test);
 		System.out.println(Arrays.toString(test));
 		
 	}
@@ -44,7 +44,6 @@ public class InsertionSort {
 			}
 		}
 	}
-	
 	
 	/**
 	 * SOLUTION IDEA:
@@ -92,4 +91,34 @@ public class InsertionSort {
 			firstUnsorted++;
 		}
 	}
+	
+	/**
+	 * Model Solution
+	 * 
+	 * SOLUTION OUTLINE: 
+	 * - Divide the array into two partitions (sorted and unsorted)
+	 * - Loop over the sorted partition while the first element in the unsorted partition is
+	 * smaller than the current element in the sorted partition. On each pass, swap the current
+	 * element with the firstUnsorted element.
+	 * - Continue until the sorted partition is the same size as the original array, then 
+	 * sorting is complete. 
+	 */
+	public static void insertionSort_MS(int[] input) {
+		
+		for (int firstUnsorted = 0; firstUnsorted < input.length; firstUnsorted++) { // firstUnsorted could start at 1 or 0. It doesn't matter with this implementation.
+			
+			// searchIndex is set to firstUnsorted so that the while loop can use just the searchIndex variable to conduct the search/swap operations
+			int searchIndex = firstUnsorted;
+			
+			while ((searchIndex - 1) >= 0 && input[searchIndex] < input[searchIndex - 1]) {
+				
+				int temp = input[searchIndex];
+				input[searchIndex] = input[searchIndex - 1];
+				input[searchIndex - 1] = temp;
+				
+				searchIndex--;
+			}
+		}
+	}
 }
+
