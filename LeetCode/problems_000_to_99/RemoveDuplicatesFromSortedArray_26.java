@@ -4,10 +4,33 @@ public class RemoveDuplicatesFromSortedArray_26 {
 
 	public static void main(String args[]) {
 		
-		int[] nums = {1, 2, 4, 4, 4, 5};
+		int[] nums = {0,0,1,1,1,2,2,3,3,4};
 		
-		System.out.println(removeDuplicates_3(nums));
+		System.out.println(removeDuplicates_A4(nums));
 		
+	}
+	
+	/**
+	 * Attempt 4 - July 21, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Loop over the input array and search for locations where index == index - 1. Start index
+	 * at index = 1 (not index = 0) and stop looping at index == input.length - 1. If the condition
+	 * index == index - 1 is met, set the next open space at the beginning of the array equal to
+	 * the element at index then increment the insertion pointer. When whole array has been searched,
+	 * return insertionIndex - 1. Also check that any found duplicates haven't already been found.
+	 */
+	public static int removeDuplicates_A4(int[] input) {
+		
+		int insertionIndex = 1;
+		
+		for (int index = 1; index < input.length; index++) {
+			if (input[index] != input[index - 1]) {
+				input[insertionIndex] = input[index];
+				insertionIndex++;
+			}
+		}
+		return insertionIndex;
 	}
 	
 	/**
