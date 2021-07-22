@@ -10,6 +10,7 @@ public class BinarySearch {
 		System.out.println("A2: " + binarySearch_Recursive_A2(test, 20, 0, test.length - 1));
 		System.out.println("A3: " + binarySearch_Recursive_A3(test, 20, 0, test.length - 1));
 		System.out.println("A4: " + binarySearch_Recursive_A4(test, 6));
+		System.out.println("A4: " + binarySearch_Recursive_A4(test, 2));
 		
 		System.out.println("Model Solution: " + binarySearch_Recursive_ModelSolution(test, 20, 0, test.length - 1));
 
@@ -17,6 +18,37 @@ public class BinarySearch {
 		// Good discussion of how to find the midpoint properly and why: https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
 	}
 
+	/**
+	 * Attempt 5 - July 22, 2021
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Binary search searches by splitting the list in half, then comparing the midpoint 
+	 * (the element between the two partitions) to the target value then searches only the 
+	 * partition with the target value in it.
+	 * 
+	 * - BASE CASE: If...
+	 * - Calculate midpoint
+	 * - Three if else statements:
+	 * 	- If midpoint > target, search left partition RECURSIVE CALL
+	 * 	- If midpoint < target, search right partition RECURSIVE CALL
+	 * 	- Else (the case where midpoint == target), return midpoint
+	 */
+	public static int binarySearch_Recursive_A5(int[] input, int target, int low, int high) {
+		
+		if (low > high) { // Check for invalid bounds
+			return -1;
+		}
+		
+		int mid = low + ((high - low) /  2);
+		
+		if (mid > target) {
+			return binarySearch_Recursive_A5(input, target, low, mid - 1);
+		} else if (mid < target) {
+			return binarySearch_Recursive_A5(input, target, mid + 1, high);
+		} else {
+			return mid;
+		}
+	}
 	
 	/**
 	 * Attempt 4 - July 12, 2021
