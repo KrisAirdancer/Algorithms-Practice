@@ -12,12 +12,33 @@ public class IsUnique {
 
 	public static void main(String[] args) {
 		
-		String testString = "abcd";
+		String testString = "abcdd";
 		
-		System.out.println(isUnique_A6(testString));
+		System.out.println(isUnique_A7(testString));
 
 	}
 
+	/*
+	 * Attempt 7 - No additional data structures
+	 * 
+	 * SOLUTION OUTLINE:
+	 * - Loop over the entire string and compare every letter to every other letter.
+	 * 
+	 */
+	public static boolean isUnique_A7(String input) {
+		
+		for (int index = 0; index < input.length(); index++) {
+			
+			for (int search = index + 1; search < input.length(); search++) {
+				
+				if (input.charAt(search) == input.charAt(index)) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
 	/**
 	 * Attempt 6 - No additional data structures
 	 * 
