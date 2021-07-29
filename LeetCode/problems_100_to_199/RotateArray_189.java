@@ -30,14 +30,113 @@ public class RotateArray_189 {
 		
 		int[] test = {1, 2, 3, 4, 5, 6, 7};
 		
-		// Testing rotateArray_1
-		rotateArray_2(test, 3);
-		System.out.println("Correct for shift = 3: {5, 6, 7, 1, 2, 3, 4}, " + "Actual: " + Arrays.toString(test));
+		// Testing rotateArray
+		rotateArray_A3(test, 3);
+		System.out.println("Correct for shift = 3: [5, 6, 7, 1, 2, 3, 4], " + "Actual: " + Arrays.toString(test));
 		
+		int[] testTwo = {-1,-100,3,99};
+		
+		rotateArray_A3(testTwo, 2);
+		System.out.println("Correct for shift = 2: [3, 99, -1, -100], " + "Actual: " + Arrays.toString(testTwo));
+		
+		int[] testThree = {1, 2};
+		
+		rotateArray_A3(testThree, 1);
+		System.out.println("Correct for shift = 1: [2, 1], " + "Actual: " + Arrays.toString(testThree));
+		
+		int[] testFour = {1, 2, 3};
+		
+		rotateArray_A3(testFour, 2);
+		System.out.println("Correct for shift = 2: [2, 3, 1], " + "Actual: " + Arrays.toString(testFour));
 
 	}
 	
-	// TRY USING AN ADDITIONAL ARRAY NEXT TIME!
+	/**
+	 * Attempt 3 - July 29, 2021
+	 * 
+	 * SOLUTION IDEA:
+	 * - Copy the input array to a new array
+	 * - Two loops that copy values from the copy to the original
+	 * 	- Loop 1:
+	 * 		- While loop with two indexes, read and write
+	 * 		- read starts at index 0 of the copy array
+	 * 		- write starts at index shift of the original array
+	 * 		- Loops until write is greater than the length of input (original) array - copies the value from read to write as it goes
+	 * 	- Loop 2:
+	 * 		- While loop with two indexes, read and write
+	 * 		- read starts at index shift + 1 of copy array
+	 * 		- write starts at index 0 of original array
+	 * 		- Loops until read is greater than the length of the copy array
+	 */
+	public static void rotateArray_A3(int[] input, int shift) {
+		
+		// shift of 0
+		if (shift == 0) {
+			return;
+		}
+		
+		// Array of length 1
+		if (input.length == 1) {
+			return;
+		}
+		
+		// Array of length 2
+		if (input.length == 2) {
+			if (shift != 1 && shift % 2 == 0) { // Even shift
+				return;
+			} else { // Odd shift
+				int temp = input[0];
+				input[0] = input[1];
+				input[1] = temp;
+				return;
+			}
+		}
+		
+		int[] copy = new int[input.length];
+		
+		// Copy the original array to the copy array
+		for (int index = 0; index < input.length; index++) {
+			copy[index] = input[index];
+		}
+		
+		// Create read and write variables
+		int read = 0;
+		int write = shift;
+		
+		// Shift the front half of values up by the shift amount
+		while (write < input.length) {
+			// Copy values from copy array to original array
+			input[write] = copy[read];
+			// Increment variables
+			read++;
+			write++;
+		}
+		
+		// Setup variables for next loop
+		if (input.length % 2 == 0 ) { // For even length arrays
+			read = shift;
+		} else { // For odd length arrays
+			read = shift + 1;
+		}
+		write = 0;
+		
+		// Copy the back half of values from the back of the array to the front
+		while (read < copy.length) {
+			// Copy values from copy array to original array
+			input[write] = copy[read];
+			// Increment variables
+			read++;
+			write++;
+		}
+	}
+	
+	/**
+	 * Model Solution 
+	 */
+	public static void rotateArray_ModelSolution(int[] input, int shift) {
+
+		// NO MODEL SOLUTION YET
+	}
 	
 	/**
 	 * Attempt 2 - FAILED - This alg does not work
@@ -130,14 +229,4 @@ public class RotateArray_189 {
 		
 	}
 
-	/**
-	 * Model Solution.
-	 * 
-	 * @param input
-	 * @param shift
-	 */
-	public static void rotateArray_ModelSolution(int[] input, int shift) {
-
-		// NO MODEL SOLUTION SELECTED YET
-	}
 }
