@@ -1,5 +1,6 @@
 package sortAlgorithms;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MergeSort {
@@ -8,58 +9,84 @@ public class MergeSort {
 		
 		int[] test = {11, 28, 10, 19, 5, 21, 16, 14};
 		
-		mergeSort_A1(test);
+		mergeSort_MS(test);
 		System.out.println("Input: [11, 28, 10, 19, 5, 21, 16, 14], Output: " + Arrays.toString(test));
 
 	}
-
+	
 	/**
-	 * Attempt 4 - July 28, 2021
+	 * MODEL SOLUTION - Driver method for mergeSort_MS
+	 * 
+	 * Note: Model solution from p147 CTCI
 	 * 
 	 * SOLUTION OUTLINE:
+	 * - Decompose the input array into halves until each half is of length 1.
+	 * - Merge the length-1 arrays back together, while doing so, place each element in the
+	 * correct sorted order.
 	 */
-	public static void mergeSort_A4(int[] input, int start, int end) {
-		
+	public static void mergeSort_MS(int[] input) { // Driver method for mergeSort_MS - produces correct initial inputs
+		int[] duplicate = new int[input.length];
+		mergeSort_MS(input, duplicate, 0, input.length - 1);
 	}
 	
 	/**
-	 * MODEL SOLUTION
-	 * 
+	 * MODEL SOLUTION - Sorting method for mergeSort_MS - splits the array into halves and calls the sort method
 	 */
-	public static void mergeSort_MS(int[] input, int start, int end) {
+	public static void mergeSort_MS(int[] input, int[] duplicate, int low, int high) {
 		
-		// BASE CASE: Partition of length 1
-		if (end - start < 2) {
-			return;
+		if (low < high) { // Check that the high and low bounds are valid
+			
+			int middle = low + (high - low) / 2; // Calculate midpoint
+			
+			mergeSort_MS(input, duplicate, low, middle); // Sort left partition
+			mergeSort_MS(input, duplicate, middle + 1, high); // Sort right partition
+			
+			// Call the sort method to sort the current partitions
+			merge_MS(input, duplicate, low, middle, high);
+		}
+	}
+	
+	/**
+	 * MODEL SOLUTION - Sort method for mergeSort_MS - sorts and combines two partitions
+	 */
+	public static void merge_MS(int[] input, int[] duplicate, int low, int middle, int high) {
+		
+		// Copy original array to helper array
+		for (int index = low; index <= high; index++) {
+			duplicate[index] = input[index];
 		}
 		
-		// Calculate midpoint
-		int mid = start + ((end - start) / 2);
+		int leftIndex = low;
+		int rightIndex = middle + 1;
+		int current = low;
 		
-		// RECURSIVE CASES
-		mergeSort_MS(input, start, mid); // For left partition
-		mergeSort_MS(input, mid, end); // For right partition
+		/* Iterate through the duplicate array. Compare the left and right half, copying
+		 * back the smaller element from the two halves into the original array. */
+		while (leftIndex <= middle && rightIndex <= high) {
+			
+			if (duplicate[leftIndex] <= duplicate[rightIndex]) { // If right element is greater than or equal to left element
+				input[current] = duplicate[leftIndex];
+				leftIndex++;
+				
+			} else { // If right element is smaller than left element
+				input[current] = duplicate[rightIndex];
+				rightIndex++;
+				
+			}
+			current++;
+		}
 		
-		/* If the last element in the left array is smaller than the first
-		 * element in the right array, the two arrays and all of their elements
-		 * are already in the correct sorted order relative to each other.
-		 */
-		if (input[mid - 1] < input[mid]) {
-			return;
-		} 
-		/* I am including the element at mid in both the left and right partitions then ignoring it
-		* in one of them using mid - 1. This seems like a poor solution. I should work out a way
-		* to include it in only one of the partitions to begin with. See this line and the
-		* Recursive Cases above for the issue. */
-		
+		// Copy the rest of the left side of the array into the target array.
+		int remaining = middle - leftIndex;
+		for (int index = 0; index <= remaining; index++) {
+			input[current + index] = duplicate[leftIndex + index];
+		}
 	}
 	
-	/**
-	 * Driver method for MODEL SOLUTION
-	 */
-	public static void mergeSort_MS(int[] input) {
-		mergeSort_MS(input, 0, input.length - 1);
-	}
+	/*******************
+	 * PERSONAL ATTEMPTS
+	 *******************/
+	
 	
 	/**
 	 * Driver method for mergeSort_A3.
