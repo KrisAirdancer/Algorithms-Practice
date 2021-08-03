@@ -4,14 +4,83 @@ public class RomanToInteger_13 {
 
 	public static void main(String[] args) {
 		
-		System.out.println(romanToInt_A5("I") + ", ONE");
-		System.out.println(romanToInt_A5("II") + ", TWO");
-		System.out.println(romanToInt_A5("III") + ", THREE");
-		System.out.println(romanToInt_A5("IV") + ", FOUR");
-		System.out.println(romanToInt_A5("IX") + ", NINE");
-		System.out.println(romanToInt_A5("LVIII") + ", FIFTY-EIGHT");
-		System.out.println(romanToInt_A5("MCMXCIV") + ", NINETEEN-NINTY-FOUR");
+		System.out.println(romanToInt_A6("I") + ", ONE");
+		System.out.println(romanToInt_A6("II") + ", TWO");
+		System.out.println(romanToInt_A6("III") + ", THREE");
+		System.out.println(romanToInt_A6("IV") + ", FOUR");
+		System.out.println(romanToInt_A6("IX") + ", NINE");
+		System.out.println(romanToInt_A6("LVIII") + ", FIFTY-EIGHT");
+		System.out.println(romanToInt_A6("MCMXCIV") + ", NINETEEN-NINTY-FOUR");
 
+	}
+	
+	/**
+	 * Attempt 6 - August 3, 2021
+	 */
+	public static int romanToInt_A6(String num) {
+		
+		// Create sum variable
+		int sum = 0;
+		
+		// Check for length 1 string
+		if (num.length() < 2) {
+			return charToInt_A6(num.charAt(0));
+		}
+		
+		// Loop over input string
+		for (int index = 0; index < num.length(); index++) {
+			
+			int current = charToInt_A6(num.charAt(index));
+			int next;
+
+			if (index + 1 > num.length() - 1) { // For last character (number) in num
+
+				current = charToInt_A6(num.charAt(index));
+				sum += current;
+				
+				index++; // Skip the next number in num - it has already been accounted for in this case
+
+			} else { // For all characters before the last character in num
+				
+				next = charToInt_A6(num.charAt(index + 1));
+			
+				if (next > current) { // For subtractive situation. i.e. IV, IX, etc.
+					sum = sum + (next - current);
+					
+					index++; // Skip the next number in num - it has already been accounted for in this case
+				} else {
+					sum += current;
+				}
+			}
+		}
+		return sum;
+	}
+	
+	/**
+	 * Helper method for romanToInt_A6.
+	 * 
+	 * Converts a Roman numeral char into an integer, then returns that integer.
+	 */
+	public static int charToInt_A6(char roman) {
+		
+		switch (roman) {
+			case 'I':
+				return 1;
+			case 'V':
+				return 5;
+			case 'X':
+				return 10;
+			case 'L':
+				return 50;
+			case 'C':
+				return 100;
+			case 'D':
+				return 500;
+			case 'M':
+				return 1000;
+			default:
+				return -1;
+		}
 	}
 	
 	/**
