@@ -9,9 +9,68 @@ public class MergeSort {
 		
 		int[] test = {11, 28, 10, 19, 5, 21, 16, 14};
 		
-		mergeSort_MS(test);
+		mergeSort_A4(test);
 		System.out.println("Input: [11, 28, 10, 19, 5, 21, 16, 14], Output: " + Arrays.toString(test));
 
+	}
+	
+	/**
+	 * Driver method for Attempt 4
+	 */
+	public static void mergeSort_A4(int[] input) {
+		int[] duplicate = new int[input.length];
+		 
+		mergeSort_A4(input, duplicate, 0, input.length - 1);
+	}
+	
+	/**
+	 * Attempt 4 - August 4, 2021
+	 */
+	public static void mergeSort_A4(int[] input, int[] duplicate, int low, int high) {
+		
+		// Check for valid bounds - BASE CASE???
+		if (low >= high) {
+			return;
+		}
+		
+		// Calculate mid point
+		int mid = low + ((high - low) / 2);
+		
+		// Sort the left partition
+		mergeSort_A4(input, duplicate, low, mid);
+		// Sort the right partition
+		mergeSort_A4(input, duplicate, mid + 1, high);
+		
+		// SORT CURRENT PARTITION
+		
+		// Copy elements from input to duplicate array - duplicate array must stay updated during the sort
+		for (int index = 0; index < input.length; index++) {
+			duplicate[index] = input[index];
+		}
+		
+		// Create pointers
+		int left = low;
+		int right = mid + 1;
+		int current = low;
+		
+		// Iterate through the duplicate array and copy values from the duplicate to the original as necessary
+		while (left <= mid && right <= high) {
+			// Compare left and right partition values and sort
+			if (duplicate[left] <= duplicate[right]) { // Left element is less than or equal to right element
+				input[current] = duplicate[left];
+				left++;
+			} else { // Right element is less than left element
+				input[current] = duplicate[right];
+				right++;
+			}
+			current++;
+		}
+		
+		// Copy over the remaining elements from duplicate to original array
+		int remainder = mid - left;
+		for (int index = 0; index <= remainder; index++) {
+			input[current + index] = duplicate[left + index];
+		}
 	}
 	
 	/**
