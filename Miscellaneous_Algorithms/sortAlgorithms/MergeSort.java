@@ -9,7 +9,7 @@ public class MergeSort {
 		
 		int[] test = {11, 28, 10, 19, 5, 21, 16, 14};
 		
-		mergeSort_A4(test);
+		mergeSort_MS(test);
 		System.out.println("Input: [11, 28, 10, 19, 5, 21, 16, 14], Output: " + Arrays.toString(test));
 
 	}
