@@ -14,12 +14,9 @@ public class Solution {
                 
             } else { // token is closed paren or invalid character
                 
-                char last;
-                if (stack.Count > 0) {
-                    last = stack.Pop();
-                } else {
-                    return false;
-                }
+                if (stack.Count == 0) { return false; }
+                
+                char last = stack.Pop();
                 
                 if (last == '(' && token != ')') { return false; }
                 else if (last == '[' && token != ']') { return false; }
