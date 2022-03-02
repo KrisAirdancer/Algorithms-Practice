@@ -8,7 +8,7 @@ public class Solution {
         
         while (low <= high) {
             int midpoint = low + ((high - low) / 2);
-            Console.WriteLine($"low: {low}, high: {high}, midpoint: {midpoint}");
+            
             if (nums[midpoint] == target) {
                 return midpoint;
 
