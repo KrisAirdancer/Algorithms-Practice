@@ -8,7 +8,7 @@ public class Solution {
         // Step past whitespace at end of s to reach the last word in s
         while (index >= 0 && s[index] == ' ') { index--; }
         
-        // Sum the length of the last word in s
+        // Determine the length of the last word in s
         while (index >= 0 && s[index] != ' ') {
             wordLength++;
             index--;
