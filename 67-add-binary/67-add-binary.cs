@@ -11,7 +11,9 @@ public class Solution {
         int carry = 0;
         
         while (a_index >= 0 || b_index >= 0) {
+            
             int sum = carry; // "Adding" the carry to the sum
+            
             // Converting the current digits to ints
             if (a_index >= 0) { sum += a[a_index] - '0'; }
             if (b_index >= 0) { sum += b[b_index] - '0'; }
@@ -26,6 +28,7 @@ public class Solution {
         }
         if (carry != 0) { builder.Append(carry); }
         
+        // Append adds to the string from left to right so we need to reverse it - our calculations were done right to left.
         StringBuilder reversed = new StringBuilder();
         for (int i = builder.Length - 1; i >= 0; i--) {
             reversed.Append(builder[i]);
