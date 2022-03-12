@@ -2,5 +2,5 @@
 
 All of the algorithms practice problems I've done to date from a range of sources.
 
-Challenges Completed: 33
+Challenges Completed: 34
 
