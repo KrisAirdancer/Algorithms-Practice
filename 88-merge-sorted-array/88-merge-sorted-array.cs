@@ -6,6 +6,9 @@ public class Solution {
     /// rightmost space in nums1 (either move the element
     /// in nums1 back or transfer the element from nums2).
     /// When we reach the left of nums2, return.
+    ///
+    /// Solution from: @soumya_pallebothula
+    /// https://leetcode.com/problems/merge-sorted-array/discuss/1189409/My-Java-Solution
     /// </summary>
     public void Merge(int[] nums1, int m, int[] nums2, int n) {
         
