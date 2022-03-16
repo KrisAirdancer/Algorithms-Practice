@@ -33,7 +33,6 @@ public class Solution {
     }
     
     public IList<int> InorderTraversalRecursive(IList<int> orderedNodes, TreeNode start) {
-        // Console.WriteLine($"current: {start.val}");
             
         if (start.left != null) {
             InorderTraversalRecursive(orderedNodes, start.left);
