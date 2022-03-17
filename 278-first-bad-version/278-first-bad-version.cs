@@ -10,21 +10,23 @@ public class Solution : VersionControl {
     /// If bad, look in left partition (we are too far right)
     /// If good, look in right partition (we are too far left)
     /// Should work in O(logN) time
+    /// 
+    /// In Driver method
+    ///     Call recursive method
+    ///
+    /// In Recursive method
+    ///     Calculate midpoint
+    ///     If mid is bad && mid - 1 is good, return mid
+    ///     If mid is bad, search left partition
+    ///     If mid is good, search right partition
     /// <\summary>
     public int FirstBadVersion(int n) {
         
-        // Call recursive method
         return BadVersionBinarySearch(0, n);
     }
     
     public int BadVersionBinarySearch(int left, int right) {
-        
-        // Calculate midpoint
-        
-        // If mid is bad && mid - 1 is good, return mid
-        // If mid is bad, search left partition
-        // If mid is good, search right partition
-        
+               
         int mid = left + ((right - left) / 2);
         
         if (IsBadVersion(mid) && !IsBadVersion(mid - 1)) {
