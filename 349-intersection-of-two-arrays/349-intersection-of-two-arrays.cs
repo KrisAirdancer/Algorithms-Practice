@@ -23,7 +23,7 @@ public class Solution {
         HashSet<int> intersection = new HashSet<int>();
         
         for (int i = 0; i < nums1.Length; i++) {
-            Console.WriteLine($"nums1[i]: {nums1[i]}, bool: {BinarySearch(nums2, nums1[i])}");
+
             if (BinarySearch(nums2, nums1[i])) {
                 intersection.Add(nums1[i]);
             }
@@ -45,10 +45,10 @@ public class Solution {
     
     private bool BinarySearch(int[] list, int target, int left, int right) {
         
-        // Console.WriteLine($"RAN, {target}, {mid}");
         while (left <= right) {
+            
             int mid = left + ((right - left) / 2);
-            Console.WriteLine($"RAN, {target}, {mid}");
+
             if (list[mid] == target) {
                 return true;
             } else if (list[mid] > target) {
