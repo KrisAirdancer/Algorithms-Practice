@@ -19,7 +19,9 @@ public class Solution {
     /// </summary>
     public void Rotate(int[] nums, int k) { // IN-PLACE ROTATION
         
-        k %= nums.Length;
+        // Ensure that the given k is less than the length of the array
+        // but that the correct number of rotations are still completed
+        k = k % nums.Length;
         
         // Reverse the entire array
         reverseArray(nums, 0, nums.Length - 1);
