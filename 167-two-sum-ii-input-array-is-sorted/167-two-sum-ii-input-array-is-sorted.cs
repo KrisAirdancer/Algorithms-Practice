@@ -13,21 +13,20 @@ public class Solution {
     /// containing the indices of the two pointers (each should be incremmented)
     /// by one before being added to the array due to the 1-indexing requirement.
     /// 
+    /// COMPLEXITY:
+    /// Time: O(N)
+    /// Space: O(1)
+    /// 
     /// </summary>
     public int[] TwoSum(int[] numbers, int target) {
         
         int left = 0;
         int right = numbers.Length - 1;
-        int sum = numbers[left] + numbers[right];
         
-        while (sum != target) {
+        while (numbers[left] + numbers[right] != target) {
 
-            if (sum < target) {
-                left++;
-            } else { // sum > target
-                right--;
-            }
-            sum = numbers[left] + numbers[right];
+            if (numbers[left] + numbers[right] < target) { left++; }
+            else { right--; } // sum > target
         }
 
         int[] indices = {left + 1, right + 1};
