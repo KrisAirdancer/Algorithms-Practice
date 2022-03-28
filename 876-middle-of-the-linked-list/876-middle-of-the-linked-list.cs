@@ -39,15 +39,9 @@ public class Solution {
         ListNode slow = head;
         ListNode fast = head;
         
-        while (fast.next != null) {
-            
-            if (fast.next.next == null) {
-                fast = fast.next;
-                slow = slow.next;
-            } else {
+        while (fast != null && fast.next != null) {
                 fast = fast.next.next;
                 slow = slow.next;
-            }
         }
         return slow;
     }
