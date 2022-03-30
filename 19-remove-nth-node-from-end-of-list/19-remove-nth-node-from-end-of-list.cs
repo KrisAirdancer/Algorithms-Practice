@@ -39,9 +39,7 @@ public class Solution {
         ListNode right = head;
         
         for (int i = 0; i < n; i++) {
-            // Console.WriteLine($"i: {i}, rightVal: {right.val}");
             right = right.next;
-            // Console.WriteLine($"i: {i}, rightVal: {right.val}");
         }
         
         if (right is null) { return head.next; }
