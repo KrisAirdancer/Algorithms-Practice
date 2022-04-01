@@ -6,14 +6,14 @@ public class Solution {
     /// Create two pointers to loop over the string. Keep the first pointer (left) at
     /// the beginning of the list and move the second (right) to the right one
     /// character at a time. For each character visited by right (including the
-    /// one that it starts on), add it to a Dictionary. If an element visited by
-    /// right is already in the Dictionary, increment left by one (move it right)
-    /// and store the Count of the Dictionary in a variable largestSoFar. Continue
+    /// one that it starts on), add it to a HashSet. If an element visited by
+    /// right is already in the HashSet, increment left by one (move it right)
+    /// and store the Count of the HashSet in a variable largestSoFar. Continue
     /// until right reaches the end of the string, then return largestSoFar.
     /// 
     /// PERFORMANCE:
     /// Time Complexity: O(N)
-    /// Memory Complexity: O(N)???
+    /// Memory Complexity: O(N)
     /// 
     /// OUTLINE: 
     /// Initialize right and left pointers to zero
@@ -39,15 +39,15 @@ public class Solution {
         
         while (right < s.Length) {
             
+            // If the char is NOT in the substring (window)
             if (!chars.Contains(s[right])) {
                 chars.Add(s[right]);
                 if (chars.Count > longest) { longest = chars.Count; }
                 right++;
-            } else {
+            } else { // If the char IS in the substring (window)
                 chars.Remove(s[left]);
                 left++;
             }
-            // right++;
         }
         return longest;
     }
