@@ -9,7 +9,6 @@ public class Solution {
         for (int i = 0; i < s1.Length; i++) {
             char currentChar = s1[i];
             freq[currentChar]++;
-            // Console.WriteLine($"freq: {freq[currentChar]}");
         }
         
         int left = 0;
@@ -19,19 +18,15 @@ public class Solution {
         for (int i = 0; i < s1.Length; i++) {
             char currentChar = s2[i];
             freq[currentChar]--;
-            // Console.WriteLine($"freq: {freq[currentChar]}");
         }
         
-        // Console.WriteLine($"a: {freq[97]}, b: {freq[98]}, e: {freq[101]}, i: {freq[105]}");
+        // Slide window (left & right pointers) over s2 to search for matching substrings
         while (right < s2.Length) {
-            // Console.WriteLine($"Left: {s2[left]}, {freq[s2[left]]}; Right: {s2[right]}, {freq[s2[right]]}");
-            // Console.WriteLine($"e: {freq[101]}");
             if (ContainsAllZeros(freq)) { return true; }
             freq[s2[left]]++;
             left++;
             right++;
             if (right < s2.Length) { freq[s2[right]]--; }
-            // Console.WriteLine($"freq: {freq[right - 1]}");
         }
         return false;
     }
@@ -39,7 +34,6 @@ public class Solution {
     private bool ContainsAllZeros(int[] array) {
         for (int i = 0; i < array.Length; i++) {
             if (array[i] != 0) { return false; }
-            // Console.WriteLine($"freq: {array[i]}");
         }
         return true;
     }
