@@ -57,9 +57,7 @@ public class Solution {
             if (ContainsDups(freq) == false) {
                 count++;
             }
-            // Console.WriteLine($"Dups: {ContainsDups(freq)}");
-            // Console.WriteLine($"Left: {s[left]}, Mid: {s[left + 1]}, Right: {s[right]}");
-            // Console.WriteLine($"Left: {freq[s[left]]}, Mid: {freq[s[left + 1]]}, Right: {freq[s[right]]}");
+            
             freq[s[left]]--;
             left++;
             right++;
@@ -76,9 +74,8 @@ public class Solution {
     private bool ContainsDups(int[] arr) {
         
         foreach (int count in arr) {
-            // Console.WriteLine($"freq value: {count}");
+            
             if (count > 1) {
-                // Console.WriteLine($"Freq: {count}");
                 return true;
             }
         }
