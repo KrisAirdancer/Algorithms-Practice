@@ -34,8 +34,6 @@ public class Solution {
     /// </summary>
     public double FindMaxAverage(int[] nums, int k) {
         
-        int left = 0;
-        int right = 0;
         int sum = 0;
         int maxSum = 0;
         
