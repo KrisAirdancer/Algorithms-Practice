@@ -29,6 +29,8 @@ public class Solution {
     ///     Take average of sum, if greater than currentMaxAve, update currentMaxAve
     /// Return currentMaxAve
     /// 
+    /// REFERENCES:
+    /// Solution copied from here: https://leetcode.com/problems/maximum-average-subarray-i/discuss/105432/Java-solution-Sum-of-Sliding-window
     /// </summary>
     public double FindMaxAverage(int[] nums, int k) {
         
