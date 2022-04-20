@@ -18,6 +18,9 @@ public class Solution {
     ///     If an element is already in the Dictionary and currentIndex - duplicateValIndex <= k, return true
     /// return false
     /// 
+    /// REFERENCES:
+    /// Followed the solution here: https://leetcode.com/problems/contains-duplicate-ii/discuss/61397/Short-AC-JAVA-solution
+    /// 
     /// </summary>
     public bool ContainsNearbyDuplicate(int[] nums, int k) {
         
@@ -25,9 +28,11 @@ public class Solution {
         
         for (int i = 0; i < nums.Length; i++) {
             
+            // Duplicates found and the differences of their indices is <= k
             if (elements.ContainsKey(nums[i]) && Math.Abs(i - elements[nums[i]]) <= k) {
                 return true;
             }
+            // Add the current element to Dictionary or update existing Value in Dictionary
             if (elements.ContainsKey(nums[i])) {
                 elements[nums[i]] = i;
             } else {            
