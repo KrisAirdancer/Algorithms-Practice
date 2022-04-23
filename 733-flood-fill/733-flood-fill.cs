@@ -3,34 +3,16 @@ public class Solution {
     /// <summary>
     /// 
     /// IDEA:
-    /// Use recursion to visit every node connected to the starting node. At each node, 
-    /// check...
-    ///     If the node is out of the bounds of the image
-    ///     If the node has been visited
-    ///     If the node is the color to be changed (only need to change the color of nodes that are the same color as the starting node)
+    /// Use a stack to store all of the nodes that need to be visited. The nodes should be added to the stack beginning with the
+    /// starting node. Loop until no more nodes are added to the stack. If a node that is visited is out of bounds or doesn't
+    /// need to have its color changed, don't change its color and don't add its neighbors to the stack.
     /// 
     /// PERFORMANCE:
     /// Time Complexity: O(N*M)
-    /// Memory Complexity: 2 * O(N*M)
-    /// 
-    /// OUTLINE: 
-    /// Input check: if the staring node's color is already newColor, return
-    /// Create a boolean[][] to track if a node has been visited or not - defaults to false
-    /// Call recursive helper method to conduct depth-first search
-    /// Return image
-    ///
-    /// Helper Method:
-    /// Check that the current node is in bounds, hasn't been visited, and is the target color
-    ///     If not, return
-    /// Set visited to true for the current node
-    /// Search the top node
-    /// Search the left node
-    /// Search the bottom node
-    /// Search the right node
-    /// 
+    /// Memory Complexity: O(N*M)
     /// 
     /// REFERENCES: 
-    /// Followed this solution to produce my solution: https://leetcode.com/problems/flood-fill/discuss/442143/How-do-you-think-about-solving-a-question-using-DFS-Learn-before-you-Code
+    /// Followed this solution as a guide: https://leetcode.com/problems/flood-fill/discuss/1493270/Simple-to-read-C-DFS
     /// 
     /// </summary>
     public int[][] FloodFill(int[][] image, int startRow, int startColumn, int newColor) {
