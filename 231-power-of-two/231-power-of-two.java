@@ -22,10 +22,13 @@ class Solution {
     /// 
     /// OUTLINE:
     /// Check if n is less than or equal to zero. If it is, return false. Negatives and zero cannot be a power of two.
-    /// Return the boolean result of comparing n to n - 1 bitwise
+    /// Return true if the bitwise comparision of n & n - 1 is zero, false otherwise.
     /// 
     /// REFERENCES
     /// - James Oravec posted a helpful explanation of why bitwise operations are O(1): https://stackoverflow.com/questions/36830801/can-i-assume-that-a-bitwise-and-operation-is-o1-if-so-why/36844240#36844240
+    /// - I followed the explanations posted in these two posts to get to and understand my solution:
+    ///     - 3. Bit Manipulation, https://leetcode.com/problems/power-of-two/discuss/1638704/C%2B%2B-EASY-TO-SOLVE-oror-All-INTERVIEW-APPROACHES-with-Detailed-Explanations
+    ///     - Solution V - Bit Manipulation, https://leetcode.com/problems/power-of-two/discuss/1638961/C%2B%2BPython-Simple-Solutions-w-Explanation-or-All-Possible-Solutions-Explained
     /// 
     /// </summary>
     public boolean isPowerOfTwo(int n) {
