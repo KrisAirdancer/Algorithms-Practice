@@ -28,7 +28,9 @@ public class Solution {
     ///     Store the output of nums[i] ^ nums[j] in result
     /// Return result
     /// 
-    /// 
+    /// REFERENCES:
+    /// Used this solution/guide to arrive at my answer: https://leetcode.com/problems/single-number/discuss/1772139/C%2B%2Bor-Explained-Everything-w-WHY-XOR-WORKSor-BRUTE-FORCE-TO-OPTIMIZEDor-STEP-BY-STEP-DRY-RUN
+    /// Additional reading: https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/xor-operator
     /// 
     /// </summary>
     public int SingleNumber(int[] nums) {
