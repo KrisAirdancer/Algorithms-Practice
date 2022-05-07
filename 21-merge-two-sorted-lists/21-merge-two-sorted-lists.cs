@@ -43,13 +43,10 @@ public class Solution {
     ///         Increment the node pointer associated with the node that was stored
     /// Return the head of the result list
     /// 
-    /// SOURCES:
-    /// 
-    /// 
     /// </summary>
     public ListNode MergeTwoLists(ListNode list1, ListNode list2) {
                 
-        
+        // Check for empty lists
         if (list1 == null && list2 == null) {
             return list1;
             
@@ -64,6 +61,7 @@ public class Solution {
         ListNode pointer_2 = list2;
         ListNode returnHead;
         
+        // Store the head of the return list
         if (pointer_1.val <= pointer_2.val) {
             returnHead = new ListNode(pointer_1.val, pointer_1.next);
             pointer_1 = pointer_1.next;
@@ -76,48 +74,30 @@ public class Solution {
         ListNode insertionNode = returnHead;
         
         while (pointer_1 != null || pointer_2 != null) { // Once both nodes are null, we've visited every node in each list.
-            
-            // Console.WriteLine($"LOG 1 :: P1: {pointer_1.val}, P2: {pointer_2.val}");
-            
+
             if (pointer_1 != null && pointer_2 != null) {
-                
-                // Console.WriteLine($"LOG 2 :: P1: {pointer_1.val}, P2: {pointer_2.val}");
-                
+
                 if (pointer_1.val <= pointer_2.val) {
-                    
-                    // Console.WriteLine($"LOG 3 :: P1: {pointer_1.val}, P2: {pointer_2.val}");
-                    // Console.WriteLine($"Added: {pointer_1.val}");
-                    
                     insertionNode.next = new ListNode(pointer_1.val, pointer_1.next);
                     insertionNode = insertionNode.next;
                     pointer_1 = pointer_1.next;
-                    
-                    // Console.WriteLine($"LOG 4 :: P1: {pointer_1.val}, P2: {pointer_2.val}, P1.next: {pointer_1.next.val}, list1.next: {list1.next.val}");
-                    
+
                 } else {
-                    // Console.WriteLine($"Added: {pointer_2.val}");
-                    
                     insertionNode.next = new ListNode(pointer_2.val, pointer_2.next);
                     insertionNode = insertionNode.next;
                     pointer_2 = pointer_2.next;
                 }
             } else if (pointer_1 != null) {
-                // Console.WriteLine($"Added: {pointer_1.val}");
-                
                 insertionNode.next = new ListNode(pointer_1.val, pointer_1.next);
                 insertionNode = insertionNode.next;
                 pointer_1 = pointer_1.next;
                 
             } else if (pointer_2 != null) {
-                // Console.WriteLine($"Added: {pointer_2.val}");
-                
                 insertionNode.next = new ListNode(pointer_2.val, pointer_2.next);
                 insertionNode = insertionNode.next;
                 pointer_2 = pointer_2.next;
             }
         }
-        
-        // Console.WriteLine($"LOG 1 :: P1: {pointer_1}, P2: {pointer_2}");
         
         return returnHead;
     }
