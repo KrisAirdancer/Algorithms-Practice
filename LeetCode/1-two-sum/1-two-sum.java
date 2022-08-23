@@ -1,20 +1,27 @@
 class Solution {
-    public int[] twoSum(int[] input, int target) {
-        		
-		int[] output = new int[2];
-		
-		HashMap<Integer, Integer> foundValues = new HashMap<Integer, Integer>();
-		
-		for (int index = 0; index < input.length; index++) {
-			
-			if (foundValues.containsKey((target - input[index]))) {
-				output[0] = foundValues.get(target - input[index]);
-				output[1] = index;
-				return output;
-			} else {
-				foundValues.put(input[index], index);
-			}
-		}
-		return output;
+    
+    // Create new array for return indicies
+    // Create new hashmap
+    // Loop over the input array
+        // Check if target - current is in hashmap
+            // If not, continue
+            // If yes, store current indicies in return int[] and break out of loop
+        // Add current element to hashmap
+    // Return indicies
+    public int[] twoSum(int[] nums, int target) {
+        
+        int[] indicies = new int[2];
+        
+        HashMap<Integer, Integer> numbers = new HashMap<Integer, Integer>();
+        
+        for (int i = 0; i < nums.length; i++) {
+            if (numbers.containsKey(target - nums[i])) {
+                indicies[0] = numbers.get(target - nums[i]);
+                indicies[1] = i;
+                break;
+            }
+            numbers.put(nums[i], i);
+        }
+        return indicies;
     }
 }
