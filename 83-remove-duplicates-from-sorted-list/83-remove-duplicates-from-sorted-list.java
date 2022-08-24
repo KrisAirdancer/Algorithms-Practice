@@ -11,6 +11,8 @@
 class Solution {
     
     /**
+     * Time Complexity: O(N) - Only looping over each element in the list once.
+     * Memory Complexity: O(~2N) - Storing up to two copies of the given linked list, effectively doubling the sapce used to store the objects.
      * Create a new linked list (LL) to be returned
      * Add the first element in the given LL to the new LL
      * Loop (over entire given LL):
@@ -28,10 +30,7 @@ class Solution {
         ListNode returnPosition = returnHead;
         ListNode givenPosition = head.next;
         
-        // System.out.println("returnHead: " + returnHead.val + ", returnPosition: " + returnPosition.val + ", head: " + head.val + ", givenPosition: " + givenPosition.val);
-        
         while (givenPosition != null) {
-                    // System.out.println("returnHead: " + returnHead.val + ", returnPosition: " + returnPosition.val + ", head: " + head.val + ", givenPosition: " + givenPosition.val);
             
             if (givenPosition.val != returnPosition.val) {
                 returnPosition.next = new ListNode(givenPosition.val);
