@@ -34,6 +34,9 @@ class Solution {
      * 
      * UPDATES/IMPROVEMENTS:
      * - I should only need one queue b/c I can push and pop in pairs - this will reduce the overall memory complexity.
+     * 
+     * SOURCES:
+     * - Checked my solution against the following before implementing: https://leetcode.com/problems/symmetric-tree/discuss/538880/Iterative-solution
      */
     public boolean isSymmetric(TreeNode root) {
         
