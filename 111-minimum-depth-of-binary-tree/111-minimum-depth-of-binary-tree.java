@@ -28,7 +28,6 @@ class Solution {
         int minDepthLeft = minDepth(root.left);
         int minDepthRight = minDepth(root.right);
         
-        // If we find a zero, it must be paired with another zero for it to be the value to return.
         if (Math.min(minDepthLeft, minDepthRight) > 0) {
             return Math.min(minDepthLeft, minDepthRight) + 1;
         } else {
