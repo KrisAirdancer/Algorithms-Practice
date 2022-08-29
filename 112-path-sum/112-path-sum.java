@@ -16,8 +16,6 @@
 class Solution {
     
     /**
-     * IDEA:
-     * 
      * OUTLINE:
      * - If targetSum == 0 && at leaf node, return true
      * - If targetSum == 0 && not at leaf node, return false
@@ -36,16 +34,5 @@ class Solution {
         }
         
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
-        
-//         if (targetSum == 0 && root.left == null && root.right == null) {
-//             return true;
-//         } else if (targetSum == 0 && (root.left != null || root.right != null)) {
-//             return false;
-//         } else if (targetSum < 0) {
-//             return false;
-//         }
-        
-//         hasPathSum(root.left, targetSum - root.val);
-//         hasPathSum(root.right, targetSum - root.val);
     }
 }
