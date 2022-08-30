@@ -5,17 +5,8 @@ class Solution {
      * - Use the naive solution of creating the first row, and then for each subsequent row,
      * pull the elements from the row above to generate it.
      * 
-     * OUTLINE:
-     * - Create an ArrayList<ArrayList<Integer>> to store the rows called triangleRows.
-     * - Add the first row to triangleRows
-     * - If numRows == 1, return triangleRows
-     * - Use a for loop to loop the number of times specified by numRows - this loops through the rows
-     *     - Add a 1 as the first element
-     *     - Loop to build each row (loop a number of time equivalent to previousRow.length + 1 - 2) - this loops through the elements in each row.
-     *         - Calcualte the new element as elementValue = aboveRow[thisElementIndex - 1] + aboveRow[thisElementIndex - 1]
-     *         - Add the new element to triangleRows
-     *     - Add a 1 as the last element
-     * - Return triangleRows
+     * SOURCES:
+     * Worked through this solution to get my solution: https://leetcode.com/problems/pascals-triangle/discuss/38125/Solution-in-Java 
      */ 
     public List<List<Integer>> generate(int numRows) {
         
