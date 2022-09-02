@@ -8,6 +8,9 @@ class Solution {
      *     - If both pointers point to the same element, continue
      *     - Else, return false
      * - Return false
+     * 
+     * PERFORMANCE: O(N) - b/c replaceAll likely runs in O(N) time and my while loop runs in O(1/2 N),
+     * so overall, it has O(N) behavior.
      */
     public boolean isPalindrome(String s) {
         // This Regex will match anything other than the specified characters - it is a Negated Character Set in Regex
@@ -15,7 +18,7 @@ class Solution {
         
         int left = 0;
         int right = cleanS.length() - 1;
-        System.out.println("left: " + left + ", right: " + right);
+
         while (left <= right) {
             if (cleanS.charAt(left) != cleanS.charAt(right)) {
                 return false;
