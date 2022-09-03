@@ -21,9 +21,6 @@ public class Solution {
         
         if (head == null) { return false; }
         
-        // if (head == null || head.next == null) { return false; }
-        // else if (head.next == head) { return true; }
-        
         ListNode slow = head;
         ListNode fast = head.next;
         
