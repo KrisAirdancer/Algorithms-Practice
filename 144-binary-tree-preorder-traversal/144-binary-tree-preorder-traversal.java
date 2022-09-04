@@ -15,7 +15,14 @@
  */
 class Solution {
     /**
-     * IDEA: Write a recursive preorder traversal that adds each node to the return arraylist, then return the arraylist.
+     * IDEA:
+     * - Write a recursive preorder traversal that adds each node to the return arraylist, then return the arraylist.
+     * 
+     * OUTLINE:
+     * - Base Case: Current node is null, return
+     * - Add node's integer to nodeList
+     * - Visit left node
+     * - Visit right node
      */
     public List<Integer> preorderTraversal(TreeNode root) {
         
@@ -27,10 +34,6 @@ class Solution {
     }
     
     public void preorderTraversalRecursive(TreeNode node, List<Integer> nodeList) {
-        // Base Case: Current node is null, return
-        // Add node's integer to nodeList
-        // Visit left node
-        // Visit right node
         
         if (node == null) {
             return;
