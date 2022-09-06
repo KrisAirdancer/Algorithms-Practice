@@ -18,6 +18,13 @@ public class Solution {
      * happened for both pointers, if the lists a joined, they pointers will meet at the
      * intersection. If the lists are NOT joined, they will reach a null node at the same time.
      * 
+     * PERFORMANCE:
+     * - O(m + n) time complexity where m is the length of list A and n is the length of list B. O(m + n) because
+     * this solution loops over both lists just once as if they are connected end-to-end. That is,
+     * it loops over each node in both lists once; thus, O(m + n) iterations.
+     * - O(1) space complexity because no additional space is used. The pointers loop over the original
+     * lists and no extra data is stored to check for an intersection.
+     * 
      * OUTLINE: 
      * - Create two pointers - one at each head
      * - Loop: While both pointers != null
@@ -36,7 +43,7 @@ public class Solution {
         ListNode pointerB = headB;
         
         while (pointerA != pointerB) {
-            // System.out.println("BEFORE: pA: " + pointerA.val + ", pB: " + pointerB.val);
+            
             if (pointerA == null) {
                 pointerA = headB;
             } else {
@@ -49,7 +56,6 @@ public class Solution {
                 pointerB = pointerB.next;
             }
         }
-        System.out.println("pA: " + pointerA);
         return pointerA;
     }
 }
