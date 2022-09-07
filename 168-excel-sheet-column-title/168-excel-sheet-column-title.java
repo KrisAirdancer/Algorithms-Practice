@@ -20,6 +20,9 @@ class Solution {
      * characters, the space complexity will be O(N), where N is comumnNumber / 26. That is,
      * for every multiple of 26 in columnNumber, one additional character will be added
      * to the StringBuilder array.
+     * 
+     * SOURCE:
+     * - Worked through the solution by cli417 in the comments of this post: https://leetcode.com/problems/excel-sheet-column-title/discuss/51399/Accepted-Java-solution 
      */
     public String convertToTitle(int columnNumber) {
         
