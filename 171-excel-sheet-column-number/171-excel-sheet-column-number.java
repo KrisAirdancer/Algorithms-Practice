@@ -9,16 +9,12 @@ class Solution {
         while (letterIndex >= 0) {
             
             int ascii = (int)columnTitle.charAt(letterIndex);
-            System.out.println("ascii: " + ascii);
             
-            ascii = ascii - 65 + 1;
-            System.out.println("ascii: " + ascii);
+            ascii += (1 - 65); // Convert ASCII index to Excel column index
             
-            ascii = ascii * (int)Math.pow(26, multiple);
-            System.out.println("ascii: " + ascii);
+            ascii *= (int)Math.pow(26, multiple);
             
             columnNumber += ascii;
-            System.out.println("columnNumber: " + columnNumber);
             
             letterIndex--;
             multiple++;
