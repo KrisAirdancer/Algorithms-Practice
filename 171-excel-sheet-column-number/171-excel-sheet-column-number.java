@@ -10,7 +10,7 @@ class Solution {
             
             int ascii = (int)columnTitle.charAt(letterIndex);
             
-            ascii += (1 - 65); // Convert ASCII index to Excel column index
+            ascii -= 64; // Convert ASCII index to Excel column index: ASCII - 65 + 1 or ASCII - 64
             
             ascii *= (int)Math.pow(26, multiple);
             
