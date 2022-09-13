@@ -8,16 +8,6 @@ class Solution {
     * isomorphic. If c != b, then the strings are not isomorphic.
     * 
     * IMPLEMENTATION:
-    * - No need to check that lengths match - instructions guarantee same length
-    * - Make a new HashMap<Character, Character>
-    * - Loop over both strings simultaneously,
-    *     - Map the current character in a with the current character in b
-    *     - (If mapping is already in HashMap, just continue)
-    * - Make a new StringBuilder
-    * - Loop over a and use the mapping in the HashMap to convert a into c.
-    * - Return c == t
-    * 
-    * ALT:
     * - Make a HashMap to store the mappings from s to t
     * - Loop over both strings simultaneously
     *     - Pull the current characters
@@ -28,12 +18,18 @@ class Solution {
     *         - If HashMap does not contain t.current, add (s.current, t.current) to HashMap
     *         - Else, return false - mapping maps two inputs to one output
     * - Return true - if we get this far, the mapping will map s to t and vice versa
+    * 
+    * SOURCES:
+    * - Worked through these two solutions/guides to reach my solution:
+    *     - https://leetcode.com/problems/isomorphic-strings/discuss/57802/Java-solution-using-HashMap 
+    *     - https://www.youtube.com/watch?v=72ZgO1CRgWk
     */
     public boolean isIsomorphic(String s, String t) {
         
         HashMap<Character, Character> mapping = new HashMap<Character, Character>();
         
         for (int i = 0; i < s.length(); i++) {
+            
             char s_char = s.charAt(i);
             char t_char = t.charAt(i);
             
