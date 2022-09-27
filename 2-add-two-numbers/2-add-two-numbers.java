@@ -18,14 +18,12 @@ class Solution {
      *   a linked list to be returned.
      * - WON'T WORK: Max int (in Java) is ~2 billion. That's 9 digits. We'll get
      *   an overflow b/c this solution must accept values with up to 100 digits.
-     * Beter Solution:
-     * - Loop over both linked lists simultaneously. On each iteration, add the
-     *   two values 
+     * Better Solution:
+     * - Coded it out instead...
      * 
-     * OUTLINE:
-     * - While l1 OR l2 is not null
-     *     - if 
-     * 
+     * SOURCES:
+     * - Worked through this solution to get an idea for how this works before
+     *   implementing mine: https://leetcode.com/problems/add-two-numbers/discuss/2618424/Java-Optimal-Solution
      */ 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         
@@ -55,12 +53,10 @@ class Solution {
             sum = val_1 + val_2;
             sum += carry;
             carry = 0;
-            System.out.println("First :: sum: " + sum + ", carry: " + carry);
             if (sum >= 10) {
                 carry = (sum / 10);
                 sum = (sum % 10);
             }
-            System.out.println("Second :: sum: " + sum + ", carry: " + carry);
             current.next = new ListNode(sum);
             current = current.next;
         }
