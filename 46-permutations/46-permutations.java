@@ -2,18 +2,15 @@ class Solution {
     
     /**
      * IDEA:
-     * - Recursively process the list. 
-     * 
-     * PERFORMANCE:
-     * - Time Complexity:
-     * - Memory Complexity: 
-     * 
-     * OUTLINE:
-     * - 
-     * 
+     * - Write a backtracking algorithm to find all permutaitons.
      * SOURCES:
-     * - Worked through this to reach my solution: https://programmer.help/blogs/leetcode-46-full-permutation-java-version.html
-     * - Watched this for help understanding the solution: https://www.youtube.com/watch?v=s7AvT7cGdSo
+     * - Worked through these to arrive at and understand my submitted soltion:
+     *     - https://leetcode.com/problems/permutations/discuss/2643637/1ms-JAVA-Solution-using-Backtracking-and-Swap
+     *     - https://programmer.help/blogs/leetcode-46-full-permutation-java-version.html
+     * - Watched these for help understanding the solution:
+     *     - https://www.youtube.com/watch?v=Zq4upTEaQyM
+     *     - https://www.youtube.com/watch?v=s7AvT7cGdSo
+     *     - https://www.youtube.com/watch?v=Nabbpl7y4Lo
      * 
      */
     public List<List<Integer>> permute(int[] nums) {
