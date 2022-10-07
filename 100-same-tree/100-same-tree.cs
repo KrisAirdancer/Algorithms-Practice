@@ -21,6 +21,16 @@ public class Solution {
      *   TreeNodes that were passed in are the same. If they are, continue with the recursion;
      *   otherwise, return false. If the whole tree is searched without a premature return, 
      *   the trees are the same, return true.
+     * 
+     * PERFORMANCE:
+     * - Time Complexity: O(N) - Since we have to loop over all nodes in the tree, we conduct
+     *                    N steps, where N is the number of nodes in the smaller of the two
+     *                    trees (we return early if the trees don't match, so we won't ahve
+     *                    to search the larger of the two trees). Thus, O(N) complexity.
+     * - Memory Complexity: O(N) - Recursively traversing to the deepest level of the tree
+     *                      will add log(N) calls to the call stack. However, since we have
+     *                      to store the trees, which takes O(2N) space, the overall complexity
+     *                      is O(N).
      */
     public bool IsSameTree(TreeNode p, TreeNode q) {
         
@@ -28,23 +38,16 @@ public class Solution {
     }
     
     private bool recursiveIsSameTree(TreeNode p, TreeNode q) {
-        Console.WriteLine("AT: recusriveIsSameTree()");
         
         // BASE CASE 2: End of branch reached, return.
-        if (p == null && q == null) { return true; }
+        if (p == null && q == null) { return true; } // Both are null; therefore, trees are still equivalent.
         
-        Console.WriteLine("Case 1.1 Passed");
-        
-        if (p == null || q == null) { return false; }
-        
-        Console.WriteLine("Case 1.2 Passed");
-        Console.WriteLine($"p: {p.val}, q: {q.val}");
+        if (p == null || q == null) { return false; } // Only one is null; therefore, trees are not equivalent.
         
         // BASE CASE 2: Nodes are not equal; therefore, trees are not equal.
         if (p.val != q.val) { return false; }
         
-        Console.WriteLine("Case 2 Passed");
-        
+        // RECURSIVE CASE: Check both left and right branches.
         return recursiveIsSameTree(p.left, q.left) && recursiveIsSameTree(p.right, q.right);
     }
 }
