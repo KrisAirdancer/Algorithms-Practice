@@ -9,10 +9,6 @@ public class Solution {
      *   a second loop (inside the first) to pull all of the digits off of 
      *   n, square them, and then sum the results.
      * 
-     * PERFORMANCE: 
-     * - Time Complexity: 
-     * - Memory Complexity: 
-     * 
      */
     public bool IsHappy(int n) {
         
@@ -28,22 +24,15 @@ public class Solution {
             
             int sum = 0;
             
-            while (n != 0) {
-                               
+            while (n != 0) {    
                 int digit = n % 10;
                 n = n / 10;
                 
-                Console.WriteLine($"n: {n}, digit: {digit}");
-                
-                // sum += Math.Pow(n % 10, 2);
                 sum += (digit * digit);
-                
-                Console.WriteLine($"sum: {sum}");
             }
             
             n = sum;
         }
-        
         
         return true;
     }
