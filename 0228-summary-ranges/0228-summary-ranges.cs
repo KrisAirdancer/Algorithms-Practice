@@ -23,14 +23,6 @@ public class Solution {
      *                      its own unique range. Thus, O(2N) worst case, but drop the constant
      *                      so O(N). Where N is the number of elements in the input list.
      * 
-     * OUTLINE:
-     * - Create new ArrayList<string> ranges
-     * - If nums.Length == 0, return empty ArrayList (ranges)
-     * - int startElement = nums[0]
-     * - Loop while nextElement != null
-     *     - int currentElement = nums[i]
-     *     - int nextElement = nums[i + 1]
-     * 
      */
     public IList<string> SummaryRanges(int[] nums) {
         
