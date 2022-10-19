@@ -39,12 +39,7 @@ public class Solution {
      */
     public bool IsPalindrome(ListNode head) {
         
-        // Copy head to array list
-        
-        // Run two pointers towards each other from the head and end of the list
-            // If the pointers are not equivalent, return false
-        
-        IList<int> copy = new List<int>();
+        List<int> copy = new List<int>();
         
         ListNode current = head;
         
@@ -57,14 +52,8 @@ public class Solution {
         int right = copy.Count - 1;
         
         while (left <= right) {
-            Console.WriteLine($"left: {left}, right: {right}");
-            Console.WriteLine($"copy[left]: {copy[left]}, copy[right]: {copy[right]}");
             
-            int cLeft = copy[left];
-            int cRight = copy[right];
-            Console.WriteLine($"cLeft: {cLeft}, cRight: {cRight}");
-            
-            if (cLeft != cRight) {
+            if (copy[left] != copy[right]) {
                 Console.WriteLine("Returning");
                 return false;
             }
