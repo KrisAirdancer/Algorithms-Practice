@@ -54,7 +54,6 @@ public class Solution {
         while (left <= right) {
             
             if (copy[left] != copy[right]) {
-                Console.WriteLine("Returning");
                 return false;
             }
             
