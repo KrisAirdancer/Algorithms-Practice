@@ -23,9 +23,14 @@ public class Solution {
      *   also add that node to the current path list.
      * 
      * PERFORMANCE:
-     * - Time Complexity: 
-     * - Memory Complexity: 
+     * - Time Complexity: O(N) - Each node is visited only once, so O(N).
+     * - Memory Complexity: O(logN) - Extra copies of the N nodes in the binary tree
+     *                      don't need to be stored; however, we do have to store
+     *                      a list of paths which is comprised of O(logN) paths.
+     *                      Thus, O(logN).
      * 
+     * SOURCES:
+     * - Used this solution as a guide to understanding the problem & solution: https://leetcode.com/problems/binary-tree-paths/discuss/68258/Accepted-Java-simple-solution-in-8-lines
      */
     public IList<string> BinaryTreePaths(TreeNode root) {
         
@@ -55,24 +60,3 @@ public class Solution {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
