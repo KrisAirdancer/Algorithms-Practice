@@ -9,32 +9,32 @@ class Solution {
      *   is made, finish looping over the entire string s to ensure that it matches the pattern
      * 
      * PERFORMANCE:
-     * - Time Complexity: O(N) - Where N is the number of tokens in s and pattern. Looping over pattern
-     *                    and s simultaneously will take O(N) time and tokenizing both will take O(N) time.
-     *                    So, 
-     * - Memory Complexity: 
+     * - Time Complexity: O(N) - Where N is the number of tokens in s and pattern. Tokenizing the
+     *                    input string s takes O(N) time and looping over s and pattern to build the
+     *                    HashMap mapping will take O(N) time (both are looped over simultaneously).
+     *                    This yields O(2N), but drop the constant, so O(N).
+     * - Memory Complexity: O(N) - This solution requires that we build a HashMap that stores a copy of each
+     *                      of the N tokens/characters in the input strings. Thus, O(N) space.
+     * 
+     * OUTLINE:
+     * - Note: No need to tokenize pattern b/c String.charAt() runs in O(1) time complexity
+     * - Tokenize s
+     * - If pattern.length() != s.length(), return false
+     * - Create HashMap to store mapping
+     * - Create mapping between pattern and the first M tokens in s, where M is the length of pattern
+     * - Indexed for loop to loop over pattern and s
+     *       - Grab current tokens
+     *       - If map contains key,
+     *           - If value for key matches new value, continue
+     *           - Else, return false
+     *       - If map does not contain key,
+     *           - If map contains value, return false
+     *           - Else, add key-value pair
+     *   - If you make it this far and don't have to return early, return true
      * 
      */
     public boolean wordPattern(String pattern, String s) {
-        
-        // Note: No need to tokenize pattern b/c String.charAt() runs in O(1) time complexity
-        // Tokenize s
-        
-        // If pattern.length() != s.length(), return false
-        
-        // Create HashMap to store mapping
-        
-        // Create mapping between pattern and the first M tokens in s, where M is the length of pattern
-        // Indexed for loop to loop over pattern and s
-            // Grab current tokens
-            // If map contains key,
-                // If value for key matches new value, continue
-                // Else, return false
-            // If map does not contain key,
-                // If map contains value, return false
-                // Else, add key-value pair
-        // If you make it this far and don't have to return early, return true
-        
+              
         String[] sTokens = s.split(" ");
         
         if (pattern.length() != sTokens.length) {
