@@ -18,7 +18,6 @@ class Solution
                 
                 count += seenNums.get(nums[i]);
                 seenNums.put(current, currentCount + 1);
-                // count += seenNums.get(nums[i]);
             }
             else
             {
