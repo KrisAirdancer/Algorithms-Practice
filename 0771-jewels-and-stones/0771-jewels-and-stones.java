@@ -8,19 +8,13 @@ class Solution
         
         for (int i = 0; i < jewels.length(); i++)
         {
-            char jewel = jewels.charAt(i);
-            
-            System.out.println(jewel);
-            
+            char jewel = jewels.charAt(i);            
             jewelStones.add(jewel);
         }
-        
-        System.out.println("BREAK");
         
         for (int i = 0; i < stones.length(); i++)
         {
             char stone = stones.charAt(i);
-            System.out.println(stone);
             
             if (jewelStones.contains(stone))
             {                
