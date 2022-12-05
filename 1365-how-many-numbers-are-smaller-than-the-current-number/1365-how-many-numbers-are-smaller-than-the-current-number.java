@@ -1,5 +1,6 @@
 class Solution
 {
+    // Reviewed this solution to understand the logic needed to build this solution: https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/discuss/641884/Java-O(n)-1ms-less-memory-than-100-explained
     public int[] smallerNumbersThanCurrent(int[] nums)
     {
         // nums contains values from 0 to 100, so 101 unique values
@@ -9,17 +10,13 @@ class Solution
         for (int num : nums)
         {
             counts[num]++;
-            System.out.println("num: " + num + ", count: " + counts[num]);
         }
-        System.out.println("----- BREAK -----");
         
         // Generate a running sum for all values in the array. That is, each entry after this step will be the sum of the number of occurances of the value at that index plus all values less than that index
         for (int i = 1; i < counts.length; i++)
         {
             counts[i] = counts[i] + counts[i - 1];
-            System.out.println("i: " + i + ", counts[i]: " + counts[i]);
         }
-        System.out.println("----- BREAK -----");
         
         int[] finalCounts = new int[nums.length];
         
@@ -34,7 +31,6 @@ class Solution
             {
                 finalCounts[i] = counts[nums[i] - 1];   
             }
-            // System.out.println("i: " + i + ", nums[i]: " + nums[i] + ", counts[nums[i]]: " + counts[nums[i] - 1]);
         }
         
         return finalCounts;
