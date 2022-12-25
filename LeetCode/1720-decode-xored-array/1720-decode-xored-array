@@ -1,0 +1,21 @@
+class Solution
+{
+    public int[] decode(int[] encoded, int first)
+    {
+        int[] decoded = new int[encoded.length + 1];
+
+        // The first element in the decoded (output) array is `first`
+        decoded[0] = first;
+        
+        // In the equation C = A xor B, `first` is A and encoded[0] is C, we need to solve for B.
+        // Once we have B, we can use B as A for the next iteration.
+        System.out.println(first ^ encoded[0]);
+
+        for (int i = 0; i < encoded.length; i++)
+        {
+            decoded[i + 1] = decoded[i] ^ encoded[i];
+        }
+
+        return decoded;
+    }
+}
