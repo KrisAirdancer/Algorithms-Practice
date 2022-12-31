@@ -1,0 +1,62 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution
+{
+    // Create a new head for the return list, `sum`
+    // Skip the first node
+    // Instantiate sum variable
+    // Loop to the first zero (while currentNode != 0)
+        // Sum the values along the way
+    // Set the value of `head` to `sum`
+    // Reset `sum` to zero (0)
+    // Shift currentNode to currentNode.next to skip the zero
+    // Loop over all nodes
+        // If the current node == 0, add the sum to the return array (and reset the sum), and skip the zero (don't actually need to b/c adding zero does nothing)
+        // Else, add the value of the current node to the current sum
+    // Return `sums`
+    public ListNode mergeNodes(ListNode head)
+    {
+        ListNode sumHead = new ListNode();
+        ListNode current = head.next;
+
+        int sum = 0;
+
+        while (current.val != 0)
+        {
+            sum += current.val;
+            current = current.next;
+        }
+
+        sumHead.val = sum;
+        current = current.next;
+        sum = 0;
+
+        ListNode sumCurrent = sumHead;
+
+        while (current != null)
+        {
+            if (current.val == 0)
+            {
+                sumCurrent.next = new ListNode(sum);
+                sumCurrent = sumCurrent.next;
+                sum = 0;
+            }
+            else
+            {
+                sum += current.val;
+            }
+
+            current = current.next;
+        }
+
+        return sumHead;
+    }
+}
