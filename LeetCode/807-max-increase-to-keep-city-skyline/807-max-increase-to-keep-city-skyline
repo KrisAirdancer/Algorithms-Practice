@@ -1,0 +1,35 @@
+class Solution
+{
+    public int maxIncreaseKeepingSkyline(int[][] grid)
+    {
+        int numRows = grid.length;
+        int numCols = grid[0].length;
+
+        int[] rowMaximums = new int[numRows];
+        int[] colMaximums = new int[numCols];
+
+        // Find the maximum value for each row and column
+        for (int row = 0; row < numRows; row++)
+        {
+            for (int col = 0; col < numCols; col++)
+            {
+                rowMaximums[row] = Math.max(rowMaximums[row], grid[row][col]);
+                colMaximums[col] = Math.max(colMaximums[col], grid[row][col]);
+            }
+        }
+
+        // Calculate the maximum total sum by which the buildings height's can be increased
+
+        int maxTotalSum = 0;
+
+        for (int row = 0; row < numRows; row++)
+        {
+            for (int col = 0; col < numCols; col++)
+            {
+                maxTotalSum += Math.min(rowMaximums[row], colMaximums[col]) - grid[row][col];
+            }
+        }
+
+        return maxTotalSum;
+    }
+}
