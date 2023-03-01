@@ -1,0 +1,84 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        numberCounts = {}
+
+        for num in nums1:
+            if num in numberCounts.keys():
+                numberCounts[num] = numberCounts[num] + 1
+            else:
+                numberCounts[num] = 1
+
+        intersection = []
+
+        for num in nums2:
+            if num in numberCounts.keys() and numberCounts[num] > 0:
+                intersection.append(num)
+                numberCounts[num] = numberCounts[num] - 1
+        
+        return intersection
+
+# Timing: 950AM-1055AM (1hr 5min)
+# (1) Write down what the problem is asking you to do.
+# - Need to return the Intersection of the given arrays
+# - Intersection:
+#     - If an element is in A and in B, it is in the Intersection of A and B
+#     - If an element appears multiple times in A and only once in B, it appears only onece in the Intersection
+#     - If an element appears twice in A and twice in B it appears twice in the Intersection
+# (2) Understand your inputs
+# - Two UNSORTED arrays (Python3 Lists)
+# - The input arrays contain integers (int)
+# - All integers in the Lists will be positive and between the values of 0 and 1000
+# - The Lists will be of length 1-1000
+# (3) Understand your output
+# - Return a List
+# - Need to return an array (Python3 List) that contains all of the integer elements of the Intersection of the two input Lists
+# (4) What type of algorithm best describes your goal?
+# - Searching
+# - Sorting may be useful
+# (5) List all possible algorithms of the selected type
+# - Searching Algs
+#     - Binary Search (O(logN))
+#     - Linear Search (O(N))
+# - Sorting Algs
+#     - Built in Python List.sort() and sorted() - both run in O(NlogN) worst case
+# (5.1) State the Brute Force solution
+# (5.2) Best Concievable Runtime (BCR)
+# - BCR should be linear - O(N)
+#     - Well, O(M + N) b/c the Lists are not guaranteed to be the same size N.
+# - It may be possible to extract the Intersection by only looping over the input arrays once
+# (6) Outline your solution using your selected algorithm
+# - OPTION 1:
+#     - Loop over the first input array (nums1) and add all elements to a Dictionary along with their count
+#         - If an element isn't in the Dictionary, add (element, 1)
+#         - If an element is already in the Dict, add (element, Dict.get(element) + 1) (increment the count for that element)
+#     - Loop over the second input array (nums2),
+#         - If nums[i] isn't in the Dict, don't add it to the output List
+#         - If nums[i] is in the Dict AND the Dict's count is > 0, add it to the output list AND decrement the count in the input list
+#     - Return the output list
+# (6.1) Evaluate the Time and Space Complexity of your first (Brute Force) solution
+# - Time:
+#     - O(M + N), where M is the length of nums1 and N is the length of nums2
+#     - Dictionary and array (List) access is O(1) time, so this won't slow us down any
+# - Space:
+#     - Minimum of O(M + N) b/c we have to store the input arrays of lengths M and N
+#     - Dictionary adds at most O(M + N) storage in worst case where both arrays contain no intersecting (similar) values
+#     - But Dictionary should, on average, add less than O(M + N) space, but O(M + N) is a safe assumption
+# (7) Optimize your solution
+# - Can we reduce duplicated work?
+#     - We are currently only looping over each array once and since we cannot skip elements, we have a minimum requirement of doing at least this much work. Therefore, we don't have any duplicated work.
+# - Can we store data to reduce duplicated work?
+#     - Already done with the Dictionary.
+# (7.1) Oultine (pseudo-code) the solution
+# Initialize a Dictionary
+# for num in nums1:
+#     If num is in Dict, Dict[num]++
+#     Else, Dict[num] = 1
+# Initialize return List
+# for num in nums2:
+#     If num is in Dict && Dict[num] > 0, outputList.push(num) and decrement Dict[num] (Dict[num]--)
+#     Else, do nothing
+# Return output List
+# (7.2) Test solution with a couple of examples
+# - EXAMPLE 1: nums1 = [0, 2, 4, 2], nums2 = [2, 0, 2, 5]
+#     - OUTPUT: [2, 0, 2]
+# (8) Implement it (code it)
