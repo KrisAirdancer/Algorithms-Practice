@@ -1,0 +1,73 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        counts = [0] * 256
+
+        for char in s:
+            counts[ord(char)] = counts[ord(char)] + 1
+        for char in t:
+            counts[ord(char)] = counts[ord(char)] - 1
+        for count in counts:
+            if count != 0:
+                return False
+        return True
+
+# (1) Write down what the problem is asking you to do (what questions do you have about the problem)
+# - Given an two strings, determine if they are anagrams of each other.
+# - Another way to put this is, Do they have the same character counts?
+# (2) Understand your inputs (what questions do you have about your inputs)
+# - Given two strings
+# - All lowercase ASCII characters - no Unicode characters
+# - Not sure how to handle Unicode
+# (3) Understand your output (what questions do you have about your outputs)
+# - True if the words have the same character count; otherwise, false.
+# (4) State the Brute Force Solution (BFSol)
+# - Not actually sure what a BFSol would be.
+# (5) State the algorithmic complexities (Time & Memory) for the BFSol
+# - N/A
+# (6) State the Best Conceivable Runtime (BCR)
+# - O(N) - b/c we will have to visit each character in the input strings at least once (length of N and M), thus O(N)
+# (7) What TYPE of algorithm best describes your goal?
+# - Searching maybe?
+# - Probably more like counting. But I don' think that is a category of algorithm.
+# (8) List all possible algorithms of the selected type
+# - N/A
+# (9) Select an algorithm from the list in (8) to use for your solution
+# - Custom build
+# (10) Outline your solution using your selected algorithm (don't pseudo code it - describe the idea in English)
+# - Keep a List wherin the index of the elements in the list map to an ASCII value (ex. chars[97] maps to 'a'). Loop over the first input string (s) and for each character in `s`, increment the corresponding value in the List. Then do the same for the second list (t), but this time, decrement the values in the list. Finally, loop over the List one last time. If any of the values in the list are NOT 0, return False. If we make it to the end of the List without returning early, return True.
+# (11) State the algorithmic complexities (Time & Memory) for your solution
+# - Time: O(N) - Have to loop over the input arrays once each and the counts List once
+# - Memory: O(N) - Have to store each string (lengths = N and M) and the counts List (length 256 for extended ASCII - O(1))
+# (12) Optimize your solution
+# - O(N) is the BCR, but it seems like we should be able to get rid of the final loop over the counts List.
+#     - However, I'm not sure how to go about this. Or if it is even possible.
+#     - This would only reduce the runtime from O(3N) to O(2N).
+# - There is a Memory Complexity optimization, however.
+#     - Instead of storing the counts in a separate strucutre, we can just sum them up.
+#     - That is, sum up the ASCII values of `s` then subtract out the sum of the ASCII values of `t`. If the resulting value is zero, they are anagrams; otherwise, they either don't have matching character counts or are not the same length.
+#     - Wait. This seemed like a clever solution, but it is possible to get any given value from the additon of different values. That is, there are cases where non-anagrams can sum to zero.
+#     - Here's an implementation though:
+#        count = 0
+#        if len(s) != len(t):
+#            return False
+#        
+#        for i in range(len(s)):
+#            # print(s[i], ', ', t[i])
+#            count = count + ord(s[i])
+#            count = count - ord(t[i])
+#
+#        return count == 0
+# - Another optimization to memory would be to sort the strings first.
+#     - If we want to prioritize memory complexity over time complexity, we can sort the strings then simply compare them. If they are the same, they are anagrams.
+#     - This will give us O(1) space complexity (assuming our sort implementation uses O(1) space), but will reduce our time complexity to O(NlogN) b/c we can't sort in O(N) on average.
+# (13) Outline (pseudo-code) your solution
+# Initialize List() counts
+# Loop over each character in `s` (foreach loop)
+#     Increment counts[currentChar]
+# Loop over each character in `t` (foreach loop)
+#     Decrement counts[currentCharacter]
+# Loop over counts (indexed for loop)
+#     If counts[i] != 0, return False
+# Return True
+# (14) Test solution with a few examples
+# (15) Implement it (in actual code)
