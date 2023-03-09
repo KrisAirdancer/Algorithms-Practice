@@ -1,0 +1,71 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        anagrams = dict()
+
+        for word in strs: # O(N) - N is the lenght of the input list (the number of words)
+            charCount = [0] * 26
+            for character in word: # O(M) - M is the average length of strings in the input list
+                charCount[ord(character) - 97] = charCount[ord(character) - 97] + 1
+            charCount = str(charCount) # O(1) - always loops over an array of length 26 - constant relative to the input size
+
+            if charCount in anagrams.keys():
+                anagrams[charCount].append(word)
+            else:
+                anagrams[charCount] = [word]
+        return anagrams.values()
+
+# (1) Write down what the problem is asking you to do (what questions do you have about the problem)
+# - We need to determine which strings in the input list are anagrams, then group those anagrams together into a list of lists.
+# (2) Understand your inputs (what questions do you have about your inputs)
+# - We are given a List of strings
+#     - The strings contian only lowercase letters.
+#     - There can be empty strings ("").
+#     - The input List is guaranteed to contain at least one string.
+# (3) Understand your output (what questions do you have about your outputs)
+# - We need to return a List of Lists, where each sub-list contains a different set of anagrams.
+# (4) State the Brute Force Solution (BFSol)
+# - Loop over the input List: For each string in the input List, check all other strings in the input List to see if they are anagrams of the current string.
+# (5) State the algorithmic complexities (Time & Memory) for the BFSol
+# - Time complexity of the BFSol is O(N^2).
+# (6) State the Best Conceivable Runtime (BCR)
+# - BCR is O(M * N) - we could concievably loop over the entire list only once to group the anagrams, O(N). However, we are going to have to check each string to see if it is an anagram, which would require either sorting the strings O(MlogM) or looping over the characters in them O(M).
+#     - M - Number of characters in a string (average string length for all strings in the list)
+#     - N - Length of the input list
+# - The slightly slower option is O(N * MlogM) for sorting each string to determine if they are anagrams.
+# (7) What TYPE of algorithm best describes your goal?
+# - Searching
+# (8) List all possible algorithms of the selected type
+# - None of the available options will fit this problem.
+# (9) Select an algorithm from the list in (8) to use for your solution
+# - N/A - See (8)
+# (10) Outline your solution using your selected algorithm (don't pseudo code it - describe the idea in English)
+# - Loop over the input List and for each element (string), sort it and check if it is in a HashMap<string, List[]> or not. If it is in the HashMap, add it to the List entry in the HashMap for that entry; if it isn't in the HashMap, add it to the HashMap and add it to the list in the new entry. After looping over the entire input list, return a list of all of the values (lists of anagrams) from the HashMap. Make sure it is a list of lists.
+# (11) State the algorithmic complexities (Time & Memory) for your solution
+# - Looping over the input list is O(N)
+# - Sorting each string with Python's sorted() takes O(MlogM)
+# - Pulling all entries from the HashMap takes O(N) - most likely.
+# - O(N * MlogM) + O(N)
+# - Thus,
+#     - Time complexity: O(N * MlogM) - where N is the length of the input array and M is the average length of strings in the input list
+#     - Memory complexity: O(N) - have to store the input array and a HashMap of all of the strings from the input array O(2N) = O(N)
+# (12) Optimize your solution
+# - It seems like there should be a way to do this without sorting the strings to check them as anagrams, but I haven't been able to come up with a way to do this.
+# - After watching a NeetCode tutorial on this one, it appears that we can use an array of character counts as our HashMap key.
+#     - This will bring our time complexity down to O(M * N), where M is the average length of strings in the input list and N is the length of the input list.
+#     - However, this is a sloppy solution. Python doesn't allow us to hash Lists, so we have to convert it to something else before making it a key in the HashMap. The video uses a tuple()... That's sloppy as it makes the code very difficult to understand - casting Lists to tuples then calling .append() on something that looks like a tuple, but should actually be a List. Not so good.
+#     - A better appraoch to this solution is to convert the counts List into a String and then use that as the HashMap key. This is the approach that I took.
+# (13) Outline (pseudo-code) your solution
+# Initialize an empty HashMap<string, List[]>
+# Loop over the input List. For each string,
+#     Sort the string using sorted() to get a copy of it
+#     If sortedString is in HashMap,
+#         Add the original (NOT the sorted version) to the existing HashMap List[] for key(sortedString)
+#     If sortedString is NOT in the HashMap,
+#         Make a new entry in the HashMap: {key(sortedString), value(originalString)}
+# Return all of the values from the HashMap as a list.
+# (14) Test solution with a few examples
+# (15) Implement it (in actual code)
+# (-) Ideas:
+#     - Could write a helper method to check if two strings are anagrams (returns true/false). Then for each word in the input list, add it to a HashMap<string, list[]>. If the word has an anagram in the hashmap, add it to the list associated with that key, else, make a new entry in the HashMap with the string as the key and also place the key in the List for that entry.
+#         - A problem with this is that in order to use the string as keys in a HashMap, they will have to use the same spelling. that is, we would need to sort the characters in the string before checking it against the HashMap. This would bring our Time Complexity up to O(NlogN) from O(N). That is, if we don't have to sort the characters in each string, we could get a Time Complexity of O(N).
+#         - Note: Time complexity would be O(N*MlogM) where M is the average length of strings in the input List and N is the number of strings in the input List.
