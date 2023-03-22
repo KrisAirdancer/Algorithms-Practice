@@ -1,10 +1,33 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
 
+# OUTLINE
+# Instantiate a HashMap<HashSet> for the rows - Key: row index, Value: HashSet
+# Instantiate a HashMap<HashSet> for the columns - Key: col index, Value: HashSet
+# Instantiate a HashMap<HashSet> for the blocks - Key: (row/3, col/3), Value: HashSet
+# Loop over the input array row-wise (for each row, visit each element)
+#     Pull current element into a variable: currentElement
+#     If currentE is "" (an empty space),
+#         continue
+#     If currentE is in rows set (if currentE in rows[row])
+#         return False
+#     Else
+#         Add currentE to rows set
+#     If currentE is in cols set (if currentE in cols[col])
+#         return False
+#     Else
+#         Add currentE to cols set
+#     If currentE in blocks set (if currentE in blocks[(row/3, col/3)])
+#         return False
+#     Else
+#         Add currentE to blocks set
+# return True (If we make it through all of the elements without encountering a duplicate, the board is valid)
+
 
 # Time Spent: 
 # >> March 20, 2023: 36 min
 # >> March 21, 2023: 32 min
+# >> March 22, 2023: 25 min
 # Inputs:
 # > Each cell in the sudoku board can contain one of 9 (not 10) values: 1-9 (NOT 0-9).
 # *** NeetCode Solution *** 
