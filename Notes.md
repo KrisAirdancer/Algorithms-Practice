@@ -5,6 +5,7 @@ class Solution:
 # LeetCode 15: 3Sum
 # Timing:
 # > March 31, 2023: 36 min
+# > April 1, 2023: 56 min
 # OUTLINE
 # Inputs
 # > An array of integers of at least length 3
@@ -23,9 +24,35 @@ class Solution:
 # >> This solution would be O(N^3) time complexity. Not good.
 # Best Conceivable Runtime (BCR)
 # > The BCR for this problem is O(N). Since we are trying to find some combintation of values in the input array, it is conceivable that we will only need to visit each value in the input array once. Thus, O(N).
-# IDEAS
+# *** IDEAS ***
 # > Some Notes:
 # >> Two Sum places each value in the array into a HashMap and sets the value equal to the the index that that value is at.
 # >> Two Sum II uses two pointers to loop over the sorted array (it is pre-sorted) one from the front and one from the back. You essentially use Binary Search here to move the pointers towards their target values.
 # > Thinking...
 # >> It might be posible to loop over the input array and store intermediate sums and/or final sums in a HashMap along with the pair/tuple that generated that sum. I'm just not sure how to do this in a way that isn't Quadratic or worse.
+# *** NeetCode Solution ***
+# > Sort the input array `nums`, then loop over all of the values in `nums`. For each value, perform Two Sum II to find the second and third values such that either 1) they sum to the inverse of the first value (Ex. If first value is -3, find two values that sum to 3); or 2) all three values sum to zero (Ex. If first is -3, and left pointer = -3 and right = 4, sum = -2 (less than target of 0) so increment left to get left = 1 where sum = 2 (greater than target of 0), so decrement right to get right = 2, now first = -3 left = 1 and right = 2 => -3 + 1 + 2 = 0).
+# >> Go with option 2
+# > Because the input array `nums` can contain duplicates, but our output cannot contain duplicate solutions (permutations of solutions count as duplicates), we have to handle this somehow.
+# >> One way to handle this is to check each time we increment one of the pointers: if left is incremented, for example, we would check if left == right and left == first, if either check returns true, we increment left one more time.
+# >>> Note: We won't have to do the left == right check b/c that will be our loop criteria. When the left and right pointers are equal, we break out of the loop. So we will never have to worry... Wait, yes we might have to deal with this... If we are repeatedly incrementing left until it no longer equals first and right is the next value after the one left and first are on, we would ...
+# >>> We can do two things: 1) surround the if first + left + right == 0 check with an if statement that checks if left == right and left == first and first == right. If any of them are equal, we don't check if they are equal to zero. And 2) use while loops to move the left and right pointers instead of if checks: If left == first, left++ (same for right but -- instead). We then have the entire thing surrounded in a while loop with the condition, while left != right. All of this should prevent the algorithm from returning duplicates and cause it to stop when the left and right cross.
+# PSEUDO CODE 1
+# Sort the input array nums
+# Instantiate a list of lists to store the output arrays
+# Loop: For num in nums,
+#     Instantiate left and right pointers
+#     Instantiate `sum` to nums[left] + nums[right] + num
+#     Loop: While left != right (stop when they are equal - technically they don't have to be at the same index, they can be at the same value - stop them at the same index anyway):
+#         Loop: While sum < 0,
+#             left++
+#             sum = nums[left] + nums[right] + num
+#         Loop: While sum > 0,
+#             right--
+#             sum = nums[left] + nums[right] + num
+#         If left != right AND left != first AND right != first,
+#             Add []num, left, and right] to output array as a sub-array
+# Return output array
+# Time Complexity: O(N) - Looping over `nums` is O(N), => O(N^2) - sorting also takes O(NlogN)
+# Memory Complexity: O(N) - Since we only need to store the input array and a second smaller array (at most length N - contains all of the values in `nums`), we have O(N)
+# > Make sure to pay attention to the memory complexity of your sorting alg.
