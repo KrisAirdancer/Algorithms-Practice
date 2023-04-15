@@ -1,3 +1,22 @@
+## LeetCode 11: Container With Most Water
+
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        return 0
+
+# IDEAS
+# > As far as I can tell, this problem is asking us to find the maximum area between the two selected columns.
+# >> Differential filling is not allowed. That is, the water level accross the whole array maxes out at the height of the shortest **selected** column.
+# Option 1 - BFSol
+# > The first approach that comes to mind is to use two pointers (left and right) to loop over the array to find the two columns that maximize the area of a rectangle: Area = Height x Width.
+# > Broken down into code, that equaation is: Area = Height x Width = (max(height[left], height[right])) x (right - left)
+# > The idea is this: loop over the array with the two pointers (left and right). Continue until left == right. For each column at left, loop over all other columns. For each pair of columns, calculate the maximum area and keep a maxSoFar variable. If the current area is greater than maxSoFar, update maxSoFar. After checking all possible combinations, return maxSoFar.
+# > This solution will have a Time Complexity of O(N^2) and a Memory Complexity of O(N).
+# Thinking
+# > We can't sort it because that would destroy the ordering of the columns. This would allow us to find the two tallest columns quickly, but would prevent us from calculating the final area because we wouldn't know the proper width anymore.
+
+## LeetCode 15: 3Sum
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
 
