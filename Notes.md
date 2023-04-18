@@ -1,77 +1,51 @@
-## LeetCode 11: Container With Most Water
-
 class Solution:
-    def maxArea(self, height: List[int]) -> int:
-        return 0
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        # if len(s) == 0: # TODO: Might not need to check for this. Solution might handle that natively.
+        #     return 0
+        
+        longestSoFar = 0
+        left = 0
+        right = 0
+
+        currentElements = set()
+        currentElements.add(s[left])
+
+        while right < len(s) - 1:
+            current = s[right + 1]
+
+            while current in currentElements:
+                # Remove left
+                # Increment left
+                currentElements.remove(s[left])
+                left += 1
+            # Add right to set
+            currentElements.add(right)
+            # Update longestSoFar
+            if (right - left) > longestSoFar:
+                longestSoFar = (right - left)
+            right += 1
+        # Return longestSoFar
+        return longestSoFar
 
 # IDEAS
-# > As far as I can tell, this problem is asking us to find the maximum area between the two selected columns.
-# >> Differential filling is not allowed. That is, the water level accross the whole array maxes out at the height of the shortest **selected** column.
-# Option 1 - BFSol
-# > The first approach that comes to mind is to use two pointers (left and right) to loop over the array to find the two columns that maximize the area of a rectangle: Area = Height x Width.
-# > Broken down into code, that equaation is: Area = Height x Width = (max(height[left], height[right])) x (right - left)
-# > The idea is this: loop over the array with the two pointers (left and right). Continue until left == right. For each column at left, loop over all other columns. For each pair of columns, calculate the maximum area and keep a maxSoFar variable. If the current area is greater than maxSoFar, update maxSoFar. After checking all possible combinations, return maxSoFar.
-# > This solution will have a Time Complexity of O(N^2) and a Memory Complexity of O(N).
-# Thinking
-# > We can't sort it because that would destroy the ordering of the columns. This would allow us to find the two tallest columns quickly, but would prevent us from calculating the final area because we wouldn't know the proper width anymore.
-
-## LeetCode 15: 3Sum
-
-class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-
-
-# LeetCode 15: 3Sum
-# Timing:
-# > March 31, 2023: 36 min
-# > April 1, 2023: 56 min
+# > Loop over the input array with two pointers: left and right. Both start at zero. Keep a set of all elenments curently in the window. On each iteration of the loop, check if s[right + 1] is in the currentElements set. If it is, step the entire window forward by one (right++ and left++). If it isn't, step the right pointer forward by one (right++). Loop until right reaches the end of the list. Return right - left + 1.
+# >> The idea here is that we only care about the largest substring, so we can ignore any that are smaller than the current maximum. Thus, if we keep our window the size of the largest substring we've seen thus far, we can avoid having to calculate all possible substrings - O(N^2) - and instead just search for substrings that are larger than the current maximum in linear - O(N) - time.
+# >> ERROR: This solution doesn't quite work. It fails when there are duplicates added to the set. We need to be able to keep duplicates in the list of currentElements so that we can ensure that we don't end up counting the same element more than once. This solution is close, but not quite there.
 # OUTLINE
-# Inputs
-# > An array of integers of at least length 3
-# > The integers can be negative, positive, or zero
-# Outputs
-# > Need to return an array of arrays where each sub-array contains integers that sum to zero.
-# > There is no `target`, the "target" is zero (0)
-# > There can be multiple unique solutions.
-# >> It is possible for there to be no solution. Ex. nums = [0, 1, 1] does not have a triplet that sums to 0
-# > [1, 2, 3] == [2, 1, 3], etc. That is, the order of the integers in the triplets does not matter.
-# > The order of the triplets (sub-arrays) in the parent array does not matter.
-# Brute Force Solution (BFSol)
-# > Calcualte all possible three value sums and store them in a HashMap along with the triplet that sums to that value.
-# >> Could make this better by storing the sum as the key and an array of triplets as a value. We then just have to return the value that is mapped to "0"
-# >> Loop over nums, for each value, loop over all other possible values twice, the first time to find the second operand and the second time to find the third operand.
-# >> This solution would be O(N^3) time complexity. Not good.
-# Best Conceivable Runtime (BCR)
-# > The BCR for this problem is O(N). Since we are trying to find some combintation of values in the input array, it is conceivable that we will only need to visit each value in the input array once. Thus, O(N).
-# *** IDEAS ***
-# > Some Notes:
-# >> Two Sum places each value in the array into a HashMap and sets the value equal to the the index that that value is at.
-# >> Two Sum II uses two pointers to loop over the sorted array (it is pre-sorted) one from the front and one from the back. You essentially use Binary Search here to move the pointers towards their target values.
-# > Thinking...
-# >> It might be posible to loop over the input array and store intermediate sums and/or final sums in a HashMap along with the pair/tuple that generated that sum. I'm just not sure how to do this in a way that isn't Quadratic or worse.
-# *** NeetCode Solution ***
-# > Sort the input array `nums`, then loop over all of the values in `nums`. For each value, perform Two Sum II to find the second and third values such that either 1) they sum to the inverse of the first value (Ex. If first value is -3, find two values that sum to 3); or 2) all three values sum to zero (Ex. If first is -3, and left pointer = -3 and right = 4, sum = -2 (less than target of 0) so increment left to get left = 1 where sum = 2 (greater than target of 0), so decrement right to get right = 2, now first = -3 left = 1 and right = 2 => -3 + 1 + 2 = 0).
-# >> Go with option 2
-# > Because the input array `nums` can contain duplicates, but our output cannot contain duplicate solutions (permutations of solutions count as duplicates), we have to handle this somehow.
-# >> One way to handle this is to check each time we increment one of the pointers: if left is incremented, for example, we would check if left == right and left == first, if either check returns true, we increment left one more time.
-# >>> Note: We won't have to do the left == right check b/c that will be our loop criteria. When the left and right pointers are equal, we break out of the loop. So we will never have to worry... Wait, yes we might have to deal with this... If we are repeatedly incrementing left until it no longer equals first and right is the next value after the one left and first are on, we would ...
-# >>> We can do two things: 1) surround the if first + left + right == 0 check with an if statement that checks if left == right and left == first and first == right. If any of them are equal, we don't check if they are equal to zero. And 2) use while loops to move the left and right pointers instead of if checks: If left == first, left++ (same for right but -- instead). We then have the entire thing surrounded in a while loop with the condition, while left != right. All of this should prevent the algorithm from returning duplicates and cause it to stop when the left and right cross.
-# PSEUDO CODE 1
-# Sort the input array nums
-# Instantiate a list of lists to store the output arrays
-# Loop: For num in nums,
-#     Instantiate left and right pointers
-#     Instantiate `sum` to nums[left] + nums[right] + num
-#     Loop: While left != right (stop when they are equal - technically they don't have to be at the same index, they can be at the same value - stop them at the same index anyway):
-#         Loop: While sum < 0,
-#             left++
-#             sum = nums[left] + nums[right] + num
-#         Loop: While sum > 0,
-#             right--
-#             sum = nums[left] + nums[right] + num
-#         If left != right AND left != first AND right != first,
-#             Add []num, left, and right] to output array as a sub-array
-# Return output array
-# Time Complexity: O(N) - Looping over `nums` is O(N), => O(N^2) - sorting also takes O(NlogN)
-# Memory Complexity: O(N) - Since we only need to store the input array and a second smaller array (at most length N - contains all of the values in `nums`), we have O(N)
-# > Make sure to pay attention to the memory complexity of your sorting alg.
+# If s.length == 0,
+#     Return 0
+# Instantiate left = 0 and right = 0
+# Instantiate currentElements Set()
+# Loop: While right < s.length,
+#     If s[right + 1] is NOT in currenElements, // Expand window to make a larger set
+#         right++
+#         currentElements.add(s[right])
+#     Else, // Step entire window forward by one
+#         currentElements.remove(s[left])
+#         currentElements.add(s[right])
+#         right++
+#         left++
+# Return (right - left + 1)
+# UPDATE - Via NeetCode Solution
+# > The above solution is very close, but it is not quite there. The issue is that I was trying to keep duplicates in the set AND that I was trying to keep the lenght of the window at a minimum length of the longest substring I'd found thus far.
+# > An alternative is to grow AND shrink the size of the window based as we go and just keep track of the longest window that we've seen in a separate variable.

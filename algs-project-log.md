@@ -1,5 +1,10 @@
 # Project Log
 
+**April 18, 2023**
+- Continued to work on LeetCode 3: Longest Substring Without Repeating Characters
+  - Watched the conceptual part of the NeetCode video, but was still unable to implement a working solution.
+  - I should outline my solution manually again to see where my error is. I don't think I need to see the worked solution in the NeetCode video to get this one.
+
 **April 17, 2023**
 - Attempted LeetCode 3: Longest Substring Without Repeating Characters.
   - Got very close to a working solution, but had one small oversight in my solution.
