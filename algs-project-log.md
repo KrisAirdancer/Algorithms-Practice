@@ -1,5 +1,10 @@
 # Project Log
 
+**April 22, 2023**
+- Started LeetCode 424: Longest Repeating Character Replacement
+  - Came up with a promising idea, but it has a few clear limitations (unhandled edge cases).
+  - This solution does not use a sliding window, and I know this is a sliding window problem. I need to either come up with a super clever solution (never a good idea) or try to work out a sliding window solution.
+
 **April 19, 2023**
 - Completed LeetCode 3: Longest Substring Without Repeating Characters
   - Managed to complete it without looking at an existing solution.
