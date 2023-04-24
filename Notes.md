@@ -1,6 +1,35 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
+        counts = {}
+        longestSoFar = 0
+        left = 0
+        right = 0
 
+        counts[s[right]] = 1
+
+        while right < len(s):
+            
+        
+# OUTLINE
+    # ininitialize counts dict
+    # Initialize longestSoFar = 0
+    # Initialize left, right = 0
+    # While right < s.length,
+        # If windowLength > longestSoFar,
+            # longestSoFar = windowLength
+
+        # Shift right until window is no longer valid
+        # While replacementCount <= k:
+            # right++
+            # Update dictionary
+            # Update replacementCount (rC = (right - left) - max(counts))
+
+        # Shift left until window is valid again
+        # While replacementCount > k:
+            # left--
+            # Update dictionary
+            # Update replacementCount (rC = (right - left) - max(counts))
+    # Return longestSoFar
 
 
 # *** INPUTS ***
@@ -34,17 +63,13 @@ class Solution:
 # Initialize longestSoFar = 1
 # Set Dict[s[right]] = 1
 # Loop: While right < s.length,
-#     Loop: While (windowLength - count of most common char in Dict) <= k,
-#         # https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
-#         windowLength = right - left + 1
-#         If windowLength > longestSoFar,
-#             longestSoFar = windowLength
+#     windowLength = (right - left)
+#     mostCommonChar = max(counts).value
+#     Calculate replacements = windowLength - mostCommonChar
+#     Loop: While replacements <= k
+#         If windowLength...
 #         right++
-#         Dictionary[s[right]]++ (may need if not in dict check)
-#     Loop: While NOT (windowLength - count of most common char in Dict) <= k,
-#         Dict[s[left]]--
-#         left--
-# longestSoFar
+#         Update replacements = (right - left) - max(counts).length
 # *** THINKING ***
 # > Doing this on paper, for simple input strings, humans are fast at this. We quickly identify groups of repeated characters and replace the stuff in between them to get larger repeating substrings. This isn't particularly helpful for an alg.
 # > For more complex strings with lower values of k, more thought is required. On paper, I stepped over the input string looking for characters that are flanked on both the left and right by the same character (Ex. ABA, B is flanked by two A's). When one of these was found, I replaced the middle character and looked to see (stepped outward in both directions) how far out that substring had become. I then looked for additional characters at the end of that substring that could be replaced in an effort to increase the length of the new string. We decrement k each time we make a replacement and continue while k > 0.

@@ -1,5 +1,12 @@
 # Project Log
 
+**April 24, 2023**
+- Attempted to pseudo-code the solution to LeetCode 424.
+  - Didn't make much progress.
+  - Re-watched the conceptual portion of the NeetCode video.
+  - Tried to pseudo-code a new solution.
+  - Need to break the pseudo-code down a bit more, then try to implement my solution.
+
 **April 23, 2022**
 - Watched the conceptual part of the NeetCode video for LeetCode 424: Longest Repeating Character Replacement.
   - Wrote out how the solution in my own words.
@@ -36,6 +43,5 @@
 - Completed LeetCode 11: Container With Most Water
 
 **April 14, 2023**
-
 - Started working through LeetCode 11: Container With Most Water.
   - Just got a basic idea for the problem and started outlining the problem.
