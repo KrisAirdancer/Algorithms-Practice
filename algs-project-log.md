@@ -4,6 +4,9 @@
 - Watched the conceptual part of the NeetCode video for LeetCode 424: Longest Repeating Character Replacement.
   - Wrote out how the solution in my own words.
   - Next, I need to outline the pseudo-code and then implement it.
+- Started pseudo coding solution to LeetCode 424.
+  - Wrote out the valid window condition in a confusing way and got myself mixed up.
+  - Come back tomorrow and write it down better (don't look at the old version) so it isn't as confusing. Because it's not confusing, I just over complicated it.
 
 **April 22, 2023**
 - Started LeetCode 424: Longest Repeating Character Replacement

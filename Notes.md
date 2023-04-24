@@ -2,6 +2,7 @@ class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
 
+
 # *** INPUTS ***
 # > A string of UPPERCASE English letters (essentially a subset of ASCII).
 # > An integer (k) indicating the maximum number of character replacements we are allowed to perform.
@@ -26,6 +27,24 @@ class Solution:
 # > COMPLEXITY/PERFORMANCE
 # >> Time Complexity: O(N) - Technically O(26 * N) b/c we have to loop over the HashMap for every character in the input string. But Big O drops constants, so we reduce to O(N).
 # >> Memory Complexity: O(N) - We only need to store the input array and the HashMap, so O(2 * N), but, again, we drop constants, so we reduce to O(N).
+# PSEUDO CODE
+# Initialize a Dictionary counts
+# Initialize longestSoFar
+# Initialize two pointers: left = 0 and right = 0
+# Initialize longestSoFar = 1
+# Set Dict[s[right]] = 1
+# Loop: While right < s.length,
+#     Loop: While (windowLength - count of most common char in Dict) <= k,
+#         # https://stackoverflow.com/questions/268272/getting-key-with-maximum-value-in-dictionary
+#         windowLength = right - left + 1
+#         If windowLength > longestSoFar,
+#             longestSoFar = windowLength
+#         right++
+#         Dictionary[s[right]]++ (may need if not in dict check)
+#     Loop: While NOT (windowLength - count of most common char in Dict) <= k,
+#         Dict[s[left]]--
+#         left--
+# longestSoFar
 # *** THINKING ***
 # > Doing this on paper, for simple input strings, humans are fast at this. We quickly identify groups of repeated characters and replace the stuff in between them to get larger repeating substrings. This isn't particularly helpful for an alg.
 # > For more complex strings with lower values of k, more thought is required. On paper, I stepped over the input string looking for characters that are flanked on both the left and right by the same character (Ex. ABA, B is flanked by two A's). When one of these was found, I replaced the middle character and looked to see (stepped outward in both directions) how far out that substring had become. I then looked for additional characters at the end of that substring that could be replaced in an effort to increase the length of the new string. We decrement k each time we make a replacement and continue while k > 0.
