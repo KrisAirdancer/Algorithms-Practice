@@ -1,5 +1,11 @@
 # Project Log
 
+**April 30, 2023**
+- Completed LeetCode 424: Longest Repeating Character Replacement
+  - Had to watch the NeetCode solution and implement a version of his solution to get it to work.
+  - I very much overcomplicated the implementation of this problem. It didn't need to be as involved as I made it.
+  - As far as I can tell, I focused too much on explicitly handling many of the cases that were handled implicitly. This resulted in overly complex code that was difficult to get to work.
+
 **April 24, 2023**
 - Attempted to pseudo-code the solution to LeetCode 424.
   - Didn't make much progress.
