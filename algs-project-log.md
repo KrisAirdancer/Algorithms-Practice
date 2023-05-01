@@ -1,5 +1,10 @@
 # Project Log
 
+**May 1, 2023**
+- Complete4d LeetCode 567: Permutation in String.
+  - Did this one without looking at any solutions.
+  - However, while my solution is running in optimal time (BCR), it does include a poorly formatted loop that does not correctly check all conditions. This required the addition of an explicit check after the loop that would be unnecessary if the loop was implemented correctly.
+
 **April 30, 2023**
 - Completed LeetCode 424: Longest Repeating Character Replacement
   - Had to watch the NeetCode solution and implement a version of his solution to get it to work.
