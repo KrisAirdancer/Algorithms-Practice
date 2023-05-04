@@ -1,7 +1,11 @@
 # Project Log
 
+**May 4, 2023**
+- Completed LeetCode 20: Valid Parentheses
+  - Didn't need to look up a solution.
+
 **May 1, 2023**
-- Complete4d LeetCode 567: Permutation in String.
+- Completed LeetCode 567: Permutation in String.
   - Did this one without looking at any solutions.
   - However, while my solution is running in optimal time (BCR), it does include a poorly formatted loop that does not correctly check all conditions. This required the addition of an explicit check after the loop that would be unnecessary if the loop was implemented correctly.
 
