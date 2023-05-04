@@ -3,6 +3,8 @@
 **May 4, 2023**
 - Completed LeetCode 20: Valid Parentheses
   - Didn't need to look up a solution.
+- Completed LeetCode 155: Min Stack
+  - Needed a hint, but was able to do it without looking at a solution.
 
 **May 1, 2023**
 - Completed LeetCode 567: Permutation in String.
