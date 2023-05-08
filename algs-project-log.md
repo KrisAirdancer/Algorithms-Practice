@@ -1,5 +1,9 @@
 # Project Log
 
+**May 8, 2023**
+- Completed LeetCode 150: Evaluate Reverse Polish Notation
+  - Was able to complete the entire problem without looking up a solution.
+
 **May 4, 2023**
 - Completed LeetCode 20: Valid Parentheses
   - Didn't need to look up a solution.
