@@ -3,6 +3,9 @@
 **May 8, 2023**
 - Completed LeetCode 150: Evaluate Reverse Polish Notation
   - Was able to complete the entire problem without looking up a solution.
+- Completed LeetCode 22: Generate Parentheses
+  - Was unable to come up with, or even get close to, a solution for this one.
+  - Watched NeetCode video on how to solve this one.
 
 **May 4, 2023**
 - Completed LeetCode 20: Valid Parentheses
