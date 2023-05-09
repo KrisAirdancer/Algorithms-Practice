@@ -1,5 +1,10 @@
 # Project Log
 
+**May 9, 2023**
+- Completed LeetCode 739: Daily Temperatures
+  - Had to watch the NeetCode video to get the concept, but was able to implement the solution without looking at solution code.
+  - NeetCode's implementation was cleaner, however, and my solution had some redundant work.
+
 **May 8, 2023**
 - Completed LeetCode 150: Evaluate Reverse Polish Notation
   - Was able to complete the entire problem without looking up a solution.
