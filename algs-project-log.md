@@ -1,5 +1,10 @@
 # Project Log
 
+**May 10, 2023**
+- Completed LeetCode 704: Binary Search.
+  - I got very close, but missed a few of the important small details and had to look at a solution to get to a working implementation.
+  - However, I didn't have to look up a conceptual explanation, which is good - that's the hard part.
+
 **May 9, 2023**
 - Completed LeetCode 739: Daily Temperatures
   - Had to watch the NeetCode video to get the concept, but was able to implement the solution without looking at the solution code.
