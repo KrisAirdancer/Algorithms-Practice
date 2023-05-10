@@ -4,6 +4,9 @@
 - Completed LeetCode 704: Binary Search.
   - I got very close, but missed a few of the important small details and had to look at a solution to get to a working implementation.
   - However, I didn't have to look up a conceptual explanation, which is good - that's the hard part.
+- Completed LeetCode 74: Search a 2D Matrix.
+  - Was able to solve it without looking at a solution. But it took quite a while.
+  - My solution isn't half bad though. And my code is relatively clean.
 
 **May 9, 2023**
 - Completed LeetCode 739: Daily Temperatures
