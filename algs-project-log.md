@@ -1,5 +1,10 @@
 # Project Log
 
+**May 11, 2023**
+- Completed LeetCode 875: Koko Eating Bananas
+  - Started this one yesterday and didn't manage to finish.
+  - This was a tricky one, but I managed to complete it without looking at solution code. I did, however, have to watch the conceptual part of the NeetCode video.
+
 **May 10, 2023**
 - Completed LeetCode 704: Binary Search.
   - I got very close, but missed a few of the important small details and had to look at a solution to get to a working implementation.
