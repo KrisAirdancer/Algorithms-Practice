@@ -4,6 +4,9 @@
 - Completed LeetCode 875: Koko Eating Bananas
   - Started this one yesterday and didn't manage to finish.
   - This was a tricky one, but I managed to complete it without looking at solution code. I did, however, have to watch the conceptual part of the NeetCode video.
+- Completed LeetCode 153: Find Minimum in Rotated Sorted Array.
+  - This one is giving me the run-around.
+  - I wasn't able to arrive at a conceptual solution; the conceptual solution from the NeetCode video mostly made sense, but I think some of the finer details went over my head; and finally, I had trouble implementing a solution even after watching the implementation portion of the NeetCode video. Basically, I don't really feel like I've got a good understanding of this problem.
 
 **May 10, 2023**
 - Completed LeetCode 704: Binary Search.
