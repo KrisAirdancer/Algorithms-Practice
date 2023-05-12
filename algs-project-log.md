@@ -2,6 +2,9 @@
 **May 12, 2023**
 - Redid LeetCode 206: Reverse Linked List using an iterative solution.
   - This was easy since the recursive solution is basically the same as the iterative solution.
+- Completed LeetCode 21: Merge Two Sorted Lists
+  - I've done this one before, but it's been a while.
+  - I managed to get a working solution without any help. However, my solution was verbose and non-optimal. After watching the NeetCode video, I was able to significantly improve my implementation.
 
 **May 11, 2023**
 - Completed LeetCode 875: Koko Eating Bananas
