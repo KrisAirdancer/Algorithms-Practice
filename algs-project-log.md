@@ -5,6 +5,8 @@
 - Completed LeetCode 21: Merge Two Sorted Lists
   - I've done this one before, but it's been a while.
   - I managed to get a working solution without any help. However, my solution was verbose and non-optimal. After watching the NeetCode video, I was able to significantly improve my implementation.
+- Completed LeetCode 143: Reorder List
+  - I was able to implement the extra space solution, but unable to come up with the in-place solution.
 
 **May 11, 2023**
 - Completed LeetCode 875: Koko Eating Bananas
