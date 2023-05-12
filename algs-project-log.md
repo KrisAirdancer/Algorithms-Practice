@@ -1,4 +1,7 @@
 # Project Log
+**May 12, 2023**
+- Redid LeetCode 206: Reverse Linked List using an iterative solution.
+  - This was easy since the recursive solution is basically the same as the iterative solution.
 
 **May 11, 2023**
 - Completed LeetCode 875: Koko Eating Bananas
