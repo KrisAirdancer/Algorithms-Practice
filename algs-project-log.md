@@ -1,4 +1,14 @@
 # Project Log
+
+**May 15, 2023**
+- Attempted LeetCode 33: Search in Rotated Sorted Array
+  - I was not able to come up with a solution or understand the one provided by NeetCode.
+  - This is one I should come back to later.
+- Completed LeetCode 19: Remove Nth Node From End of List.
+  - This was a redo was done as part of NeetCode 150.
+  - Took me longer than it should have. But I now have a better understanding of the solution.
+  - I did not need to look up a solution to complete this.
+
 **May 12, 2023**
 - Redid LeetCode 206: Reverse Linked List using an iterative solution.
   - This was easy since the recursive solution is basically the same as the iterative solution.
