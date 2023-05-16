@@ -1,5 +1,9 @@
 # Project Log
 
+**May 16, 2023**
+- Completed LeetCode 138: Copy List with Random Pointer
+  -  I managed to complete this one on my own without having to look up any solutions or conceptual explanations.
+
 **May 15, 2023**
 - Attempted LeetCode 33: Search in Rotated Sorted Array
   - I was not able to come up with a solution or understand the one provided by NeetCode.
