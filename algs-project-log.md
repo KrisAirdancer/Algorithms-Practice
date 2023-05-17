@@ -12,6 +12,8 @@
   - This one tricked me. The wording on the problem made it look like it was simpler than it really was. I was able to solve the simpler version (as far as I can tell), but was unable to solve the actual problem.
   - The trick here is that there may be more than two copies of the duplicate number, this rendered my math-based solution invalid.
   - The solution to the real problem is to treat the input array as a linked list and use Floyd's alg to find the duplicate value (which will always be situated at the point in the list where a cycle begins - this is what Floyd's finds).
+- Started working on LeetCode 146: LRU Cache
+  - Wasn't able to work out a solution on my own. Watched the conceptual part of the NeetCode video and began implementing a solution to match the conceptual solution.
 
 **May 16, 2023**
 - Completed LeetCode 138: Copy List with Random Pointer
