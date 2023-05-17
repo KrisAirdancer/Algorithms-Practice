@@ -8,6 +8,10 @@
 - Completed LeetCode 141: Linked List Cycle
   - This one should have been a very easy, done in five minutes kind of problem. But I wasn't able to understand a couple of edge cases quickly.
   - I need to follow the system I outlined above (LeetCode 2) even for very easy problems like this. At least for now - I clearly have a lot that I still need to learn.
+- Completed LeetCode 287: Find the Duplicate Number
+  - This one tricked me. The wording on the problem made it look like it was simpler than it really was. I was able to solve the simpler version (as far as I can tell), but was unable to solve the actual problem.
+  - The trick here is that there may be more than two copies of the duplicate number, this rendered my math-based solution invalid.
+  - The solution to the real problem is to treat the input array as a linked list and use Floyd's alg to find the duplicate value (which will always be situated at the point in the list where a cycle begins - this is what Floyd's finds).
 
 **May 16, 2023**
 - Completed LeetCode 138: Copy List with Random Pointer
