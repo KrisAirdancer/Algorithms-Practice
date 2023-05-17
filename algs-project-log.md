@@ -5,6 +5,9 @@
   - I was able to do this one without looking at any solutions.
   - However, I got overly confident and didn't write as thorough of an outline as a should have. As a result, I made a lot of small errors due to oversight of edge-cases that wasted a lot of time.
   - I need to be better about following a recursive outline process: write a high-level explanation, then write a rough outline of the steps, then break those steps down into pseudo-code, then test it on paper. Repeat the last two steps until a working algorithm is reached. Then code it.
+- Completed LeetCode 141: Linked List Cycle
+  - This one should have been a very easy, done in five minutes kind of problem. But I wasn't able to understand a couple of edge cases quickly.
+  - I need to follow the system I outlined above (LeetCode 2) even for very easy problems like this. At least for now - I clearly have a lot that I still need to learn.
 
 **May 16, 2023**
 - Completed LeetCode 138: Copy List with Random Pointer
