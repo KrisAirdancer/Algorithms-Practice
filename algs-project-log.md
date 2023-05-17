@@ -1,5 +1,11 @@
 # Project Log
 
+**May 17, 2023**
+- Completed LeetCode 2: Add Two Numbers
+  - I was able to do this one without looking at any solutions.
+  - However, I got overly confident and didn't write as thorough of an outline as a should have. As a result, I made a lot of small errors due to oversight of edge-cases that wasted a lot of time.
+  - I need to be better about following a recursive outline process: write a high-level explanation, then write a rough outline of the steps, then break those steps down into pseudo-code, then test it on paper. Repeat the last two steps until a working algorithm is reached. Then code it.
+
 **May 16, 2023**
 - Completed LeetCode 138: Copy List with Random Pointer
   -  I managed to complete this one on my own without having to look up any solutions or conceptual explanations.
