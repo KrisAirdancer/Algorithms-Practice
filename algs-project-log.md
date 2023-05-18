@@ -1,5 +1,10 @@
 # Project Log
 
+**May 18, 2023**
+- Continued working on LeetCode 146: LRU Cache.
+  - Was not able to solve it and didn't like the solutions I found online.
+  - Decided to skip this problem for now.
+
 **May 17, 2023**
 - Completed LeetCode 2: Add Two Numbers
   - I was able to do this one without looking at any solutions.
