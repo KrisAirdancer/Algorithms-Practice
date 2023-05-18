@@ -4,6 +4,9 @@
 - Continued working on LeetCode 146: LRU Cache.
   - Was not able to solve it and didn't like the solutions I found online.
   - Decided to skip this problem for now.
+- Completed LeetCode 226: Invert Binary Tree.
+  - Redone as part of NeetCode 150.
+  - Was able to solve this problem in less than 1/2 an hour without help.
 
 **May 17, 2023**
 - Completed LeetCode 2: Add Two Numbers
