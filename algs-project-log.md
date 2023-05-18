@@ -7,9 +7,12 @@
 - Completed LeetCode 226: Invert Binary Tree.
   - Redone as part of NeetCode 150.
   - Was able to solve this problem in less than 30 minutes without help.
-- Completed LeetCode 104: Maximum Depth of Binary Tree.
+- Completed LeetCode 104: Maximum Depth of Binary Tree (Iterative BFS)
   - Redone as part of NeetCode 150.
   - Was able to solve this problem in less than 20 minutes without help.
+- Completed LeetCode 104: Maximum Depth of Binary Tree (Recursive DFS)
+  - Was not able to get a working recursive solution on my own.
+  - Watched the conceptual portion of the NeetCode video to figure out how to do this one.
 
 **May 17, 2023**
 - Completed LeetCode 2: Add Two Numbers

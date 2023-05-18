@@ -25,6 +25,7 @@ class Solution:
             
         return maxDepth
 
+# ITERATIVE BFS SOLUTION
 # ***** IDEAS *****
 # IDEA 1:
 # > Iteratively traverse the tree using a stack. For each node, push the node's children to the stack along with their "depth" (we are calculating depth backwards).
