@@ -5,6 +5,18 @@
 - Completed LeetCode 104: Maximum Depth of Binary Tree (Iterative BFS).
   - This took a minute as I got myself tripped up on how to do BFS instead of DFS.
   - Iterative DFS uses a stack and Iterative BFS uses a queue.
+- Completed LeetCode 543: Diameter of Binary Tree
+  - Was not able to arrive at a solution on my own.
+  - Watched the entire NeetCode video and implemented a variation of his solution.
+  - Had to look up some stuff on how scope works as well.
+- Some notes on scope:
+  - Built In - Always available anywhere. Ex. True/False, break, if, etc.
+  - Global - File-wide accessibility.
+    - The `global` keyword can be used to specify that the specified variable is a global variable. This tells Python to use global version of that variable and not to make a new local variable of the same name.
+  - Scope works its way out.
+    - This means that if you declare a variable in local scope and in global scope (using the same name) and then call it in a local scope, python will start its search for the variable with that name in the local scope and work its way out. Thus, it will find the local declaration first and use that one.
+  - We can use the `nonlocal` keyword to tell Python that a variable in a nested function is not declared in that function but instead declared in a parent function. This will tell Python to search up through the parent functions to find the declaration for the function.
+    - Note that this does mean that if we want to use a variable in a function but that variable is declared elsewhere, we have to "re-declare" (but not re-initialize) it using either the `global` or `nonlocal` keyword inside the function where we are going to be using it.
 
 **May 18, 2023**
 - Continued working on LeetCode 146: LRU Cache.
