@@ -1,5 +1,11 @@
 # Project Log
 
+**May 19, 2023**
+- Just realized that the Iterative BFS solution I wrote yesterday was actually an Iterative DFS.
+- Completed LeetCode 104: Maximum Depth of Binary Tree (Iterative BFS).
+  - This took a minute as I got myself tripped up on how to do BFS instead of DFS.
+  - Iterative DFS uses a stack and Iterative BFS uses a queue.
+
 **May 18, 2023**
 - Continued working on LeetCode 146: LRU Cache.
   - Was not able to solve it and didn't like the solutions I found online.

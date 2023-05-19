@@ -6,39 +6,33 @@
 #         self.right = right
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        nodes = []
-        maxDepth = 0
+        # THIS IS AN ITERATIVE BFS SOLUTION
+        if not root:
+            return 0
 
-        if root:
-            nodes.append((root, 1))
+        maxDepth = 0
+        nodes = []
+        nodes.append((root, 1))
 
         while nodes:
-            currentNode = nodes.pop()
+            currentNode = nodes.pop(0) # Get the current node.
+            print(currentNode[0].val)
 
-            if currentNode[1] > maxDepth:
+            if currentNode[1] > maxDepth: # Update the maxDepth variable if necessary
                 maxDepth = currentNode[1]
 
-            if currentNode[0].right:
-                nodes.append((currentNode[0].right, currentNode[1] + 1))
+            # Push the child nodes to the queue.
             if currentNode[0].left:
                 nodes.append((currentNode[0].left, currentNode[1] + 1))
-            
+            if currentNode[0].right:
+                nodes.append((currentNode[0].right, currentNode[1] + 1))
+
         return maxDepth
 
 # ITERATIVE BFS SOLUTION
-# ***** IDEAS *****
-# IDEA 1:
-# > Iteratively traverse the tree using a stack. For each node, push the node's children to the stack along with their "depth" (we are calculating depth backwards).
-#   > That is, the root node will get pushed to the stack with a depth of 1, (node, 1). The root node will then get popped and its children will be pushed to the stack (if not None/Null) with the depth from thier parent (1) plus 1 = 2.
-# > Each time we pop a node from the stack, we check to see if it's depth is greater than the maxDepth. If it is, we update maxDepth.
-# > At the end, we return maxDepth.
-# ***** OUTLINE *****
-# > Instantiate a stack: nodes
-# > Instantiate maxDepth = 0
-# > Push the root node to the stack along with a depth of 1 as a tuple: (root, 1)
-#   > Remember to check that the root is non-None/Null.
-# > Loop while the nodes stack is non-empty,
-#   > Pop the nodes stack: currentNode
-#   > If currentNode[1] > maxDepth, update maxDepth.
-#   > Push the non-None children of currentNode to the stack with depth values of currentNode.depth + 1
-# > Return maxDepth
+# ***** EXPLANATION *****
+# > We can use a queue to implement an Iterative BFS solution. We loop until the queue is empty. On each iteration, we pop the node on the top of the queue and then push the children of that node to the back of the queue (we just add them to the queue - queues are FIFO). In doing so, we will visit all of the nodes on one level before visiting any nodes on the next level down.
+# > To record the maximum depth, we can push each node onto the stack as a tuple of (node, depth) and each time we pop a node, we check to see if its depth is greater than any we've seen before.
+# > Note: Use queue.append() to add an element and queue.pop(0) to pop.
+#   > We're adding elements to the right end and popping from the left end.
+#   >                   <--- pop --- [1, 2, 3, 4, 5] <--- push ---
