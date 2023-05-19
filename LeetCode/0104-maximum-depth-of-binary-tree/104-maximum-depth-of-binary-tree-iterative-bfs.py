@@ -11,11 +11,11 @@ class Solution:
             return 0
 
         maxDepth = 0
-        nodes = []
-        nodes.append((root, 1))
+        nodes = deque()
+        nodes.append((root, 1)) # Add element to right end of queue.
 
         while nodes:
-            currentNode = nodes.pop(0) # Get the current node.
+            currentNode = nodes.popleft() # Get the current node from the left of the queue.
             print(currentNode[0].val)
 
             if currentNode[1] > maxDepth: # Update the maxDepth variable if necessary
