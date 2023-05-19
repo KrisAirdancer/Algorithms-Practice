@@ -9,6 +9,8 @@
   - Was not able to arrive at a solution on my own.
   - Watched the entire NeetCode video and implemented a variation of his solution.
   - Had to look up some stuff on how scope works as well.
+- Completed LeetCode 981: Time Based Key-Value Store.
+  - This one took a while, but I was able to get a working solution without any help.
 - Some notes on scope:
   - Built In - Always available anywhere. Ex. True/False, break, if, etc.
   - Global - File-wide accessibility.
