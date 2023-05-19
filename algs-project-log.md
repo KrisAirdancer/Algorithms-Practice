@@ -11,6 +11,8 @@
   - Had to look up some stuff on how scope works as well.
 - Completed LeetCode 981: Time Based Key-Value Store.
   - This one took a while, but I was able to get a working solution without any help.
+- Completed LeetCode 15: 3Sum
+  - Attempted this problem, but misread the question (and misunderstood the NeetCode conceptual explanation), which resulted in me failing to get a working solution.
 - Some notes on scope:
   - Built In - Always available anywhere. Ex. True/False, break, if, etc.
   - Global - File-wide accessibility.
