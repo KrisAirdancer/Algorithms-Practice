@@ -13,14 +13,11 @@ class Solution:
 
             if not current:
                 return -1
-            print("current: ", current.val)
 
             leftHeight = isBalancedRecursive(current.left)
             rightHeight = isBalancedRecursive(current.right)
 
-            # TODO: How can I make this check more concise?
             if abs(leftHeight - rightHeight) > 1 or abs(leftHeight - rightHeight) < 0:
-                print("Unbalanced: ", abs(leftHeight - rightHeight), ", leftHeight: ", leftHeight, ", rightHeight: ", rightHeight)
                 balanced = False
 
             return max(leftHeight + 1, rightHeight + 1)
