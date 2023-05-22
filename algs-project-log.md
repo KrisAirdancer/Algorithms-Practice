@@ -9,6 +9,12 @@
 - Completed LeetCode 100: Same Tree.
   - I managed to do this without help and was able to get a solution with the optimal time complexity.
   - However, my solution was verbose - it could have been cleaner and more concise.
+- Completed LeetCode 572: Subtree of Another Tree.
+  - I figured out a valid conceptual solution, but really struggled to implement it.
+  - Outlining and pseudo-coding the solution didn't help. But I eventually got a working implementation.
+  - It is also possible that my solution is not the most optimal. My best evaluation says that my time complexity is between O(NlogN) and O(N^2), but this might be an inaccurate evaluation.
+    - I also don't know if this is the best possible runtime for this problem.
+    - The BCR is O(N) - we should only need to visit each node once in theory.
 
 **May 19, 2023**
 - Just realized that the Iterative BFS solution I wrote yesterday was actually an Iterative DFS.
