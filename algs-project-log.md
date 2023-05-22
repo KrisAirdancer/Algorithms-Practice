@@ -15,6 +15,9 @@
   - It is also possible that my solution is not the most optimal. My best evaluation says that my time complexity is between O(NlogN) and O(N^2), but this might be an inaccurate evaluation.
     - I also don't know if this is the best possible runtime for this problem.
     - The BCR is O(N) - we should only need to visit each node once in theory.
+    - The time complexity is actually O(N * M), where N is the number of nodes in the root and M is the number of nodes in the subRoot.
+  - I reworked part of my solution after watching the NeetCode video to make my solution more concise.
+    - Additionally, this improvement uses O(1) memory instead of O(N) memory.
 
 **May 19, 2023**
 - Just realized that the Iterative BFS solution I wrote yesterday was actually an Iterative DFS.
