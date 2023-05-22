@@ -60,5 +60,10 @@ class Solution:
 # If only one root is non-none, return False
 # If values don't match, return False
 # Recursively call sameTree() on both subtrees of the current node.
-# ***** PSEUDO-CODE *****
-# 
+# ***** Time & Memory Complexity *****
+# > The time complexity of this problem is not Linearithmic or Quadratic.
+# > The time complexity is actually O(N * M), where N is the number of nodes in the root tree and M is the number of nodes in the subRoot tree.
+#   > Essentially, for each node in the root tree, we visit a subtree at most the size of the subRoot tree.
+#   > This means that we won't quite be O(N^2) b/c we can't be. If both trees are the same size (M == N -> N^2), we will continually be able to visit fewer and fewer nodes in the root tree b/c as we traverse down, we'll run out of nodes in the root tree to check against the subRoot tree.
+#   > Thus, we will not visit every other node in root for each node in root we visit.
+# Memory complexity is O(N + M) since we only need to store the input trees.
