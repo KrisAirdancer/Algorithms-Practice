@@ -1,5 +1,10 @@
 # Project Log
 
+**May 22, 2023**
+- Completed LeetCode 15: 3Sum.
+  - Re-watched the NeetCode video and was able to put together my own variation of the solution.
+  - I am still a bit uncertain about what this problem. I think I am misunderstanding what qualifies as a duplicate and how we handle this case. I'm at maybe 85% understanding on this one.
+
 **May 19, 2023**
 - Just realized that the Iterative BFS solution I wrote yesterday was actually an Iterative DFS.
 - Completed LeetCode 104: Maximum Depth of Binary Tree (Iterative BFS).
