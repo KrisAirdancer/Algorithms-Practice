@@ -3,6 +3,9 @@
 **May 23, 2023**
 - Completed LeetCode 235: Lowest Common Ancestor of a Binary Search Tree
   - Was able to solve this problem without any help.
+- Completed LeetCode 102: Binary Tree Level Order Traversal
+  - I managed to solve this one on my own. It wasn't too difficult, but I made a few really basic errors (that I shouldn't have made) and my solution feels very much like it could be improved.
+  - It would be wise for me to step through my pseudo code with an on-paper example before implementing it. I tend to get carried away when I feel confident in my solution and this leads to mistakes, errors, and lower-quality solutions.
 
 **May 22, 2023**
 - Completed LeetCode 15: 3Sum.
