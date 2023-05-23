@@ -48,4 +48,4 @@ class Solution:
 # 
 # ***** PERFORMANCE *****
 # Time Complexity: O(logN) - We only have to visit one node on each level of the tree. This means that we will at most visit logN nodes in the tree (BSTs are balanced, so each time we step down a level, we cut half of the tree off).
-# Memory Complexity: O(1) - We don't need any additional storage (no extra data structures).
+# Memory Complexity: O(logN) - We will be adding logN calls to the call stack.
