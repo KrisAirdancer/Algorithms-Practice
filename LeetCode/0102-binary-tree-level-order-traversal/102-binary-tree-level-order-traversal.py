@@ -54,4 +54,5 @@ class Solution:
 # 
 # ***** PERFORMANCE *****
 # Time Complexity: O(N) - We only need to visit each node in the tree once. But we must visit each node in the tree at least once.
-# Memory Complexity: O(1) - An iterative solution will require no extra memory to traverse the tree.
+# Memory Complexity: O(N) - An iterative solution will require a queue to traverse the tree. While we will only ever have around one level's worth of nodes in the queue at a time, we can simply state that this will take O(N) memory.
+#   > Note that the most nodes that could be in the queue at any given time is N/2 nodes b/c the largest level in a Balanced Tree (ex. Binary Tree) contains half of the nodes - the bottom level.
