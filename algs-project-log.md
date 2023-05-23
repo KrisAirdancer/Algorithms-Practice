@@ -1,5 +1,9 @@
 # Project Log
 
+**May 23, 2023**
+- Completed LeetCode 235: Lowest Common Ancestor of a Binary Search Tree
+  - Was able to solve this problem without any help.
+
 **May 22, 2023**
 - Completed LeetCode 15: 3Sum.
   - Re-watched the NeetCode video and was able to put together my own variation of the solution.
