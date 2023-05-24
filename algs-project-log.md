@@ -5,6 +5,8 @@
   - I started this one yesterday and had the right idea for how to solve it, but it took me until today to get the solution worked out.
   - I had to review solution to another problem (LC 102) solved by NeetCode that had a component that was needed to solve this one.
   - However, I didn't need to look at the solution for this problem to solve it.
+- Completed LeetCode 1448: Count Good Nodes in Binary Tree
+  - I managed to come up with a solution on my own. But it is a messy solution. I am sure there is a cleaner way to solve this one.
 
 **May 23, 2023**
 - Completed LeetCode 235: Lowest Common Ancestor of a Binary Search Tree
