@@ -8,6 +8,11 @@
 - Completed LeetCode 1448: Count Good Nodes in Binary Tree
   - I managed to come up with a solution on my own. But it is a messy solution. I am sure there is a cleaner way to solve this one.
   - I worked out a better version of my solution to this problem. I had all of the right components, I just needed to rearrange them so that I could make them more concise.
+- Completed LeetCode 98: Validate Binary Search Tree
+  - I got close to coming up with the correct solution to this one, but I got myself confused by writing out too much stuff on my diagram and missed the pattern that I had written down.
+  - I watched the conceptual part of the NeetCode video to get the last little bit.
+  - I got stuck on how best to represent positive and negative infinity in Python (or any language for that matter).
+    - Turns out Python has a built in constant? for representing infinity. You just use `float("-inf")` and `float("inf")`.
 
 **May 23, 2023**
 - Completed LeetCode 235: Lowest Common Ancestor of a Binary Search Tree
