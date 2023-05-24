@@ -1,5 +1,11 @@
 # Project Log
 
+**May 24, 2023**
+- Completed LeetCode 199: Binary Tree Right Side View
+  - I started this one yesterday and had the right idea for how to solve it, but it took me until today to get the solution worked out.
+  - I had to review solution to another problem (LC 102) solved by NeetCode that had a component that was needed to solve this one.
+  - However, I didn't need to look at the solution for this problem to solve it.
+
 **May 23, 2023**
 - Completed LeetCode 235: Lowest Common Ancestor of a Binary Search Tree
   - Was able to solve this problem without any help.
