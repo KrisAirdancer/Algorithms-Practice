@@ -1,5 +1,13 @@
 # Project Log
 
+**May 25, 2023**
+- Completed LeetCode 230: Kth Smallest Element in a BST (recursive)
+  - I solved this one after watching the conceptual part of the NeetCode video using a recursive In-Order tree traversal.
+- Completed LeetCode 230: Kth Smallest Element in a BST (iterative)
+  - I wasn't able to arrive at an iterative solution on my own.
+  - I worked through the NeetCode solution to understand this approach.
+  - Wrote a second function based on the NeetCode solution to generate a sorted list of the nodes in a BST iteratively.
+
 **May 24, 2023**
 - Completed LeetCode 199: Binary Tree Right Side View
   - I started this one yesterday and had the right idea for how to solve it, but it took me until today to get the solution worked out.
