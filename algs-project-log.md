@@ -1,5 +1,10 @@
 # Project Log
 
+**May 31, 2023**
+- Completed LeetCode 105: Construct Binary Tree from Preorder and Inorder Traversal
+  - I started this one last week and was unable to finish it even with the help of the NeetCode video.
+  - I was able to solve it today with only the help of the conceptual portion of the NeetCode video.
+
 **May 25, 2023**
 - Completed LeetCode 230: Kth Smallest Element in a BST (recursive)
   - I solved this one after watching the conceptual part of the NeetCode video using a recursive In-Order tree traversal.
