@@ -1,5 +1,10 @@
 # Project Log
 
+**June 1, 2023**
+- Completed LeetCode 208: Implement Trie (Prefix Tree)
+  - I started this one yesterday, but didn't have enough time to finish it.
+  - I was able to solve this one without any outside help.
+
 **May 31, 2023**
 - Completed LeetCode 105: Construct Binary Tree from Preorder and Inorder Traversal
   - I started this one last week and was unable to finish it even with the help of the NeetCode video.
