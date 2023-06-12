@@ -1,5 +1,11 @@
 # Project Log
 
+**June 11, 2023**
+- Completed LeetCode 211: Design Add and Search Words Data Structure
+  - Started this one on Friday over lunch. It proved to be much more involved than it looked like it would be.
+  - Had to watch through conceptual and implementation portions of the NeetCode video to get this one.
+    - However, I did get close and was able to implement most of it before watching any of the NeetCode videos. Despite this, I had figured out one of the two tricky edge cases, but was not able to devise a solution to handle it.
+
 **June 1, 2023**
 - Completed LeetCode 208: Implement Trie (Prefix Tree)
   - I started this one yesterday, but didn't have enough time to finish it.
