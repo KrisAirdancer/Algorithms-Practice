@@ -1,5 +1,10 @@
 # Project Log
 
+**June 14, 2023**
+- Completed LeetCode 703: Kth Largest Element in a Stream
+  - I started this one a few days ago, but ended up spending a ton of time re-learning how heaps work so that I could solve this problem.
+  - After learning how heaps work, I had to watch the conceptual part of the NeetCode video to solve this one, but I was able to get the implementation on my own.
+
 **June 11, 2023**
 - Completed LeetCode 211: Design Add and Search Words Data Structure
   - Started this one on Friday over lunch. It proved to be much more involved than it looked like it would be.
