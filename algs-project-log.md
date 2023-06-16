@@ -1,5 +1,11 @@
 # Project Log
 
+**June 15, 2023**
+- Completed LeetCode 1046: Last Stone Weight
+  - Was able to solve this one entirely on my own - without any outside help.
+  - My solution was a bit messy. And, as usual, I overlooked a few things when working with negatives (math, negative minus a negative) that could have cleaned up my solution.
+  - I could have also used List Comprehension to make for a more concise loop to negate all of the values in the input array as was needed to make a Max Heap.
+
 **June 14, 2023**
 - Completed LeetCode 703: Kth Largest Element in a Stream
   - I started this one a few days ago, but ended up spending a ton of time re-learning how heaps work so that I could solve this problem.
