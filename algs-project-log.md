@@ -1,5 +1,12 @@
 # Project Log
 
+**June 17, 2023**
+- Completed LeetCode 973: K Closest Points to Origin.
+  - I was able to come up with the correct solution on my own; however, I didn't understand the problem thread correctly (it was poorly worded and I didn't understand what they were asking), which caused me to believe there was an additional, and difficult, edge case in the problem that wasn't actually there.
+    - I had to watch the first part of the conceptual portion of the NeetCode video to clear this up. After this, I was able to implement a working version myself.
+  - Also, my solution was a bit sloppy. I missed a few obvious places where I could have consolidated my code and made it clearer and more concise.
+    - Some of this was math stuff that I overlooked (simplifying math equations) and some was a lack of knowledge about how to use for loops more efficiently in Python.
+
 **June 15, 2023**
 - Completed LeetCode 1046: Last Stone Weight
   - Was able to solve this one entirely on my own - without any outside help.
