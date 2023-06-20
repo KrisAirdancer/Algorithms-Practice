@@ -1,5 +1,10 @@
 # Project Log
 
+**June 19, 2023**
+- Completed LeetCode 215: Kth Largest Element in an Array.
+  - This one only took me 16 minutes to get a working solution implemented.
+  - However, while my solution worked - it was the same solution as 703.
+
 **June 17, 2023**
 - Completed LeetCode 973: K Closest Points to Origin.
   - I was able to come up with the correct solution on my own; however, I didn't understand the problem thread correctly (it was poorly worded and I didn't understand what they were asking), which caused me to believe there was an additional, and difficult, edge case in the problem that wasn't actually there.
