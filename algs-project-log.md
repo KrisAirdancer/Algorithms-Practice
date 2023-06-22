@@ -1,5 +1,9 @@
 # Project Log
 
+**June 22, 2023**
+- After spending the last two to three days trying to implement Quick Select, I decided to start with the basics and implement Quicksort first.
+  - I was able to implement Quicksort in about 45 minutes after watching a conceptual explanation of it.
+
 **June 19, 2023**
 - Completed LeetCode 215: Kth Largest Element in an Array.
   - This one only took me 16 minutes to get a working solution implemented.
