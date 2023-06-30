@@ -1,5 +1,9 @@
 # Project Log
 
+**June 30, 2023**
+- Completed LeetCode 621: Task Scheduler.
+  - I was not able to arrive at a conceptual solution to this one on my own. However, after watching the conceptual portion of the NeetCode video, I was able to implement my own solution.
+
 **June 22, 2023**
 - After spending the last two to three days trying to implement Quick Select, I decided to start with the basics and implement Quicksort first.
   - I was able to implement Quicksort in about 45 minutes after watching a conceptual explanation of it.
