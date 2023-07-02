@@ -1,5 +1,10 @@
 # Project Log
 
+**July 2, 2023**
+- Completed LeetCode 78: Subsets
+  - Was not able to come up with a solution on my own. Had the right conceptual idea, but was unable to translate it into code.
+  - Watched both the conceptual and implementation portions of the NeetCode video.
+
 **June 30, 2023**
 - Completed LeetCode 621: Task Scheduler.
   - I was not able to arrive at a conceptual solution to this one on my own. However, after watching the conceptual portion of the NeetCode video, I was able to implement my own solution.
