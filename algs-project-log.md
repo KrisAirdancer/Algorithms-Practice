@@ -4,6 +4,9 @@
 - Completed LeetCode 78: Subsets
   - Was not able to come up with a solution on my own. Had the right conceptual idea, but was unable to translate it into code.
   - Watched both the conceptual and implementation portions of the NeetCode video.
+- Attempted LeetCode 39: Combination Sum
+  - Was not able to arrive at a working solution. But got close. I'm missing a single edge case.
+  - Out of time for today. Will continue later.
 
 **June 30, 2023**
 - Completed LeetCode 621: Task Scheduler.
