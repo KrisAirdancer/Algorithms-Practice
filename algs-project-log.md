@@ -1,5 +1,12 @@
 # Project Log
 
+**July 4, 2023**
+- Completed LeetCode 46: Permutations
+  - This was a tough one.
+  - I came up with the correct decision tree on my own, but was unable to arrive at a working implementation.
+  - The NeetCode video's implementation was confusing and a bit unintuitive. At least for me.
+  - I worked through and modified to my liking the solution posted on LeetCode's solutions section [here](https://leetcode.com/problems/permutations/solutions/429530/general-backtracking-questions-solutions-in-python-for-reference/).
+
 **July 3, 2023**
 - Completed LeetCode 39: Combination Sum
   - Was not able to complete this one on my own. I overcomplicated the recursion and missevaluated what each call was doing implicitly and was therefore doing steps explicitly and therefore doing them twice.
