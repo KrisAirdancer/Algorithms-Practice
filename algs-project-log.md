@@ -1,5 +1,11 @@
 # Project Log
 
+**July 3, 2023**
+- Completed LeetCode 39: Combination Sum
+  - Was not able to complete this one on my own. I overcomplicated the recursion and missevaluated what each call was doing implicitly and was therefore doing steps explicitly and therefore doing them twice.
+  - I had to watch both the conceptual and implementation portions of the NeetCode video to solve it. However, I had figured out the correct conceptual solution on my own and only needed to watch the first 3/4 of the implementation portion of the video to understand what I needed to do to get a working solution on my own.
+  - I was on the right track, but got myself mixed up. The good news is that this means that I am making progress in understanding Backtracking.
+
 **July 2, 2023**
 - Completed LeetCode 78: Subsets
   - Was not able to come up with a solution on my own. Had the right conceptual idea, but was unable to translate it into code.
