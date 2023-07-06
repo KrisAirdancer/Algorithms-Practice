@@ -1,5 +1,8 @@
 # Project Log
 
+**July 5, 2023**
+- Completed two coding challenges as part of an online assessment for an application for an internship position.
+
 **July 4, 2023**
 - Completed LeetCode 46: Permutations
   - This was a tough one.
