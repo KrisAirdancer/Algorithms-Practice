@@ -1,5 +1,10 @@
 # Project Log
 
+**July 8, 2023**
+- Completed LeetCode 90: Subsets II
+  - Got very close to the solution on my own, but wasn't able to see the pattern in the decision tree that was causing duplicates.
+  - After watching half of the conceptual portion of the NeetCode video, I understood what I needed to do to get my solution working and was able to solve the problem.
+
 **July 5, 2023**
 - Completed two coding challenges as part of an online assessment for an application for an internship position.
 
