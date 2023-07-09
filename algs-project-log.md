@@ -1,5 +1,14 @@
 # Project Log
 
+**July 9, 2023**
+- Completed LeetCode 40: Combination Sum II
+  - Confused myself on this one. The solution is identical to LeetCode 90: Subsets II, but I didn't see the similarities between the way that both problems had to deal with duplicate values in the input list and overcomplicated this one.
+  - I was able to get a decent outline and implementation that could handle inputs with no duplicates without any help. But was unable to come up with a solution to handle duplicates.
+  - Once I started watching the conceptual portion of the NeetCode video, I realized my oversight and was able to quickly correct my solution to get it working for duplicates.
+  - Performance of my solution:
+    - Time Complexity: O(N\*2<sup>N</sup>) - We have to generate up to 2<sup>N</sup> subsets and each of those subsets could contain up to N elements. Thus, any solution to this problem will, at a minimum, have to step over N\*2<sup>N</sup> elements.
+    - Memory Complexity: O(2^N) - We are generating 2<sup>N</sup> call stacks for the recursion.
+
 **July 8, 2023**
 - Completed LeetCode 90: Subsets II
   - Got very close to the solution on my own, but wasn't able to see the pattern in the decision tree that was causing duplicates.
